@@ -5,6 +5,8 @@
 
 // module.exports = nextConfig
 
+const isProd = process.env.NODE_ENV === 'production'
+
 module.exports = {
     exportPathMap: async function (defaultPathMap) {
         // 🚩the only difference is here, we spread the default pathMap
@@ -26,4 +28,7 @@ module.exports = {
     },
     // basePath: process.env.NEXT_PUBLIC_BASE_PATH,
     // assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
+    assetPrefix: isProd
+    ? 'https://cdn.statically.io/gh/takiuddinahmed/takiuddinahmed.github.io/gh-pages/'
+    : '',
 };
