@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      NEXT_PUBLIC_BASE_PATH: /takiuddinahmed.github.io
+      NEXT_PUBLIC_BASE_PATH: /
 
     strategy:
       matrix:
