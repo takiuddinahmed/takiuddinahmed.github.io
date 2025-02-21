@@ -1,0 +1,13 @@
+# robots.txt for takiuddin.me portfolio website
+
+User-agent: *
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/plugins/
+Allow: /assets/images/
+
+# Prevent caching of assets
+Disallow: /assets/cache/
+
+Sitemap: https://takiuddin.me/sitemap.xml
