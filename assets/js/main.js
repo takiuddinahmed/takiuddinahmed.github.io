@@ -23,7 +23,7 @@ darkSwitch.addEventListener("change", function () {
   }
 });
 
-// Initialize GitHub calendar
+// Initialize GitHub calendar and activity feed
 document.addEventListener("DOMContentLoaded", function () {
   // GitHub Calendar
   GitHubCalendar("#github-graph", "takiuddinahmed", {
@@ -37,6 +37,52 @@ document.addEventListener("DOMContentLoaded", function () {
     selector: "#ghfeed",
     limit: 10,
   });
+
+  // Fix GitHub activity feed layout after it's loaded
+  // Update your fixGitHubFeed function
+  const fixGitHubFeed = () => {
+    const feed = document.querySelector(".gha-feed");
+    if (feed) {
+      const header = feed.querySelector(".gha-header");
+      const footer = feed.querySelector(".gha-footer");
+      const activities = feed.querySelector(".gha-activities");
+
+      if (header && footer && activities) {
+        // Create body container if it doesn't exist
+        let body = feed.querySelector(".gha-body");
+        if (!body) {
+          body = document.createElement("div");
+          body.className = "gha-body";
+
+          // Insert elements in correct order
+          header.after(body);
+          body.appendChild(activities);
+          body.after(footer);
+        }
+
+        // Ensure proper styling
+        feed.style.height = "600px"; // Set a fixed height for the container
+        body.style.overflowY = "auto";
+        body.style.minHeight = "0"; // Important for Firefox
+      }
+    }
+  };
+
+  // Try to fix the feed structure periodically until successful
+  const feedObserver = new MutationObserver((mutations) => {
+    if (document.querySelector(".gha-feed")) {
+      fixGitHubFeed();
+    }
+  });
+
+  feedObserver.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+
+  // Also try with a timeout as backup
+  setTimeout(fixGitHubFeed, 1000);
+  setTimeout(fixGitHubFeed, 2000);
 
   // Animate skill bars on scroll
   const skillBars = document.querySelectorAll(".skill-progress");
@@ -55,41 +101,4 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   skillBars.forEach((bar) => observer.observe(bar));
-});
-
-// Update the GitHub Activity initialization code
-document.addEventListener("DOMContentLoaded", function () {
-  // GitHub Activity Feed
-  GitHubActivity.feed({
-    username: "takiuddinahmed",
-    selector: "#ghfeed",
-    limit: 10,
-    onComplete: function () {
-      // Re-structure the generated HTML
-      const container = document.querySelector("#ghfeed");
-      const header = container.querySelector(".gha-header");
-      const activity = container.querySelector(".gha-activity");
-      const footer = container.querySelector(".gha-footer");
-
-      // Create new structure
-      const wrapper = document.createElement("div");
-      wrapper.className = "github-activity";
-
-      // Add header
-      if (header) wrapper.appendChild(header);
-
-      // Add scrollable activity
-      const activityWrapper = document.createElement("div");
-      activityWrapper.className = "gha-activity";
-      if (activity) activityWrapper.appendChild(activity);
-      wrapper.appendChild(activityWrapper);
-
-      // Add footer
-      if (footer) wrapper.appendChild(footer);
-
-      // Replace original content
-      container.innerHTML = "";
-      container.appendChild(wrapper);
-    },
-  });
 });

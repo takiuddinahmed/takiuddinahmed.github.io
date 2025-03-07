@@ -40,43 +40,111 @@
   background: #1e293b !important;
 }
 
-/* Update existing dark mode GitHub feed styles */
-.dark .gha-feed {
+.dark .gha-message-merge {
+  background: #2e3238 !important;
+}
+
+/* Improved GitHub activity feed layout */
+.gha-feed {
   position: relative;
+  height: 600px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  padding-bottom: 40px; /* Add space for footer */
 }
 
-.dark .gha-activity {
+.gha-header {
+  flex-shrink: 0;
+}
+
+.gha-body {
   flex: 1;
   overflow-y: auto;
-  margin-bottom: -40px; /* Compensate for footer padding */
+  min-height: 0;
 }
 
-.dark .gha-footer {
+.gha-footer {
+  flex-shrink: 0;
   position: sticky;
   bottom: 0;
-  background: #1e293b !important;
+  width: 100%;
+  z-index: 10;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Dark mode specific overrides for the new layout */
+.dark .gha-footer {
   border-top: 1px solid #334155 !important;
-  padding: 1rem;
-  margin-top: auto;
-  z-index: 1;
+  background: #1e293b !important;
+  height: fit-content !important;
+  padding: 10px !important;
 }
 
-/* Add wrapper for activity items */
-.dark .gha-activity > .activity {
-  position: relative;
-  padding-bottom: 5px; /* Match footer height */
+.dark .gha-body {
+  background: #1e293b !important;
 }
 
-/* Fix scrollbar in dark mode */
+/* Fix scrollbar styling */
+.github-activity {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.github-activity::-webkit-scrollbar {
+  width: 6px;
+}
+
+.github-activity::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.github-activity::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.dark .github-activity {
+  scrollbar-color: #334155 transparent;
+}
+
 .dark .github-activity::-webkit-scrollbar-thumb {
-  background-color: #334155 !important;
+  background-color: #334155;
 }
 
 /* Ensure graph background */
 .dark .github-graph svg {
   background-color: #1e293b !important;
+}
+
+#ghfeed {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Make sure activities are contained */
+.gha-activities {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+/* Ensure proper spacing */
+.gha-activity {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/* Ensure proper rendering of calendar */
+.js-calendar-graph-svg {
+  width: 100%;
+  height: auto;
+}
+
+.gha-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: white;
+  padding: 0.2rem !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
