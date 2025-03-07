@@ -148,3 +148,15 @@
   padding: 0.2rem !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
+
+.contact-btn {
+  color: #fff !important;
+}
+
+.dark .contact-btn {
+  color: #fff !important;
+}
+
+.dark .contact-btn:hover {
+  color: #fff !important;
+}
