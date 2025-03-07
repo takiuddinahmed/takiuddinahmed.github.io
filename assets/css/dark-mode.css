@@ -1,0 +1,103 @@
+.dark body {
+  @apply bg-dark-bg text-dark-text-secondary;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  @apply text-dark-text;
+}
+
+.dark a {
+  @apply text-primary-400;
+}
+
+.dark a:hover {
+  @apply text-primary-300;
+}
+
+.dark .card {
+  @apply bg-dark-card border-dark-border shadow-none;
+}
+
+.dark .card:hover {
+  @apply border-primary-700 shadow-none;
+}
+
+.dark .btn-primary {
+  @apply bg-primary-600 hover:bg-primary-700;
+}
+
+.dark .btn-outline {
+  @apply border-dark-border text-dark-text hover:bg-dark-card;
+}
+
+.dark .skill-bar {
+  @apply bg-dark-border;
+}
+
+.dark .timeline-item {
+  @apply border-dark-border;
+}
+
+.dark .testimonial-card {
+  @apply bg-dark-card border-dark-border shadow-none;
+}
+
+.dark .testimonial-card::before {
+  @apply text-primary-900 opacity-20;
+}
+
+.dark .scrollbar {
+  @apply scrollbar-thumb-dark-border;
+}
+
+.dark .scrollbar-thumb-dark-border::-webkit-scrollbar-thumb {
+  background-color: #334155;
+  border-radius: 9999px;
+}
+
+/* Dark mode styles for GitHub components */
+.dark .github-graph {
+  background-color: #1e293b !important;
+}
+
+.dark .contrib-number {
+  color: #f8fafc !important;
+}
+
+.dark .border,
+.dark .contrib-column {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.dark .gha-header,
+.dark .gha-footer,
+.dark .gha-feed {
+  background: #1e293b !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark .gha-feed a,
+.dark .gha-feed span,
+.dark .gha-feed div,
+.dark .gha-feed small {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark .gha-feed a:hover {
+  color: #38bdf8 !important;
+}
+
+.dark .gha-activity {
+  border-color: #334155 !important;
+  background: #1e293b !important;
+}
