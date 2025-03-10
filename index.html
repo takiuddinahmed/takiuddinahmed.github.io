@@ -1,450 +1,1030 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Md Takiuddin | Portfolio | Personal Website</title>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Md Takiuddin is a software developer with expertise in Python, Flask, FastAPI, Node.js, Go, Typescript, Javascript, IoT, DevOps. He also has experience in teaching mobile app development using Flutter."
+    />
+    <meta name="author" content="Takiuddin Ahmed" />
+    <meta name="author" content="Md Takiuddin" />
+    <meta name="work" content="Software Developer" />
+    <meta name="work" content="Backend Developer" />
+    <meta
+      name="programming Languages"
+      content="Typescript, Javascript, Golang, Python, C/C++, Dart"
+    />
+    <meta name="skill" content="MERN, Nodejs, Mongodb, Nestjs, React, Nextjs" />
+    <meta
+      name="keywords"
+      content="software developer, backend developer, node.js, go, typescript, javascript, iot, devops, asp.net, flutter, trainer, web applications, mobile applications"
+    />
+    <meta name="cononical" content="http://takiuddin.me" />
+    <link rel="shortcut icon" href="favicon.ico" />
 
-<head>
-  <title>Md Takiuddin | Portfolio | Personal Website </title>
-  <!-- Meta -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Md Takiuddin is a software developer with expertise in Python, Flask, FastAPI, Node.js, Go, Typescript, Javascript, IoT, DevOps. He also has experience in teaching mobile app development using Flutter." />
-  <meta name="author" content="Takiuddin Ahmed" />
-  <meta name="author" content="Md Takiuddin" />
-  <meta name="work" content="Software Developer" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <meta name="work" content="Backend Developer" />
-  <meta name="programming Languages" content="Typescript, Javascript, Golang, Python, C/C++, Dart" />
-  <meta name="skill" content="MERN, Nodejs, Mongodb, Nestjs, React, Nextjs" />
-  <meta name="keywords"
-    content="software developer, backend developer, node.js, go, typescript, javascript, iot, devops, asp.net, flutter, trainer, web applications, mobile applications" />
-  <meta name="cononical" content="http://takiuddin.me" />
-  <link rel="shortcut icon" href="favicon.ico" />
+    <!-- FontAwesome JS -->
+    <script
+      src="https://kit.fontawesome.com/5ae38a5e71.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic" rel="stylesheet"
-    type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              heading: ["Poppins", "sans-serif"],
+            },
+            colors: {
+              primary: {
+                50: "#f0f9ff",
+                100: "#e0f2fe",
+                200: "#bae6fd",
+                300: "#7dd3fc",
+                400: "#38bdf8",
+                500: "#0ea5e9",
+                600: "#0284c7",
+                700: "#0369a1",
+                800: "#075985",
+                900: "#0c4a6e",
+                950: "#082f49",
+              },
+              secondary: {
+                50: "#ecfdf5",
+                100: "#d1fae5",
+                200: "#a7f3d0",
+                300: "#6ee7b7",
+                400: "#34d399",
+                500: "#10b981",
+                600: "#059669",
+                700: "#047857",
+                800: "#065f46",
+                900: "#064e3b",
+                950: "#022c22",
+              },
+              dark: {
+                bg: "#0f172a",
+                card: "#1e293b",
+                border: "#334155",
+                text: "#f8fafc",
+                muted: "#94a3b8",
+              },
+            },
+            boxShadow: {
+              card: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+              "card-hover":
+                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            },
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-in-out",
+              "slide-up": "slideUp 0.5s ease-out",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(20px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
 
-  <!-- FontAwesome JS -->
-  <script defer src="site/assets/fontawesome/js/all.js"></script>
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          scroll-behavior: smooth;
+        }
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css" />
+        body {
+          @apply font-sans text-slate-700 bg-slate-50 antialiased;
+        }
 
-  <!-- github calendar css -->
-  <link rel="stylesheet" href="assets/plugins/github-calendar/dist/github-calendar-responsive.css" />
-  <!-- github activity css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css" />
-  <link rel="stylesheet" href="assets/plugins/github-activity/src/github-activity.css" />
+        .dark body {
+          @apply bg-dark-bg text-dark-text;
+        }
 
-  <!-- Theme CSS -->
-  <link id="theme-style" rel="stylesheet" href="assets/css/styles.css" />
-</head>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          @apply font-heading font-semibold text-slate-800;
+        }
 
-<body>
-  <!-- ******HEADER****** -->
-  <header class="header">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col">
-          <img class="profile-image img-fluid float-start rounded-circle" height="200" width="200"
-            src="https://avatars.githubusercontent.com/u/25157202" alt="profile image" />
-          <div class="profile-content" style="margin-top: 60px !important;">
-            <h1 class="name">Md Takiuddin</h1>
-            <h2 class="desc"> Software Developer</h2>
-            <ul class="social list-inline" style="display: none;">
-              <li class="list-inline-item">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#"><i class="fab fa-github-alt"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#"><i class="fab fa-stack-overflow"></i></a>
-              </li>
-              <li class="list-inline-item last-item">
-                <a href="#"><i class="fab fa-codepen"></i></a>
-              </li>
-            </ul>
+        .dark h1,
+        .dark h2,
+        .dark h3,
+        .dark h4,
+        .dark h5,
+        .dark h6 {
+          @apply text-dark-text;
+        }
+
+        a {
+          @apply text-primary-600 transition-all duration-300 ease-in-out;
+        }
+
+        a:hover {
+          @apply text-primary-700;
+        }
+
+        .dark a {
+          @apply text-primary-400;
+        }
+
+        .dark a:hover {
+          @apply text-primary-300;
+        }
+      }
+
+      @layer components {
+        .section {
+          @apply pb-12;
+        }
+
+        .section-title {
+          @apply text-2xl md:text-3xl font-bold mb-8 relative inline-block;
+        }
+
+        .section-title::after {
+          content: "";
+          @apply absolute bottom-0 left-0 w-16 h-1 bg-primary-500 rounded;
+        }
+
+        .card {
+          @apply bg-white rounded-xl shadow-card p-6 transition-all duration-300 border border-slate-100;
+        }
+
+        .dark .card {
+          @apply bg-dark-card border-dark-border shadow-none;
+        }
+
+        .card:hover {
+          @apply shadow-card-hover;
+        }
+
+        .dark .card:hover {
+          @apply border-primary-700 shadow-none;
+        }
+
+        .btn {
+          @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+        }
+
+        .btn-primary {
+          @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+        }
+
+        .dark .btn-primary {
+          @apply bg-primary-600 hover:bg-primary-700;
+        }
+
+        .btn-secondary {
+          @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+        }
+
+        .btn-outline {
+          @apply border border-slate-300 text-slate-700 hover:bg-slate-50 focus:ring-slate-500;
+        }
+
+        .dark .btn-outline {
+          @apply border-dark-border text-dark-text hover:bg-dark-card;
+        }
+
+        .skill-bar {
+          @apply h-2.5 bg-slate-200 rounded-full overflow-hidden;
+        }
+
+        .dark .skill-bar {
+          @apply bg-dark-border;
+        }
+
+        .skill-progress {
+          @apply h-full bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full transition-all duration-1000;
+        }
+
+        .timeline-item {
+          @apply relative pl-8 pb-8 border-l border-slate-200 last:border-transparent last:pb-0;
+        }
+
+        .dark .timeline-item {
+          @apply border-dark-border;
+        }
+
+        .timeline-dot {
+          @apply absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-primary-500;
+        }
+
+        .testimonial-card {
+          @apply relative p-6 rounded-xl bg-white shadow-card border border-slate-100;
+        }
+
+        .dark .testimonial-card {
+          @apply bg-dark-card border-dark-border shadow-none;
+        }
+
+        .testimonial-card::before {
+          content: '"';
+          @apply absolute top-2 left-4 text-6xl text-primary-200 font-serif opacity-50;
+        }
+
+        .dark .testimonial-card::before {
+          @apply text-primary-900 opacity-20;
+        }
+
+        .form-switch {
+          @apply relative inline-flex items-center cursor-pointer;
+        }
+
+        .form-switch input {
+          @apply sr-only;
+        }
+
+        .slider {
+          @apply w-11 h-6 bg-slate-300 rounded-full transition-all duration-300 before:content-[''] before:absolute before:top-[2px] before:left-[2px] before:w-5 before:h-5 before:bg-white before:rounded-full before:transition-all before:duration-300;
+        }
+
+        input:checked + .slider {
+          @apply bg-primary-600;
+        }
+
+        input:checked + .slider:before {
+          @apply translate-x-5;
+        }
+
+        .github-activity {
+          @apply max-h-[600px] overflow-y-auto pr-2 scrollbar;
+        }
+
+        .scrollbar {
+          @apply scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent;
+        }
+
+        .dark .scrollbar {
+          @apply scrollbar-thumb-dark-border;
+        }
+
+        @variants responsive {
+          .scrollbar-thin {
+            scrollbar-width: thin;
+          }
+          .scrollbar-thumb-slate-300::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 9999px;
+          }
+          .scrollbar-thumb-dark-border::-webkit-scrollbar-thumb {
+            background-color: #334155;
+            border-radius: 9999px;
+          }
+          .scrollbar-track-transparent::-webkit-scrollbar-track {
+            background-color: transparent;
+          }
+        }
+      }
+    </style>
+
+    <!-- GitHub Calendar & Activity CSS -->
+    <link
+      rel="stylesheet"
+      href="assets/plugins/github-calendar/dist/github-calendar-responsive.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/plugins/github-activity/src/github-activity.css"
+    />
+
+    <!-- Custom styles for GitHub components in dark mode -->
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body class="pt-16">
+    <!-- Navbar -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-slate-200 transition-all duration-300 dark:bg-dark-bg/90 dark:border-dark-border"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <a
+            href="#"
+            class="text-xl font-bold text-slate-800 dark:text-dark-text no-underline hover:no-underline"
+          >
+            Md<span class="text-primary-600 dark:text-primary-400"
+              >Takiuddin</span
+            >
+          </a>
+
+          <div class="flex items-center gap-4">
+            <div class="form-switch">
+              <input type="checkbox" id="darkSwitch" class="sr-only" />
+              <label for="darkSwitch" class="slider"></label>
+              <span
+                class="ml-2 text-sm font-medium text-slate-700 dark:text-dark-text hidden md:block"
+                >Dark</span
+              >
+            </div>
+
+            <a
+              href="mailto:taki1502106@gmail.com"
+              target="_blank"
+              class="btn btn-primary contact-btn text-xs md:text-base"
+            >
+              <i class="fas fa-paper-plane mr-2"></i> Contact Me
+            </a>
           </div>
-          <!--//profile-->
         </div>
-        <!--//col-->
-        <div class="col-12 col-md-auto">
-          <div class="dark-mode-switch d-flex">
-            <div class="form-check form-switch mx-auto mx-md-0">
-              <input type="checkbox" class="form-check-input me-2" id="darkSwitch" />
-              <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-dark-bg dark:to-dark-bg"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div class="w-full md:w-1/3 flex justify-center">
+            <div class="relative">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full blur-lg opacity-20 animate-pulse"
+              ></div>
+              <img
+                src="https://avatars.githubusercontent.com/u/25157202"
+                alt="Md Takiuddin"
+                class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-white dark:border-dark-card shadow-lg relative z-10"
+              />
             </div>
           </div>
-          <!--//dark-mode-switch-->
-          <a class="btn btn-cta-primary" href="mailto:taki1502106@gmail.com" target="_blank"><i
-              class="fas fa-paper-plane"></i> Contact Me</a>
-        </div>
-        <!--//col-->
-      </div>
-      <!--//row-->
-    </div>
-    <!--//container-->
-  </header>
-  <!--//header-->
 
-  <div class="container sections-wrapper py-5">
-    <div class="row">
-      <div class="primary col-lg-8 col-12">
-        <section class="about section">
-          <div class="section-inner shadow-sm rounded">
-            <h2 class="heading">About Me</h2>
-            <div class="content">
-              <p>
-                Welcome to the professional domain of Md Takiuddin, a backend software developer adept in FastAPI,
-                Flask,
-                Python, SQLAlchemy, PostgreSQL, MongoDB, and more. With proficiency in Node.js, Nest.js, Next.js, React,
-                TypeScript, and JavaScript, Md Takiuddin offers versatile solutions for diverse projects. Skilled in
-                Golang, C/C++, and Dart, Md Takiuddin embodies adaptability and continual learning. A champion of clean,
-                test-driven code, Md Takiuddin ensures reliability using Pytest, Jest, and Cypress. Collaborative and
-                communicative, Md Takiuddin excels in team environments, delivering excellence in backend performance
-                optimization, bug resolution, and coding best practices. Elevate your projects with Md Takiuddin today.
+          <div class="w-full md:w-2/3 text-center md:text-left">
+            <div class="animate-fade-in">
+              <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-slate-800 dark:text-dark-text"
+              >
+                Md
+                <span class="text-primary-600 dark:text-primary-400"
+                  >Takiuddin</span
+                >
+              </h1>
+
+              <h2
+                class="text-xl md:text-2xl text-slate-600 dark:text-dark-muted mb-6"
+              >
+                Software Developer
+              </h2>
+
+              <p
+                class="text-lg text-slate-600 dark:text-dark-muted mb-8 max-w-2xl"
+              >
+                Specialized in backend development with expertise in FastAPI,
+                Flask, Python, Node.js, and modern JavaScript frameworks.
+                Passionate about clean code and innovative solutions.
               </p>
+
+              <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                <a
+                  href="https://github.com/takiuddinahmed"
+                  target="_blank"
+                  class="btn btn-outline"
+                >
+                  <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
+                  target="_blank"
+                  class="btn btn-outline"
+                >
+                  <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                </a>
+                <a
+                  href="mailto:taki1502106@gmail.com"
+                  target="_blank"
+                  class="btn btn-primary contact-btn"
+                >
+                  <i class="fas fa-paper-plane mr-2"></i> Contact Me
+                </a>
+              </div>
             </div>
-            <!--//content-->
           </div>
-          <!--//section-inner-->
-        </section>
-        <!--//section-->
-
-
-        <section class="experience section">
-          <div class="section-inner shadow-sm rounded">
-            <h2 class="heading">Work Experience</h2>
-            <div class="content">
-              <div class="item">
-                <h3 class="title">
-                  Software Developer
-                  <span class="place"><a href="https://cognitus.com/">Cognitus Consulting LLC</a></span>
-                  <span class="year">(Nov 2023 - Present)</span>
-                </h3>
-                <p>
-                  Cognitus Consulting LLC is a consulting and software company that provides customized software
-                  solutions that adapt to a business’s unique objectives and help businesses thrive in today’s dynamic
-                  market
-                </p>
-              </div>
-              <div class="item">
-                <h3 class="title">
-                  Software Developer
-                  <span class="place"><a href="https://grype.ca">Grype Digital</a></span>
-                  <span class="year">(May 2022 - Nov 2023)</span>
-                </h3>
-
-                <p>
-                  Grype Digital is a software company that builds membership
-                  sites for associations. Our custom-built membership site and
-                  proprietary member engagement system called Member Lounge
-                  can help grow your membership, member engagement, and member
-                  retention.
-                </p>
-
-              </div>
-              <!--//item-->
-              <div class="item">
-                <h3 class="title">
-                  Mobile App Developement Trainer -
-                  <span class="place"><a href="gameapp.gov.bd">Skill Development for Mobile Game &
-                      Application</a></span>
-                  <span class="year">(Sep 2021 - Mar 2022)</span>
-                </h3>
-                <p>
-                  Skill Development for Mobile Game & Application introduces
-                  mobile app development training (Flutter) to ensure the
-                  sustainable development of ICT sectors.
-                </p>
-              </div>
-              <!--//item-->
-
-              <div class="item">
-                <h3 class="title">
-                  Software Developer -
-                  <span class="place"><a href="https://Bugfixers.net">Bugfixers</a></span>
-                  <span class="year">(Jul 2020 - Aug 2021)</span>
-                </h3>
-                <p>
-                  Bugfixers are now working for startups and SME businesses,
-                  to provide effective and efficient solutions for IT and
-                  Digital Marketing.
-                </p>
-              </div>
-              <!--//item-->
-            </div>
-            <!--//content-->
-          </div>
-          <!--//section-inner-->
-        </section>
-        <!--//section-->
-        <section class="github section">
-          <div class="section-inner shadow-sm rounded">
-            <h2 class="heading">My GitHub</h2>
-
-            <div id="github-graph" class="github-graph"></div>
-            <!--//github-graph-->
-
-            <p>
-              <!--//Usage: https://caseyscarborough.com/projects/github-activity/ -->
-            </p>
-
-            <div id="ghfeed" class="ghfeed"></div>
-            <!--//ghfeed-->
-          </div>
-          <!--//secton-inner-->
-        </section>
-        <!--//section-->
+        </div>
       </div>
-      <!--//primary-->
-      <div class="secondary col-lg-4 col-12">
-        <aside class="info aside section">
-          <div class="section-inner shadow-sm rounded">
-            <h2 class="heading sr-only">Basic Information</h2>
-            <div class="content">
-              <ul class="list-unstyled">
-                <li>
-                  <i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span> Rajshahi
+    </section>
+
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4">
+        <!-- Main Content -->
+        <div class="w-full lg:w-2/3 px-4">
+          <!-- About Section -->
+          <section id="about" class="section">
+            <div class="card">
+              <h2 class="section-title">About Me</h2>
+              <div class="prose max-w-none dark:prose-invert">
+                <p class="text-slate-600 dark:text-dark-muted leading-relaxed">
+                  Welcome to the professional domain of Md Takiuddin, a backend
+                  software developer adept in FastAPI, Flask, Python,
+                  SQLAlchemy, PostgreSQL, MongoDB, and more. With proficiency in
+                  Node.js, Nest.js, Next.js, React, TypeScript, and JavaScript,
+                  Md Takiuddin offers versatile solutions for diverse projects.
+                </p>
+                <p
+                  class="text-slate-600 dark:text-dark-muted leading-relaxed mt-4"
+                >
+                  Skilled in Golang, C/C++, and Dart, Md Takiuddin embodies
+                  adaptability and continual learning. A champion of clean,
+                  test-driven code, Md Takiuddin ensures reliability using
+                  Pytest, Jest, and Cypress. Collaborative and communicative, Md
+                  Takiuddin excels in team environments, delivering excellence
+                  in backend performance optimization, bug resolution, and
+                  coding best practices. Elevate your projects with Md Takiuddin
+                  today.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Experience Section -->
+          <section id="experience" class="section">
+            <div class="card">
+              <h2 class="section-title">Work Experience</h2>
+
+              <div class="mt-8">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="animate-slide-up">
+                    <h3
+                      class="text-lg font-semibold text-slate-800 dark:text-dark-text"
+                    >
+                      Software Developer
+                    </h3>
+                    <div class="flex flex-wrap items-center gap-2 mt-1 mb-3">
+                      <a
+                        href="https://cognitus.com/"
+                        target="_blank"
+                        class="text-primary-600 dark:text-primary-400 font-medium hover:underline"
+                      >
+                        Cognitus Consulting LLC
+                      </a>
+                      <span class="text-slate-400 dark:text-dark-muted">•</span>
+                      <span class="text-slate-500 dark:text-dark-muted text-sm">
+                        Nov 2023 - Present
+                      </span>
+                    </div>
+                    <p class="text-slate-600 dark:text-dark-muted">
+                      Cognitus Consulting LLC is a consulting and software
+                      company that provides customized software solutions that
+                      adapt to a business's unique objectives and help
+                      businesses thrive in today's dynamic market.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="animate-slide-up">
+                    <h3
+                      class="text-lg font-semibold text-slate-800 dark:text-dark-text"
+                    >
+                      Software Developer
+                    </h3>
+                    <div class="flex flex-wrap items-center gap-2 mt-1 mb-3">
+                      <a
+                        href="https://grype.ca"
+                        target="_blank"
+                        class="text-primary-600 dark:text-primary-400 font-medium hover:underline"
+                      >
+                        Grype Digital
+                      </a>
+                      <span class="text-slate-400 dark:text-dark-muted">•</span>
+                      <span class="text-slate-500 dark:text-dark-muted text-sm">
+                        May 2022 - Nov 2023
+                      </span>
+                    </div>
+                    <p class="text-slate-600 dark:text-dark-muted">
+                      Grype Digital is a software company that builds membership
+                      sites for associations. Our custom-built membership site
+                      and proprietary member engagement system called Member
+                      Lounge can help grow your membership, member engagement,
+                      and member retention.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="animate-slide-up">
+                    <h3
+                      class="text-lg font-semibold text-slate-800 dark:text-dark-text"
+                    >
+                      Mobile App Development Trainer
+                    </h3>
+                    <div class="flex flex-wrap items-center gap-2 mt-1 mb-3">
+                      <a
+                        href="https://gameapp.gov.bd"
+                        target="_blank"
+                        class="text-primary-600 dark:text-primary-400 font-medium hover:underline"
+                      >
+                        Skill Development for Mobile Game & Application
+                      </a>
+                      <span class="text-slate-400 dark:text-dark-muted">•</span>
+                      <span class="text-slate-500 dark:text-dark-muted text-sm">
+                        Sep 2021 - Mar 2022
+                      </span>
+                    </div>
+                    <p class="text-slate-600 dark:text-dark-muted">
+                      Skill Development for Mobile Game & Application introduces
+                      mobile app development training (Flutter) to ensure the
+                      sustainable development of ICT sectors.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="animate-slide-up">
+                    <h3
+                      class="text-lg font-semibold text-slate-800 dark:text-dark-text"
+                    >
+                      Software Developer
+                    </h3>
+                    <div class="flex flex-wrap items-center gap-2 mt-1 mb-3">
+                      <a
+                        href="https://Bugfixers.net"
+                        target="_blank"
+                        class="text-primary-600 dark:text-primary-400 font-medium hover:underline"
+                      >
+                        Bugfixers
+                      </a>
+                      <span class="text-slate-400 dark:text-dark-muted">•</span>
+                      <span class="text-slate-500 dark:text-dark-muted text-sm">
+                        Jul 2020 - Aug 2021
+                      </span>
+                    </div>
+                    <p class="text-slate-600 dark:text-dark-muted">
+                      Bugfixers are now working for startups and SME businesses,
+                      to provide effective and efficient solutions for IT and
+                      Digital Marketing.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- GitHub Section -->
+          <section id="github" class="section">
+            <div class="card overflow-hidden">
+              <h2 class="section-title">My GitHub</h2>
+
+              <div
+                id="github-graph"
+                class="github-graph mt-8 rounded-lg overflow-hidden"
+              ></div>
+
+              <div class="mt-8">
+                <h3
+                  class="text-lg font-semibold mb-4 text-slate-800 dark:text-dark-text"
+                >
+                  Recent Activity
+                </h3>
+                <div id="ghfeed" class="github-activity"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="w-full lg:w-1/3 px-4">
+          <!-- Info Card -->
+          <aside class="mt-12 lg:mt-0">
+            <div class="card mb-8">
+              <h2
+                class="text-xl font-semibold mb-6 text-slate-800 dark:text-dark-text"
+              >
+                Contact Information
+              </h2>
+
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <div
+                    class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
+                  >
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="ml-4">
+                    <span
+                      class="block text-sm font-medium text-slate-500 dark:text-dark-muted"
+                      >Location</span
+                    >
+                    <span class="text-slate-800 dark:text-dark-text"
+                      >Rajshahi, Bangladesh</span
+                    >
+                  </div>
                 </li>
-                <li>
-                  <i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a href="mailto:taki1502106@gmail">
-                    taki1502106@gmail.com</a>
+
+                <li class="flex items-start">
+                  <div
+                    class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
+                  >
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="ml-4">
+                    <span
+                      class="block text-sm font-medium text-slate-500 dark:text-dark-muted"
+                      >Email</span
+                    >
+                    <a
+                      href="mailto:taki1502106@gmail.com"
+                      target="_blank"
+                      class="text-slate-800 dark:text-dark-text hover:text-primary-600 dark:hover:text-primary-400"
+                    >
+                      <span
+                        class="__cf_email__"
+                        data-cfemail="f98d989290c8ccc9cbc8c9cfb99e94989095d79a9694"
+                        >taki1502106@gmail.com</span
+                      >
+                    </a>
+                  </div>
                 </li>
-                <li>
-                  <i class="fa-brands fa-github"></i><span class="sr-only">Github:</span><a
-                    href="https://github.com/takiuddinahmed">
-                    https://github.com/takiuddinahmed</a>
+
+                <li class="flex items-start">
+                  <div
+                    class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
+                  >
+                    <i class="fab fa-github"></i>
+                  </div>
+                  <div class="ml-4">
+                    <span
+                      class="block text-sm font-medium text-slate-500 dark:text-dark-muted"
+                      >GitHub</span
+                    >
+                    <a
+                      href="https://github.com/takiuddinahmed"
+                      target="_blank"
+                      class="text-slate-800 dark:text-dark-text hover:text-primary-600 dark:hover:text-primary-400"
+                    >
+                      github.com/takiuddinahmed
+                    </a>
+                  </div>
                 </li>
-                <li>
-                  <i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="https://takiuddin.me">
-                    https://takiuddin.me</a>
+
+                <li class="flex items-start">
+                  <div
+                    class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
+                  >
+                    <i class="fas fa-globe"></i>
+                  </div>
+                  <div class="ml-4">
+                    <span
+                      class="block text-sm font-medium text-slate-500 dark:text-dark-muted"
+                      >Website</span
+                    >
+                    <a
+                      href="https://takiuddin.me"
+                      target="_blank"
+                      class="text-slate-800 dark:text-dark-text hover:text-primary-600 dark:hover:text-primary-400"
+                    >
+                      takiuddin.me
+                    </a>
+                  </div>
                 </li>
               </ul>
             </div>
-            <!--//content-->
-          </div>
-          <!--//section-inner-->
-        </aside>
-        <!--//aside-->
+          </aside>
 
-        <aside class="skills aside section">
-          <div class="section-inner shadow-sm rounded">
-            <h2 class="heading">Skills</h2>
-            <div class="content">
-              <!-- <p class="intro">
-                  Intro about your skills goes here. Keep the list lean and only
-                  show your primary skillset. You can always provide a link to
-                  your Linkedin or Github profile so people can get more info
-                  there.
-                </p> -->
+          <!-- Skills Section -->
+          <aside class="mb-8">
+            <div class="card">
+              <h2
+                class="text-xl font-semibold mb-6 text-slate-800 dark:text-dark-text"
+              >
+                Skills
+              </h2>
 
-              <div class="skillset">
-
-                <div class="item">
-                  <h3 class="level-title">
-                    NodeJS &amp; ExpressJS<span class="level-label" data-bs-toggle="tooltip" data-bs-placement="left"
-                      title="You can use the tooltip to explain more about your skill level..."><i
-                        class="fas fa-info-circle"></i>Expert</span>
-                  </h3>
-
-                  <div class="level-bar progress">
-                    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 80%" aria-valuenow="80"
-                      aria-valuemin="0" aria-valuemax="96"></div>
+              <div class="space-y-6">
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium text-slate-700 dark:text-dark-text"
+                      >NodeJS & ExpressJS</span
+                    >
+                    <span class="text-sm text-slate-500 dark:text-dark-muted"
+                      >Expert</span
+                    >
                   </div>
-                  <!--//level-bar-->
-                </div>
-                <!--//item-->
-
-                <div class="item">
-                  <h3 class="level-title">
-                    Typescript &amp; Javascript<span class="level-label" data-bs-toggle="tooltip"
-                      data-bs-placement="left"
-                      title="You can use the tooltip to explain more about your skill level..."><i
-                        class="fas fa-info-circle"></i>Expert</span>
-                  </h3>
-                  <div class="level-bar progress">
-                    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 94%" aria-valuenow="94"
-                      aria-valuemin="0" aria-valuemax="94"></div>
+                  <div class="skill-bar">
+                    <div class="skill-progress w-[80%]" style="width: 0%"></div>
                   </div>
-                  <!--//level-bar-->
                 </div>
-                <!--//item-->
 
-                <div class="item">
-                  <h3 class="level-title">
-                    HTML5, CSS3, SASS &amp; LESS<span class="level-label" data-bs-toggle="tooltip"
-                      data-bs-placement="left"
-                      title="You can use the tooltip to explain more about your skill level..."><i
-                        class="fas fa-info-circle"></i>Expert</span>
-                  </h3>
-                  <div class="level-bar progress">
-                    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 93%" aria-valuenow="93"
-                      aria-valuemin="0" aria-valuemax="96"></div>
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium text-slate-700 dark:text-dark-text"
+                      >Typescript & Javascript</span
+                    >
+                    <span class="text-sm text-slate-500 dark:text-dark-muted"
+                      >Expert</span
+                    >
                   </div>
-                  <!--//level-bar-->
-                </div>
-                <!--//item-->
-
-                <div class="item">
-                  <h3 class="level-title">
-                    Python<span class="level-label" data-bs-toggle="tooltip" data-placement="left"
-                      title="You can use the tooltip to explain more about your skill level..."><i
-                        class="fas fa-info-circle"></i>Pro</span>
-                  </h3>
-                  <div class="level-bar progress">
-                    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 75%" aria-valuenow="75"
-                      aria-valuemin="0" aria-valuemax="96"></div>
+                  <div class="skill-bar">
+                    <div class="skill-progress w-[94%]" style="width: 0%"></div>
                   </div>
-                  <!--//level-bar-->
                 </div>
-                <!--//item-->
 
-                <p>
-                  <a class="more-link" href="https://github.com/takiuddinahmed"><i
-                      class="fas fa-external-link-alt"></i>More on GitHub</a>
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium text-slate-700 dark:text-dark-text"
+                      >HTML5, CSS3, SASS & LESS</span
+                    >
+                    <span class="text-sm text-slate-500 dark:text-dark-muted"
+                      >Expert</span
+                    >
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress w-[93%]" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium text-slate-700 dark:text-dark-text"
+                      >Python</span
+                    >
+                    <span class="text-sm text-slate-500 dark:text-dark-muted"
+                      >Pro</span
+                    >
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress w-[75%]" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6">
+                <a
+                  href="https://github.com/takiuddinahmed"
+                  target="_blank"
+                  class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i> More on GitHub
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Testimonials Section -->
+          <aside class="mb-8">
+            <div class="card">
+              <h2
+                class="text-xl font-semibold mb-6 text-slate-800 dark:text-dark-text"
+              >
+                Testimonials
+              </h2>
+
+              <div class="testimonial-card">
+                <p class="text-slate-600 dark:text-dark-muted relative z-10">
+                  Taki is an excellent software engineer and he is passionate
+                  about what he does. You can totally count on him to deliver
+                  your projects!
                 </p>
+
+                <div class="mt-4 flex items-center">
+                  <div
+                    class="w-10 h-10 rounded-full bg-slate-200 dark:bg-dark-border flex items-center justify-center text-slate-500 dark:text-dark-muted"
+                  >
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="ml-3">
+                    <h4 class="font-medium text-slate-800 dark:text-dark-text">
+                      Nasimul Haque Robin
+                    </h4>
+                    <p class="text-sm text-slate-500 dark:text-dark-muted">
+                      CTO - Bugfixers
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6">
+                <a
+                  href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
+                  target="_blank"
+                  class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i> More on LinkedIn
+                </a>
               </div>
             </div>
-            <!--//content-->
-          </div>
-          <!--//section-inner-->
-        </aside>
-        <!--//section-->
+          </aside>
 
-        <aside class="testimonials aside section">
-          <div class="section-inner shadow-sm rounded">
-            <h2 class="heading">Testimonials</h2>
-            <div class="content">
-              <div class="item">
-                <blockquote class="quote">
-                  <p>
-                    <i class="fas fa-quote-left"></i>Taki is an excellent
-                    software engineer and he is passionate about what he does.
-                    You can totally count on him to deliver your projects!
-                  </p>
-                </blockquote>
-                <p class="source">
-                  <span class="name">Nasimul Haque Robin</span><br /><span class="title">CTO - Bugfixers</span>
-                </p>
+          <!-- Education Section -->
+          <aside class="mb-8">
+            <div class="card">
+              <h2
+                class="text-xl font-semibold mb-6 text-slate-800 dark:text-dark-text"
+              >
+                Education
+              </h2>
+
+              <div class="space-y-6">
+                <div class="flex">
+                  <div class="flex-shrink-0 mt-1">
+                    <div
+                      class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
+                    >
+                      <i class="fas fa-graduation-cap"></i>
+                    </div>
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="font-medium text-slate-800 dark:text-dark-text">
+                      BSc Mechanical Engineering
+                    </h3>
+                    <p class="text-slate-600 dark:text-dark-muted">RUET</p>
+                    <p class="text-sm text-slate-500 dark:text-dark-muted">
+                      2016 - 2022
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex">
+                  <div class="flex-shrink-0 mt-1">
+                    <div
+                      class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
+                    >
+                      <i class="fas fa-graduation-cap"></i>
+                    </div>
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="font-medium text-slate-800 dark:text-dark-text">
+                      Higher Secondary Certificate
+                    </h3>
+                    <p class="text-slate-600 dark:text-dark-muted">
+                      Rajshahi College
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-dark-muted">
+                      2014 - 2016
+                    </p>
+                  </div>
+                </div>
               </div>
-              <!--//item-->
-
-              <p>
-                <a class="more-link" href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"><i
-                    class="fas fa-external-link-alt"></i>More on Linkedin</a>
-              </p>
             </div>
-            <!--//content-->
-          </div>
-          <!--//section-inner-->
-        </aside>
-        <!--//section-->
+          </aside>
 
-        <aside class="education aside section">
-          <div class="section-inner shadow-sm rounded">
-            <h2 class="heading">Education</h2>
-            <div class="content">
-              <div class="item">
-                <h3 class="title">
-                  <i class="fas fa-graduation-cap"></i> BSc Mechanical
-                  Engineering
-                </h3>
-                <h4 class="university">
-                  RUET
-                  <!-- Rajshahi University of Engineering & Technology -->
-                  <span class="year">(2016 - 2022)</span>
-                </h4>
+          <!-- Languages Section -->
+          <aside class="mb-8">
+            <div class="card">
+              <h2
+                class="text-xl font-semibold mb-6 text-slate-800 dark:text-dark-text"
+              >
+                Languages
+              </h2>
+
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="font-medium text-slate-700 dark:text-dark-text"
+                      >Bengali</span
+                    >
+                    <span class="text-sm text-slate-500 dark:text-dark-muted"
+                      >Native Speaker</span
+                    >
+                  </div>
+                  <div class="flex text-primary-500 dark:text-primary-400">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="font-medium text-slate-700 dark:text-dark-text"
+                      >English</span
+                    >
+                    <span class="text-sm text-slate-500 dark:text-dark-muted"
+                      >Professional Proficiency</span
+                    >
+                  </div>
+                  <div class="flex text-primary-500 dark:text-primary-400">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </div>
               </div>
-              <!--//item-->
-              <div class="item">
-                <h3 class="title">
-                  <i class="fas fa-graduation-cap"></i> Higher Secondary
-                  Certificate
-                </h3>
-                <h4 class="university">
-                  Rajshahi College <span class="year">(2014 - 2016)</span>
-                </h4>
-              </div>
-              <!--//item-->
             </div>
-            <!--//content-->
-          </div>
-          <!--//section-inner-->
-        </aside>
-        <!--//section-->
-
-        <aside class="languages aside section">
-          <div class="section-inner shadow-sm rounded">
-            <h2 class="heading">Languages</h2>
-            <div class="content">
-              <ul class="list-unstyled">
-                <li class="item">
-                  <span class="title"><strong>Bengali:</strong></span>
-                  <span class="level"></span>
-                  Native Speaker <br class="visible-xs" /><i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                  </span>
-                </li>
-                <!--//item-->
-                <li class="item">
-                  <span class="title"><strong>English:</strong></span>
-                  <span class="level">
-                    Professional Proficiency
-                    <br class="visible-sm visible-xs" /><i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i></span>
-                </li>
-                <!--//item-->
-              </ul>
-            </div>
-            <!--//content-->
-          </div>
-          <!--//section-inner-->
-        </aside>
-        <!--//section-->
-
-
-
-
-        <!--//section-->
+          </aside>
+        </div>
       </div>
-      <!--//secondary-->
     </div>
-    <!--//row-->
-  </div>
-  <!--//masonry-->
 
-  <!-- ******FOOTER****** -->
-  <footer class="footer">
-    <div class="container text-center">
-      <!--/* This template is free as long as you keep the attribution link below. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
-      <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart"></i> by
-        <a href="https://takiuddin.me" target="_blank">Takiuddin</a>
-        for developers</small>
-    </div>
-    <!--//container-->
-  </footer>
-  <!--//footer-->
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-8 mt-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <a
+              href="#"
+              class="text-2xl font-bold text-white no-underline hover:no-underline"
+            >
+              Md<span class="text-primary-400">Takiuddin</span>
+            </a>
+            <p class="text-slate-400 mt-2">Software Developer</p>
+          </div>
 
-  <!-- Javascript -->
-  <script type="text/javascript" src="assets/plugins/popper.min.js"></script>
-  <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="assets/plugins/vanilla-rss/dist/rss.global.min.js"></script>
-  <script type="text/javascript" src="assets/plugins/dark-mode-switch/dark-mode-switch.min.js"></script>
-  <!-- github calendar plugin -->
-  <script type="text/javascript" src="assets/plugins/github-calendar/dist/github-calendar.min.js"></script>
-  <!-- github activity plugin -->
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
-  <script type="text/javascript" src="assets/plugins/github-activity/src/github-activity.js"></script>
-  <!-- custom js -->
-  <script type="text/javascript" src="assets/js/main.js"></script>
-</body>
+          <div class="flex space-x-4">
+            <a
+              href="https://github.com/takiuddinahmed"
+              target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
+              target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="mailto:taki1502106@gmail.com"
+              target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
+            >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
 
+        <div class="border-t border-slate-700 mt-6 pt-6 text-center">
+          <small class="text-slate-400">
+            Designed with <i class="fas fa-heart text-red-500"></i> by
+            <a
+              href="https://takiuddin.me"
+              target="_blank"
+              class="text-white hover:text-primary-400"
+            >
+              Takiuddin
+            </a>
+            for developers
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Javascript -->
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script
+      type="text/javascript"
+      src="assets/plugins/vanilla-rss/dist/rss.global.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/plugins/github-calendar/dist/github-calendar.min.js"
+    ></script>
+    <!-- github activity plugin -->
+    <script
+      type="text/javascript"
+      src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/plugins/github-activity/src/github-activity.js"
+    ></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

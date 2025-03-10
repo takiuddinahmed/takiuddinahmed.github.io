@@ -1,46 +1,104 @@
-"use strict";
+// Dark mode toggle
+const darkSwitch = document.getElementById("darkSwitch");
+const html = document.documentElement;
 
-//Enable tooltips everywhere
-var tooltipTriggerList = [].slice.call(
-  document.querySelectorAll('[data-bs-toggle="tooltip"]')
-);
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl);
+// Check for saved theme preference or prefer-color-scheme
+const savedTheme = localStorage.getItem("theme");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+// Set initial theme
+if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+  html.classList.add("dark");
+  darkSwitch.checked = true;
+}
+
+// Handle theme toggle
+darkSwitch.addEventListener("change", function () {
+  if (this.checked) {
+    html.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  } else {
+    html.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+  }
 });
 
-/* Vanilla RSS - https://github.com/sdepold/vanilla-rss */
+// Initialize GitHub calendar and activity feed
+document.addEventListener("DOMContentLoaded", function () {
+  // GitHub Calendar
+  GitHubCalendar("#github-graph", "takiuddinahmed", {
+    responsive: true,
+    tooltips: true,
+  });
 
-const rss = new RSS(
-  document.querySelector("#rss-feeds"),
-  //Change this to your own rss feeds
-  "https://feeds.feedburner.com/TechCrunch/startups",
-  {
-    // how many entries do you want?
-    // default: 4
-    // valid values: any integer
-    limit: 3,
+  // GitHub Activity Feed
+  GitHubActivity.feed({
+    username: "takiuddinahmed",
+    selector: "#ghfeed",
+    limit: 10,
+  });
 
-    // will request the API via https
-    // default: false
-    // valid values: false, true
-    ssl: true,
+  // Fix GitHub activity feed layout after it's loaded
+  // Update your fixGitHubFeed function
+  const fixGitHubFeed = () => {
+    const feed = document.querySelector(".gha-feed");
+    if (feed) {
+      const header = feed.querySelector(".gha-header");
+      const footer = feed.querySelector(".gha-footer");
+      const activities = feed.querySelector(".gha-activities");
 
-    // outer template for the html transformation
-    // default: "<ul>{entries}</ul>"
-    // valid values: any string
-    layoutTemplate: "<div class='items'>{entries}</div>",
+      if (header && footer && activities) {
+        // Create body container if it doesn't exist
+        let body = feed.querySelector(".gha-body");
+        if (!body) {
+          body = document.createElement("div");
+          body.className = "gha-body";
 
-    // inner template for each entry
-    // default: '<li><a href="{url}">[{author}@{date}] {title}</a><br/>{shortBodyPlain}</li>'
-    // valid values: any string
-    entryTemplate:
-      '<div class="item"><h3 class="title"><a href="{url}" target="_blank">{title}</a></h3><div><p>{shortBodyPlain}</p><a class="more-link" href="{url}" target="_blank"><i class="fas fa-external-link-alt"></i>Read more</a></div></div>',
-  }
-);
-rss.render();
+          // Insert elements in correct order
+          header.after(body);
+          body.appendChild(activities);
+          body.after(footer);
+        }
 
-/* Github Calendar - https://github.com/IonicaBizau/github-calendar */
-new GitHubCalendar("#github-graph", "takiuddinahmed", { responsive: true });
+        // Ensure proper styling
+        feed.style.height = "600px"; // Set a fixed height for the container
+        body.style.overflowY = "auto";
+        body.style.minHeight = "0"; // Important for Firefox
+      }
+    }
+  };
 
-/* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-GitHubActivity.feed({ username: "takiuddinahmed", selector: "#ghfeed" });
+  // Try to fix the feed structure periodically until successful
+  const feedObserver = new MutationObserver((mutations) => {
+    if (document.querySelector(".gha-feed")) {
+      fixGitHubFeed();
+    }
+  });
+
+  feedObserver.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+
+  // Also try with a timeout as backup
+  setTimeout(fixGitHubFeed, 1000);
+  setTimeout(fixGitHubFeed, 2000);
+
+  // Animate skill bars on scroll
+  const skillBars = document.querySelectorAll(".skill-progress");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          const width = bar.classList.toString().match(/w-\[(\d+)%\]/)[1];
+          bar.style.width = `${width}%`;
+          observer.unobserve(bar);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  skillBars.forEach((bar) => observer.observe(bar));
+});
