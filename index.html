@@ -619,7 +619,7 @@
                 ></div>
                 <!-- Timeline Date -->
                 <div
-                  class="absolute left-0 top-6 inline-flex items-center justify-end px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium"
+                  class="absolute -left-32 top-6 inline-flex items-center justify-end px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium"
                 >
                   Nov 2023 - Present
                 </div>
@@ -693,7 +693,7 @@
                 ></div>
                 <!-- Timeline Date -->
                 <div
-                  class="absolute left-0 top-6 inline-flex items-center justify-end px-4 py-2 bg-secondary-100 dark:bg-secondary-900/30 text-secondary-600 dark:text-secondary-400 rounded-full text-sm font-medium"
+                  class="absolute -left-36 top-6 inline-flex items-center justify-end px-4 py-2 bg-secondary-100 dark:bg-secondary-900/30 text-secondary-600 dark:text-secondary-400 rounded-full text-sm font-medium"
                 >
                   May 2022 - Nov 2023
                 </div>
@@ -1155,108 +1155,181 @@
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="section">
-        <div class="max-w-4xl mx-auto text-center mb-16">
-          <span
-            class="inline-block px-4 py-2 rounded-full bg-secondary-100/50 dark:bg-secondary-900/20 text-secondary-600 dark:text-secondary-400 text-sm font-medium mb-4"
-          >
-            Get in Touch
-          </span>
-          <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            Let's Connect
-          </h2>
-          <p class="text-lg text-slate-600 dark:text-dark-muted">
-            Have a project in mind? Let's discuss how I can help.
-          </p>
+      <section id="contact" class="section relative overflow-hidden">
+        <!-- Background Decorations -->
+        <div class="absolute inset-0 overflow-hidden opacity-10">
+          <div
+            class="absolute top-1/4 right-0 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl animate-float"
+          ></div>
+          <div
+            class="absolute bottom-1/4 left-0 w-96 h-96 bg-secondary-500 rounded-full mix-blend-multiply filter blur-3xl animate-float"
+            style="animation-delay: 1.5s"
+          ></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="card backdrop-blur-xl">
-            <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div
-                  class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
-                >
-                  <i class="fas fa-envelope text-2xl"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-slate-500 dark:text-dark-muted">
-                    Email
-                  </p>
-                  <a
-                    href="mailto:taki1502106@gmail.com"
-                    class="font-medium hover:text-primary-600 dark:hover:text-primary-400"
-                  >
-                    taki1502106@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <div
-                  class="w-12 h-12 rounded-xl bg-secondary-100 dark:bg-secondary-900/20 flex items-center justify-center text-secondary-600 dark:text-secondary-400"
-                >
-                  <i class="fas fa-map-marker-alt text-2xl"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-slate-500 dark:text-dark-muted">
-                    Location
-                  </p>
-                  <p class="font-medium">Rajshahi, Bangladesh</p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <div
-                  class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400"
-                >
-                  <i class="fab fa-linkedin-in text-2xl"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-slate-500 dark:text-dark-muted">
-                    LinkedIn
-                  </p>
-                  <a
-                    href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
-                    target="_blank"
-                    class="font-medium hover:text-primary-600 dark:hover:text-primary-400"
-                  >
-                    Takiuddin Ahmed
-                  </a>
-                </div>
-              </div>
-            </div>
+        <div class="container relative">
+          <div class="max-w-4xl mx-auto text-center mb-16">
+            <span
+              class="inline-block px-4 py-2 rounded-full bg-secondary-100/50 dark:bg-secondary-900/20 text-secondary-600 dark:text-secondary-400 text-sm font-medium mb-4"
+            >
+              Get in Touch
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+              Let's Connect
+            </h2>
+            <p class="text-lg text-slate-600 dark:text-dark-muted">
+              Have a project in mind? Let's discuss how I can help.
+            </p>
           </div>
 
-          <div class="card backdrop-blur-xl">
-            <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
-            <form class="space-y-4">
-              <div>
-                <label class="block text-sm font-medium mb-2">Name</label>
-                <input
-                  type="text"
-                  class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-dark-card border border-slate-200 dark:border-dark-border focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent"
-                />
+          <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+            <!-- Contact Info -->
+            <div class="lg:col-span-2 space-y-6">
+              <div
+                class="card backdrop-blur-xl group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400 group-hover:scale-110 transition-transform"
+                  >
+                    <i class="fas fa-envelope text-2xl"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-500 dark:text-dark-muted">
+                      Email
+                    </p>
+                    <a
+                      href="mailto:taki1502106@gmail.com"
+                      class="font-medium hover:text-primary-600 dark:hover:text-primary-400"
+                    >
+                      taki1502106@gmail.com
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div>
-                <label class="block text-sm font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-dark-card border border-slate-200 dark:border-dark-border focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent"
-                />
+
+              <div
+                class="card backdrop-blur-xl group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-secondary-100 dark:bg-secondary-900/20 flex items-center justify-center text-secondary-600 dark:text-secondary-400 group-hover:scale-110 transition-transform"
+                  >
+                    <i class="fas fa-map-marker-alt text-2xl"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-500 dark:text-dark-muted">
+                      Location
+                    </p>
+                    <p class="font-medium">Rajshahi, Bangladesh</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <label class="block text-sm font-medium mb-2">Message</label>
-                <textarea
-                  rows="4"
-                  class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-dark-card border border-slate-200 dark:border-dark-border focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent"
-                ></textarea>
+
+              <div
+                class="card backdrop-blur-xl group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform"
+                  >
+                    <i class="fab fa-linkedin-in text-2xl"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-500 dark:text-dark-muted">
+                      LinkedIn
+                    </p>
+                    <a
+                      href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
+                      target="_blank"
+                      class="font-medium hover:text-primary-600 dark:hover:text-primary-400"
+                    >
+                      Takiuddin Ahmed
+                    </a>
+                  </div>
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary w-full">
-                <i class="fas fa-paper-plane mr-2"></i> Send Message
-              </button>
-            </form>
+
+              <!-- Social Links -->
+              <div class="flex items-center gap-4 mt-8">
+                <a
+                  href="https://github.com/takiuddinahmed"
+                  target="_blank"
+                  class="social-icon"
+                >
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
+                  target="_blank"
+                  class="social-icon"
+                >
+                  <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="mailto:taki1502106@gmail.com" class="social-icon">
+                  <i class="fas fa-envelope text-xl"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-3">
+              <div class="card backdrop-blur-xl">
+                <h3 class="text-2xl font-bold mb-8 gradient-text">
+                  Send a Message
+                </h3>
+                <form class="space-y-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-medium mb-2">Name</label>
+                      <input
+                        type="text"
+                        class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-dark-card/50 border border-slate-200/50 dark:border-dark-border/50 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-300"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium mb-2"
+                        >Email</label
+                      >
+                      <input
+                        type="email"
+                        class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-dark-card/50 border border-slate-200/50 dark:border-dark-border/50 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-300"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium mb-2"
+                      >Subject</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-dark-card/50 border border-slate-200/50 dark:border-dark-border/50 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-300"
+                      placeholder="What's this about?"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium mb-2"
+                      >Message</label
+                    >
+                    <textarea
+                      rows="4"
+                      class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-dark-card/50 border border-slate-200/50 dark:border-dark-border/50 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-300"
+                      placeholder="Your message here..."
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-full group">
+                    <span class="inline-flex items-center">
+                      <i
+                        class="fas fa-paper-plane mr-2 group-hover:translate-x-1 transition-transform"
+                      ></i>
+                      Send Message
+                    </span>
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </section>
