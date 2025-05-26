@@ -102,3 +102,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   skillBars.forEach((bar) => observer.observe(bar));
 });
+
+// Theme Toggle
+document.addEventListener("DOMContentLoaded", () => {
+  // Check for saved theme preference, otherwise use system preference
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  // Theme toggle button functionality
+  const darkSwitch = document.getElementById("darkSwitch");
+  if (darkSwitch) {
+    darkSwitch.addEventListener("click", () => {
+      // Toggle theme
+      document.documentElement.classList.toggle("dark");
+
+      // Save preference
+      if (document.documentElement.classList.contains("dark")) {
+        localStorage.theme = "dark";
+      } else {
+        localStorage.theme = "light";
+      }
+    });
+  }
+});
