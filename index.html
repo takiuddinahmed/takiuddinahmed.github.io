@@ -41,7 +41,7 @@
     ></script>
 
     <!-- Tailwind CSS -->
-    <script src="/assets/js/tailwind.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: "class",
@@ -53,47 +53,55 @@
             },
             colors: {
               primary: {
-                50: "#f0f9ff",
-                100: "#e0f2fe",
-                200: "#bae6fd",
-                300: "#7dd3fc",
-                400: "#38bdf8",
-                500: "#0ea5e9",
-                600: "#0284c7",
-                700: "#0369a1",
-                800: "#075985",
-                900: "#0c4a6e",
-                950: "#082f49",
+                50: "#f0f7ff",
+                100: "#e0eeff",
+                200: "#bae0ff",
+                300: "#7cc7ff",
+                400: "#36a6ff",
+                500: "#0c87ff",
+                600: "#0062ff",
+                700: "#0051d4",
+                800: "#0042ab",
+                900: "#003c8c",
+                950: "#00254d",
               },
               secondary: {
-                50: "#ecfdf5",
-                100: "#d1fae5",
-                200: "#a7f3d0",
-                300: "#6ee7b7",
-                400: "#34d399",
-                500: "#10b981",
-                600: "#059669",
-                700: "#047857",
-                800: "#065f46",
-                900: "#064e3b",
-                950: "#022c22",
+                50: "#fff7ed",
+                100: "#ffedd5",
+                200: "#fed7aa",
+                300: "#fdba74",
+                400: "#fb923c",
+                500: "#f97316",
+                600: "#ea580c",
+                700: "#c2410c",
+                800: "#9a3412",
+                900: "#7c2d12",
+                950: "#431407",
               },
               dark: {
-                bg: "#0f172a",
-                card: "#1e293b",
-                border: "#334155",
-                text: "#f8fafc",
-                muted: "#94a3b8",
+                bg: "#0a0f1a",
+                card: "#111827",
+                border: "#1f2937",
+                text: "#f3f4f6",
+                muted: "#9ca3af",
               },
             },
             boxShadow: {
               card: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-              "card-hover":
-                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+              "card-hover": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+              glow: "0 0 20px rgba(12, 135, 255, 0.5)",
+              "glow-secondary": "0 0 20px rgba(249, 115, 22, 0.5)",
             },
             animation: {
-              "fade-in": "fadeIn 0.5s ease-in-out",
-              "slide-up": "slideUp 0.5s ease-out",
+              "fade-in": "fadeIn 0.6s ease-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              "slide-down": "slideDown 0.6s ease-out",
+              "slide-in-right": "slideInRight 0.6s ease-out",
+              "slide-in-left": "slideInLeft 0.6s ease-out",
+              float: "float 3s ease-in-out infinite",
+              pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              wave: "wave 2.5s ease-in-out infinite",
+              bounce: "bounce 1s ease-in-out infinite",
             },
             keyframes: {
               fadeIn: {
@@ -101,8 +109,32 @@
                 "100%": { opacity: "1" },
               },
               slideUp: {
-                "0%": { transform: "translateY(20px)", opacity: "0" },
+                "0%": { transform: "translateY(30px)", opacity: "0" },
                 "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              slideDown: {
+                "0%": { transform: "translateY(-30px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              slideInRight: {
+                "0%": { transform: "translateX(30px)", opacity: "0" },
+                "100%": { transform: "translateX(0)", opacity: "1" },
+              },
+              slideInLeft: {
+                "0%": { transform: "translateX(-30px)", opacity: "0" },
+                "100%": { transform: "translateX(0)", opacity: "1" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              wave: {
+                "0%": { transform: "rotate(0deg)" },
+                "20%": { transform: "rotate(-10deg)" },
+                "40%": { transform: "rotate(10deg)" },
+                "60%": { transform: "rotate(-10deg)" },
+                "80%": { transform: "rotate(10deg)" },
+                "100%": { transform: "rotate(0deg)" },
               },
             },
           },
@@ -114,14 +146,15 @@
       @layer base {
         html {
           scroll-behavior: smooth;
+          @apply scroll-pt-20;
         }
 
         body {
-          @apply font-sans text-slate-700 bg-slate-50 antialiased;
+          @apply font-sans text-slate-700 bg-gradient-to-br from-slate-50 to-slate-100 antialiased selection:bg-primary-200 selection:text-primary-900;
         }
 
         .dark body {
-          @apply bg-dark-bg text-dark-text;
+          @apply bg-gradient-to-br from-dark-bg to-dark-card text-dark-text selection:bg-primary-900 selection:text-primary-100;
         }
 
         h1,
@@ -130,7 +163,7 @@
         h4,
         h5,
         h6 {
-          @apply font-heading font-semibold text-slate-800;
+          @apply font-heading font-bold text-slate-800 tracking-tight;
         }
 
         .dark h1,
@@ -143,164 +176,119 @@
         }
 
         a {
-          @apply text-primary-600 transition-all duration-300 ease-in-out;
-        }
-
-        a:hover {
-          @apply text-primary-700;
+          @apply text-primary-600 transition-all duration-300 ease-in-out hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded;
         }
 
         .dark a {
-          @apply text-primary-400;
+          @apply text-primary-400 hover:text-primary-300 focus:ring-primary-400;
         }
 
-        .dark a:hover {
-          @apply text-primary-300;
+        ::selection {
+          @apply bg-primary-200 text-primary-900;
+        }
+
+        .dark ::selection {
+          @apply bg-primary-900 text-primary-100;
+        }
+
+        .gradient-text {
+          @apply text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-500;
+        }
+
+        .dark .gradient-text {
+          @apply from-primary-400 to-secondary-400;
         }
       }
 
       @layer components {
         .section {
-          @apply pb-12;
+          @apply py-20 md:py-32;
+        }
+
+        .container {
+          @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
         }
 
         .section-title {
-          @apply text-2xl md:text-3xl font-bold mb-8 relative inline-block;
+          @apply text-4xl md:text-5xl font-bold mb-16 relative inline-block gradient-text;
         }
 
         .section-title::after {
           content: "";
-          @apply absolute bottom-0 left-0 w-16 h-1 bg-primary-500 rounded;
+          @apply absolute -bottom-4 left-0 w-32 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded;
         }
 
         .card {
-          @apply bg-white rounded-xl shadow-card p-6 transition-all duration-300 border border-slate-100;
+          @apply bg-white/80 backdrop-blur-lg rounded-2xl shadow-lg p-8 border border-slate-200/50 transition-all duration-300 hover:shadow-xl hover:border-primary-200/50;
         }
 
         .dark .card {
-          @apply bg-dark-card border-dark-border shadow-none;
+          @apply bg-dark-card/90 border-dark-border/50 hover:border-primary-500/50;
         }
 
-        .card:hover {
-          @apply shadow-card-hover;
+        .glass-card {
+          @apply bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-lg;
         }
 
-        .dark .card:hover {
-          @apply border-primary-700 shadow-none;
+        .dark .glass-card {
+          @apply bg-dark-card/10 border-dark-border/20;
         }
 
         .btn {
-          @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+          @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
         }
 
         .btn-primary {
-          @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+          @apply bg-gradient-to-r from-primary-600 to-primary-500 text-white hover:from-primary-700 hover:to-primary-600 focus:ring-primary-500 shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40;
         }
 
         .dark .btn-primary {
-          @apply bg-primary-600 hover:bg-primary-700;
+          @apply from-primary-500 to-primary-400 hover:from-primary-600 hover:to-primary-500;
         }
 
         .btn-secondary {
-          @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+          @apply bg-gradient-to-r from-secondary-600 to-secondary-500 text-white hover:from-secondary-700 hover:to-secondary-600 focus:ring-secondary-500 shadow-lg shadow-secondary-500/25 hover:shadow-secondary-500/40;
         }
 
         .btn-outline {
-          @apply border border-slate-300 text-slate-700 hover:bg-slate-50 focus:ring-slate-500;
+          @apply border-2 border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-primary-500 focus:ring-slate-500 hover:text-primary-600;
         }
 
         .dark .btn-outline {
-          @apply border-dark-border text-dark-text hover:bg-dark-card;
+          @apply border-dark-border text-dark-text hover:bg-dark-card/50 hover:border-primary-500 hover:text-primary-400;
         }
 
         .skill-bar {
-          @apply h-2.5 bg-slate-200 rounded-full overflow-hidden;
+          @apply h-3 bg-slate-200/50 rounded-full overflow-hidden backdrop-blur-sm;
         }
 
         .dark .skill-bar {
-          @apply bg-dark-border;
+          @apply bg-dark-border/50;
         }
 
         .skill-progress {
-          @apply h-full bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full transition-all duration-1000;
+          @apply h-full bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full transition-all duration-1000 relative;
+        }
+
+        .skill-progress::after {
+          content: "";
+          @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent animate-pulse;
         }
 
         .timeline-item {
-          @apply relative pl-8 pb-8 border-l border-slate-200 last:border-transparent last:pb-0;
+          @apply relative pl-12 pb-12 border-l-2 border-slate-200/50 last:border-transparent last:pb-0;
         }
 
         .dark .timeline-item {
-          @apply border-dark-border;
+          @apply border-dark-border/50;
         }
 
         .timeline-dot {
-          @apply absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-primary-500;
+          @apply absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 ring-4 ring-white/80 dark:ring-dark-bg/80 animate-pulse;
         }
 
-        .testimonial-card {
-          @apply relative p-6 rounded-xl bg-white shadow-card border border-slate-100;
-        }
-
-        .dark .testimonial-card {
-          @apply bg-dark-card border-dark-border shadow-none;
-        }
-
-        .testimonial-card::before {
-          content: '"';
-          @apply absolute top-2 left-4 text-6xl text-primary-200 font-serif opacity-50;
-        }
-
-        .dark .testimonial-card::before {
-          @apply text-primary-900 opacity-20;
-        }
-
-        .form-switch {
-          @apply relative inline-flex items-center cursor-pointer;
-        }
-
-        .form-switch input {
-          @apply sr-only;
-        }
-
-        .slider {
-          @apply w-11 h-6 bg-slate-300 rounded-full transition-all duration-300 before:content-[''] before:absolute before:top-[2px] before:left-[2px] before:w-5 before:h-5 before:bg-white before:rounded-full before:transition-all before:duration-300;
-        }
-
-        input:checked + .slider {
-          @apply bg-primary-600;
-        }
-
-        input:checked + .slider:before {
-          @apply translate-x-5;
-        }
-
-        .github-activity {
-          @apply max-h-[600px] overflow-y-auto pr-2 scrollbar;
-        }
-
-        .scrollbar {
-          @apply scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent;
-        }
-
-        .dark .scrollbar {
-          @apply scrollbar-thumb-dark-border;
-        }
-
-        @variants responsive {
-          .scrollbar-thin {
-            scrollbar-width: thin;
-          }
-          .scrollbar-thumb-slate-300::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1;
-            border-radius: 9999px;
-          }
-          .scrollbar-thumb-dark-border::-webkit-scrollbar-thumb {
-            background-color: #334155;
-            border-radius: 9999px;
-          }
-          .scrollbar-track-transparent::-webkit-scrollbar-track {
-            background-color: transparent;
-          }
+        .social-icon {
+          @apply w-12 h-12 rounded-xl bg-slate-100 dark:bg-dark-border/30 flex items-center justify-center text-slate-600 dark:text-dark-text hover:bg-primary-500 dark:hover:bg-primary-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-6;
         }
       }
     </style>
@@ -324,39 +312,59 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
 
-  <body class="pt-16">
+  <body class="dark:bg-dark-bg">
     <!-- Navbar -->
     <nav
-      class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-slate-200 transition-all duration-300 dark:bg-dark-bg/90 dark:border-dark-border"
+      class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-slate-200/50 transition-all duration-300 dark:bg-dark-bg/80 dark:border-dark-border/50"
     >
-      <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16">
+      <div class="container">
+        <div class="flex items-center justify-between h-20">
           <a
             href="#"
-            class="text-xl font-bold text-slate-800 dark:text-dark-text no-underline hover:no-underline"
+            class="text-2xl font-bold gradient-text no-underline hover:no-underline"
           >
-            Md<span class="text-primary-600 dark:text-primary-400"
+            Md<span class="text-secondary-500 dark:text-secondary-400"
               >Takiuddin</span
             >
           </a>
 
-          <div class="flex items-center gap-4">
-            <div class="form-switch">
-              <input type="checkbox" id="darkSwitch" class="sr-only" />
-              <label for="darkSwitch" class="slider"></label>
-              <span
-                class="ml-2 text-sm font-medium text-slate-700 dark:text-dark-text hidden md:block"
-                >Dark</span
+          <div class="flex items-center gap-6">
+            <div class="hidden md:flex items-center gap-6">
+              <a
+                href="#about"
+                class="text-slate-600 dark:text-dark-muted hover:text-primary-600 dark:hover:text-primary-400"
+                >About</a
+              >
+              <a
+                href="#experience"
+                class="text-slate-600 dark:text-dark-muted hover:text-primary-600 dark:hover:text-primary-400"
+                >Experience</a
+              >
+              <a
+                href="#skills"
+                class="text-slate-600 dark:text-dark-muted hover:text-primary-600 dark:hover:text-primary-400"
+                >Skills</a
+              >
+              <a
+                href="#github"
+                class="text-slate-600 dark:text-dark-muted hover:text-primary-600 dark:hover:text-primary-400"
+                >GitHub</a
               >
             </div>
 
-            <a
-              href="mailto:taki1502106@gmail.com"
-              target="_blank"
-              class="btn btn-primary contact-btn text-xs md:text-base"
-            >
-              <i class="fas fa-paper-plane mr-2"></i> Contact Me
-            </a>
+            <div class="flex items-center gap-4">
+              <button
+                id="darkSwitch"
+                class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-border/30 flex items-center justify-center text-slate-600 dark:text-dark-text hover:bg-primary-500 dark:hover:bg-primary-500 hover:text-white transition-all duration-300"
+              >
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block"></i>
+              </button>
+
+              <a href="mailto:taki1502106@gmail.com" class="btn btn-primary">
+                <i class="fas fa-paper-plane mr-2"></i> Contact Me
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -364,49 +372,47 @@
 
     <!-- Hero Section -->
     <section
-      class="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-dark-bg dark:to-dark-bg"
+      class="min-h-screen flex items-center pt-20 pb-32 overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 dark:from-dark-bg dark:to-dark-card relative"
     >
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div class="w-full md:w-1/3 flex justify-center">
-            <div class="relative">
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full blur-lg opacity-20 animate-pulse"
-              ></div>
-              <img
-                src="https://avatars.githubusercontent.com/u/25157202"
-                alt="Md Takiuddin"
-                class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-white dark:border-dark-card shadow-lg relative z-10"
-              />
-            </div>
-          </div>
+      <!-- Background Decoration -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div
+          class="absolute -top-1/2 -right-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl"
+        ></div>
+      </div>
 
-          <div class="w-full md:w-2/3 text-center md:text-left">
+      <div class="container relative">
+        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+          <div class="w-full md:w-1/2 text-center md:text-left">
             <div class="animate-fade-in">
-              <h1
-                class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-slate-800 dark:text-dark-text"
+              <span
+                class="inline-block px-4 py-2 rounded-full bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 text-sm font-medium mb-6"
               >
-                Md
-                <span class="text-primary-600 dark:text-primary-400"
-                  >Takiuddin</span
-                >
+                👋 Welcome to my portfolio
+              </span>
+
+              <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+                Hi, I'm <span class="gradient-text">Takiuddin</span>
               </h1>
 
-              <h2
-                class="text-xl md:text-2xl text-slate-600 dark:text-dark-muted mb-6"
-              >
-                Software Developer
-              </h2>
-
               <p
-                class="text-lg text-slate-600 dark:text-dark-muted mb-8 max-w-2xl"
+                class="text-xl md:text-2xl text-slate-600 dark:text-dark-muted mb-8 leading-relaxed"
               >
-                Specialized in backend development with expertise in FastAPI,
-                Flask, Python, Node.js, and modern JavaScript frameworks.
-                Passionate about clean code and innovative solutions.
+                A passionate
+                <span class="text-primary-600 dark:text-primary-400"
+                  >Software Developer</span
+                >
+                specialized in backend development with expertise in modern
+                technologies.
               </p>
 
-              <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+              <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                <a href="#about" class="btn btn-primary">
+                  <i class="fas fa-user-circle mr-2"></i> About Me
+                </a>
                 <a
                   href="https://github.com/takiuddinahmed"
                   target="_blank"
@@ -414,20 +420,67 @@
                 >
                   <i class="fab fa-github mr-2"></i> GitHub
                 </a>
+              </div>
+
+              <div
+                class="mt-12 flex items-center gap-6 justify-center md:justify-start"
+              >
+                <a
+                  href="https://github.com/takiuddinahmed"
+                  target="_blank"
+                  class="social-icon"
+                >
+                  <i class="fab fa-github text-xl"></i>
+                </a>
                 <a
                   href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
                   target="_blank"
-                  class="btn btn-outline"
+                  class="social-icon"
                 >
-                  <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                  <i class="fab fa-linkedin-in text-xl"></i>
                 </a>
                 <a
                   href="mailto:taki1502106@gmail.com"
                   target="_blank"
-                  class="btn btn-primary contact-btn"
+                  class="social-icon"
                 >
-                  <i class="fas fa-paper-plane mr-2"></i> Contact Me
+                  <i class="fas fa-envelope text-xl"></i>
                 </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2">
+            <div class="relative animate-float">
+              <!-- Profile Image Container -->
+              <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full blur-2xl opacity-20 animate-pulse"
+                ></div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/25157202"
+                  alt="Md Takiuddin"
+                  class="w-full h-full rounded-full object-cover border-4 border-white dark:border-dark-card shadow-xl relative z-10"
+                />
+                <!-- Floating Badges -->
+                <div
+                  class="absolute -top-4 -right-4 w-20 h-20 bg-white dark:bg-dark-card rounded-2xl shadow-lg p-4 animate-float"
+                  style="animation-delay: 0.2s"
+                >
+                  <i class="fab fa-python text-3xl text-blue-500"></i>
+                </div>
+                <div
+                  class="absolute -bottom-4 -left-4 w-20 h-20 bg-white dark:bg-dark-card rounded-2xl shadow-lg p-4 animate-float"
+                  style="animation-delay: 0.4s"
+                >
+                  <i class="fab fa-node-js text-3xl text-green-500"></i>
+                </div>
+                <div
+                  class="absolute top-1/2 -right-8 transform -translate-y-1/2 w-20 h-20 bg-white dark:bg-dark-card rounded-2xl shadow-lg p-4 animate-float"
+                  style="animation-delay: 0.6s"
+                >
+                  <i class="fab fa-react text-3xl text-blue-400"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -435,433 +488,370 @@
       </div>
     </section>
 
-    <div class="container mx-auto px-4">
-      <div class="flex flex-wrap -mx-4">
-        <!-- Main Content -->
-        <div class="w-full lg:w-2/3 px-4">
-          <!-- About Section -->
-          <section id="about" class="section">
-            <div class="card">
-              <h2 class="section-title">About Me</h2>
-              <div class="prose max-w-none dark:prose-invert">
-                <p class="text-slate-600 dark:text-dark-muted leading-relaxed">
-                  Welcome to the professional domain of Md Takiuddin, a backend
-                  software developer adept in FastAPI, Flask, Python,
-                  SQLAlchemy, PostgreSQL, MongoDB, and more. With proficiency in
-                  Node.js, Nest.js, Next.js, React, TypeScript, and JavaScript,
-                  Md Takiuddin offers versatile solutions for diverse projects.
-                </p>
-                <p
-                  class="text-slate-600 dark:text-dark-muted leading-relaxed mt-4"
-                >
-                  Skilled in Golang, C/C++, and Dart, Md Takiuddin embodies
-                  adaptability and continual learning. A champion of clean,
-                  test-driven code, Md Takiuddin ensures reliability using
-                  Pytest, Jest, and Cypress. Collaborative and communicative, Md
-                  Takiuddin excels in team environments, delivering excellence
-                  in backend performance optimization, bug resolution, and
-                  coding best practices. Elevate your projects with Md Takiuddin
-                  today.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Experience Section -->
-          <section id="experience" class="section">
-            <div class="card">
-              <h2 class="section-title">Work Experience</h2>
-
-              <div class="mt-8">
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="animate-slide-up">
-                    <h3
-                      class="text-lg font-semibold text-slate-800 dark:text-dark-text"
-                    >
-                      Software Developer
-                    </h3>
-                    <div class="flex flex-wrap items-center gap-2 mt-1 mb-3">
-                      <a
-                        href="https://cognitus.com/"
-                        target="_blank"
-                        class="text-primary-600 dark:text-primary-400 font-medium hover:underline"
-                      >
-                        Cognitus Consulting LLC
-                      </a>
-                      <span class="text-slate-400 dark:text-dark-muted">•</span>
-                      <span class="text-slate-500 dark:text-dark-muted text-sm">
-                        Nov 2023 - Present
-                      </span>
-                    </div>
-                    <p class="text-slate-600 dark:text-dark-muted">
-                      Cognitus Consulting LLC is a consulting and software
-                      company that provides customized software solutions that
-                      adapt to a business's unique objectives and help
-                      businesses thrive in today's dynamic market.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="animate-slide-up">
-                    <h3
-                      class="text-lg font-semibold text-slate-800 dark:text-dark-text"
-                    >
-                      Software Developer
-                    </h3>
-                    <div class="flex flex-wrap items-center gap-2 mt-1 mb-3">
-                      <a
-                        href="https://grype.ca"
-                        target="_blank"
-                        class="text-primary-600 dark:text-primary-400 font-medium hover:underline"
-                      >
-                        Grype Digital
-                      </a>
-                      <span class="text-slate-400 dark:text-dark-muted">•</span>
-                      <span class="text-slate-500 dark:text-dark-muted text-sm">
-                        May 2022 - Nov 2023
-                      </span>
-                    </div>
-                    <p class="text-slate-600 dark:text-dark-muted">
-                      Grype Digital is a software company that builds membership
-                      sites for associations. Our custom-built membership site
-                      and proprietary member engagement system called Member
-                      Lounge can help grow your membership, member engagement,
-                      and member retention.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="animate-slide-up">
-                    <h3
-                      class="text-lg font-semibold text-slate-800 dark:text-dark-text"
-                    >
-                      Mobile App Development Trainer
-                    </h3>
-                    <div class="flex flex-wrap items-center gap-2 mt-1 mb-3">
-                      <a
-                        href="https://gameapp.gov.bd"
-                        target="_blank"
-                        class="text-primary-600 dark:text-primary-400 font-medium hover:underline"
-                      >
-                        Skill Development for Mobile Game & Application
-                      </a>
-                      <span class="text-slate-400 dark:text-dark-muted">•</span>
-                      <span class="text-slate-500 dark:text-dark-muted text-sm">
-                        Sep 2021 - Mar 2022
-                      </span>
-                    </div>
-                    <p class="text-slate-600 dark:text-dark-muted">
-                      Skill Development for Mobile Game & Application introduces
-                      mobile app development training (Flutter) to ensure the
-                      sustainable development of ICT sectors.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="animate-slide-up">
-                    <h3
-                      class="text-lg font-semibold text-slate-800 dark:text-dark-text"
-                    >
-                      Software Developer
-                    </h3>
-                    <div class="flex flex-wrap items-center gap-2 mt-1 mb-3">
-                      <a
-                        href="https://Bugfixers.net"
-                        target="_blank"
-                        class="text-primary-600 dark:text-primary-400 font-medium hover:underline"
-                      >
-                        Bugfixers
-                      </a>
-                      <span class="text-slate-400 dark:text-dark-muted">•</span>
-                      <span class="text-slate-500 dark:text-dark-muted text-sm">
-                        Jul 2020 - Aug 2021
-                      </span>
-                    </div>
-                    <p class="text-slate-600 dark:text-dark-muted">
-                      Bugfixers are now working for startups and SME businesses,
-                      to provide effective and efficient solutions for IT and
-                      Digital Marketing.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- GitHub Section -->
-          <section id="github" class="section">
-            <div class="card overflow-hidden">
-              <h2 class="section-title">My GitHub</h2>
-
-              <div
-                id="github-graph"
-                class="github-graph mt-8 rounded-lg overflow-hidden"
-              ></div>
-
-              <div class="mt-8">
-                <h3
-                  class="text-lg font-semibold mb-4 text-slate-800 dark:text-dark-text"
-                >
-                  Recent Activity
-                </h3>
-                <div id="ghfeed" class="github-activity"></div>
-              </div>
-            </div>
-          </section>
+    <!-- Main Content -->
+    <div class="container relative z-10">
+      <!-- About Section -->
+      <section id="about" class="section">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <span
+            class="inline-block px-4 py-2 rounded-full bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 text-sm font-medium mb-4"
+          >
+            About Me
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+            Passionate Software Developer
+          </h2>
+          <p class="text-lg text-slate-600 dark:text-dark-muted">
+            Crafting elegant solutions through code and innovation
+          </p>
         </div>
 
-        <!-- Sidebar -->
-        <div class="w-full lg:w-1/3 px-4">
-          <!-- Info Card -->
-          <aside class="mt-12 lg:mt-0">
-            <div class="card mb-8">
-              <h2
-                class="text-xl font-semibold mb-6 text-slate-800 dark:text-dark-text"
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card backdrop-blur-xl">
+            <div class="flex items-start mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400 mr-4"
               >
-                Contact Information
-              </h2>
-
-              <ul class="space-y-4">
-                <li class="flex items-start">
-                  <div
-                    class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
-                  >
-                    <i class="fas fa-map-marker-alt"></i>
-                  </div>
-                  <div class="ml-4">
-                    <span
-                      class="block text-sm font-medium text-slate-500 dark:text-dark-muted"
-                      >Location</span
-                    >
-                    <span class="text-slate-800 dark:text-dark-text"
-                      >Rajshahi, Bangladesh</span
-                    >
-                  </div>
-                </li>
-
-                <li class="flex items-start">
-                  <div
-                    class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
-                  >
-                    <i class="fas fa-envelope"></i>
-                  </div>
-                  <div class="ml-4">
-                    <span
-                      class="block text-sm font-medium text-slate-500 dark:text-dark-muted"
-                      >Email</span
-                    >
-                    <a
-                      href="mailto:taki1502106@gmail.com"
-                      target="_blank"
-                      class="text-slate-800 dark:text-dark-text hover:text-primary-600 dark:hover:text-primary-400"
-                    >
-                      <span
-                        class="__cf_email__"
-                        data-cfemail="f98d989290c8ccc9cbc8c9cfb99e94989095d79a9694"
-                        >taki1502106@gmail.com</span
-                      >
-                    </a>
-                  </div>
-                </li>
-
-                <li class="flex items-start">
-                  <div
-                    class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
-                  >
-                    <i class="fab fa-github"></i>
-                  </div>
-                  <div class="ml-4">
-                    <span
-                      class="block text-sm font-medium text-slate-500 dark:text-dark-muted"
-                      >GitHub</span
-                    >
-                    <a
-                      href="https://github.com/takiuddinahmed"
-                      target="_blank"
-                      class="text-slate-800 dark:text-dark-text hover:text-primary-600 dark:hover:text-primary-400"
-                    >
-                      github.com/takiuddinahmed
-                    </a>
-                  </div>
-                </li>
-
-                <li class="flex items-start">
-                  <div
-                    class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
-                  >
-                    <i class="fas fa-globe"></i>
-                  </div>
-                  <div class="ml-4">
-                    <span
-                      class="block text-sm font-medium text-slate-500 dark:text-dark-muted"
-                      >Website</span
-                    >
-                    <a
-                      href="https://takiuddin.me"
-                      target="_blank"
-                      class="text-slate-800 dark:text-dark-text hover:text-primary-600 dark:hover:text-primary-400"
-                    >
-                      takiuddin.me
-                    </a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </aside>
-
-          <!-- Skills Section -->
-          <aside class="mb-8">
-            <div class="card">
-              <h2
-                class="text-xl font-semibold mb-6 text-slate-800 dark:text-dark-text"
-              >
-                Skills
-              </h2>
-
-              <div class="space-y-6">
-                <div>
-                  <div class="flex justify-between mb-2">
-                    <span class="font-medium text-slate-700 dark:text-dark-text"
-                      >NodeJS & ExpressJS</span
-                    >
-                    <span class="text-sm text-slate-500 dark:text-dark-muted"
-                      >Expert</span
-                    >
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress w-[80%]" style="width: 0%"></div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="flex justify-between mb-2">
-                    <span class="font-medium text-slate-700 dark:text-dark-text"
-                      >Typescript & Javascript</span
-                    >
-                    <span class="text-sm text-slate-500 dark:text-dark-muted"
-                      >Expert</span
-                    >
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress w-[94%]" style="width: 0%"></div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="flex justify-between mb-2">
-                    <span class="font-medium text-slate-700 dark:text-dark-text"
-                      >HTML5, CSS3, SASS & LESS</span
-                    >
-                    <span class="text-sm text-slate-500 dark:text-dark-muted"
-                      >Expert</span
-                    >
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress w-[93%]" style="width: 0%"></div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="flex justify-between mb-2">
-                    <span class="font-medium text-slate-700 dark:text-dark-text"
-                      >Python</span
-                    >
-                    <span class="text-sm text-slate-500 dark:text-dark-muted"
-                      >Pro</span
-                    >
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress w-[75%]" style="width: 0%"></div>
-                  </div>
-                </div>
+                <i class="fas fa-code text-2xl"></i>
               </div>
-
-              <div class="mt-6">
-                <a
-                  href="https://github.com/takiuddinahmed"
-                  target="_blank"
-                  class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline"
-                >
-                  <i class="fas fa-external-link-alt mr-2"></i> More on GitHub
-                </a>
-              </div>
-            </div>
-          </aside>
-
-          <!-- Testimonials Section -->
-          <aside class="mb-8">
-            <div class="card">
-              <h2
-                class="text-xl font-semibold mb-6 text-slate-800 dark:text-dark-text"
-              >
-                Testimonials
-              </h2>
-
-              <div class="testimonial-card">
-                <p class="text-slate-600 dark:text-dark-muted relative z-10">
-                  Taki is an excellent software engineer and he is passionate
-                  about what he does. You can totally count on him to deliver
-                  your projects!
+              <div>
+                <h3 class="text-xl font-semibold mb-2">Backend Expertise</h3>
+                <p class="text-slate-600 dark:text-dark-muted">
+                  Specialized in FastAPI, Flask, Python, Node.js, and modern
+                  JavaScript frameworks. Building robust and scalable backend
+                  solutions.
                 </p>
-
-                <div class="mt-4 flex items-center">
-                  <div
-                    class="w-10 h-10 rounded-full bg-slate-200 dark:bg-dark-border flex items-center justify-center text-slate-500 dark:text-dark-muted"
-                  >
-                    <i class="fas fa-user"></i>
-                  </div>
-                  <div class="ml-3">
-                    <h4 class="font-medium text-slate-800 dark:text-dark-text">
-                      Nasimul Haque Robin
-                    </h4>
-                    <p class="text-sm text-slate-500 dark:text-dark-muted">
-                      CTO - Bugfixers
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-6">
-                <a
-                  href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
-                  target="_blank"
-                  class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline"
-                >
-                  <i class="fas fa-external-link-alt mr-2"></i> More on LinkedIn
-                </a>
               </div>
             </div>
-          </aside>
 
-          <!-- Education Section -->
-          <aside class="mb-8">
-            <div class="card">
-              <h2
-                class="text-xl font-semibold mb-6 text-slate-800 dark:text-dark-text"
+            <div class="flex items-start">
+              <div
+                class="w-12 h-12 rounded-xl bg-secondary-100 dark:bg-secondary-900/20 flex items-center justify-center text-secondary-600 dark:text-secondary-400 mr-4"
               >
-                Education
-              </h2>
+                <i class="fas fa-database text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">Database Management</h3>
+                <p class="text-slate-600 dark:text-dark-muted">
+                  Proficient in PostgreSQL, MongoDB, and SQLAlchemy. Designing
+                  efficient database architectures and optimizing queries.
+                </p>
+              </div>
+            </div>
+          </div>
 
-              <div class="space-y-6">
-                <div class="flex">
-                  <div class="flex-shrink-0 mt-1">
+          <div class="card backdrop-blur-xl">
+            <div class="flex items-start mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 mr-4"
+              >
+                <i class="fas fa-mobile-alt text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">Mobile Development</h3>
+                <p class="text-slate-600 dark:text-dark-muted">
+                  Experience in Flutter development and training. Creating
+                  beautiful and performant mobile applications.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/20 flex items-center justify-center text-green-600 dark:text-green-400 mr-4"
+              >
+                <i class="fas fa-cloud text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">DevOps & Cloud</h3>
+                <p class="text-slate-600 dark:text-dark-muted">
+                  Skilled in DevOps practices and cloud technologies.
+                  Implementing CI/CD pipelines and managing cloud
+                  infrastructure.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <span
+            class="inline-block px-4 py-2 rounded-full bg-secondary-100/50 dark:bg-secondary-900/20 text-secondary-600 dark:text-secondary-400 text-sm font-medium mb-4"
+          >
+            Experience
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+            Professional Journey
+          </h2>
+          <p class="text-lg text-slate-600 dark:text-dark-muted">
+            Building innovative solutions across different domains
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <!-- Timeline -->
+          <div class="lg:col-span-8">
+            <div class="space-y-8">
+              <!-- Cognitus -->
+              <div
+                class="card backdrop-blur-xl transform hover:scale-[1.02] transition-all duration-300"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0">
                     <div
-                      class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
+                      class="w-16 h-16 rounded-xl bg-white dark:bg-dark-card shadow-lg flex items-center justify-center p-3"
                     >
-                      <i class="fas fa-graduation-cap"></i>
+                      <img
+                        src="assets/images/cognitus-logo.png"
+                        alt="Cognitus"
+                        class="w-full h-full object-contain"
+                        onerror="this.src='https://via.placeholder.com/64?text=C'"
+                      />
                     </div>
                   </div>
-                  <div class="ml-4">
-                    <h3 class="font-medium text-slate-800 dark:text-dark-text">
-                      BSc Mechanical Engineering
-                    </h3>
+                  <div class="flex-grow">
+                    <div class="flex items-center justify-between mb-2">
+                      <h3 class="text-xl font-semibold">Software Developer</h3>
+                      <span class="text-sm text-slate-500 dark:text-dark-muted"
+                        >Nov 2023 - Present</span
+                      >
+                    </div>
+                    <a
+                      href="https://cognitus.com/"
+                      target="_blank"
+                      class="text-lg font-medium text-primary-600 dark:text-primary-400 hover:underline mb-3 inline-block"
+                    >
+                      Cognitus Consulting LLC
+                    </a>
+                    <p class="text-slate-600 dark:text-dark-muted">
+                      Developing customized software solutions that adapt to
+                      business's unique objectives. Working with modern
+                      technologies to create scalable and efficient
+                      applications.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1 rounded-lg bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 text-sm"
+                      >
+                        Node.js
+                      </span>
+                      <span
+                        class="px-3 py-1 rounded-lg bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 text-sm"
+                      >
+                        TypeScript
+                      </span>
+                      <span
+                        class="px-3 py-1 rounded-lg bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 text-sm"
+                      >
+                        React
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Grype Digital -->
+              <div
+                class="card backdrop-blur-xl transform hover:scale-[1.02] transition-all duration-300"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="w-16 h-16 rounded-xl bg-white dark:bg-dark-card shadow-lg flex items-center justify-center p-3"
+                    >
+                      <img
+                        src="assets/images/grype-logo.png"
+                        alt="Grype Digital"
+                        class="w-full h-full object-contain"
+                        onerror="this.src='https://via.placeholder.com/64?text=G'"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex-grow">
+                    <div class="flex items-center justify-between mb-2">
+                      <h3 class="text-xl font-semibold">Software Developer</h3>
+                      <span class="text-sm text-slate-500 dark:text-dark-muted"
+                        >May 2022 - Nov 2023</span
+                      >
+                    </div>
+                    <a
+                      href="https://grype.ca"
+                      target="_blank"
+                      class="text-lg font-medium text-primary-600 dark:text-primary-400 hover:underline mb-3 inline-block"
+                    >
+                      Grype Digital
+                    </a>
+                    <p class="text-slate-600 dark:text-dark-muted">
+                      Built membership sites and engagement systems for
+                      associations. Developed custom solutions to improve member
+                      retention and engagement.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1 rounded-lg bg-secondary-100/50 dark:bg-secondary-900/20 text-secondary-600 dark:text-secondary-400 text-sm"
+                      >
+                        Python
+                      </span>
+                      <span
+                        class="px-3 py-1 rounded-lg bg-secondary-100/50 dark:bg-secondary-900/20 text-secondary-600 dark:text-secondary-400 text-sm"
+                      >
+                        FastAPI
+                      </span>
+                      <span
+                        class="px-3 py-1 rounded-lg bg-secondary-100/50 dark:bg-secondary-900/20 text-secondary-600 dark:text-secondary-400 text-sm"
+                      >
+                        PostgreSQL
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Previous roles in collapsed view -->
+              <div class="relative">
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50/90 dark:to-dark-bg/90 backdrop-blur-sm rounded-2xl"
+                ></div>
+                <div class="card backdrop-blur-xl relative">
+                  <div class="text-center">
+                    <button class="btn btn-outline group">
+                      <span class="mr-2">View Previous Roles</span>
+                      <i
+                        class="fas fa-chevron-down group-hover:transform group-hover:translate-y-1 transition-transform"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Sidebar -->
+          <div class="lg:col-span-4 space-y-8">
+            <!-- Technical Skills -->
+            <div class="card backdrop-blur-xl">
+              <h3 class="text-xl font-semibold mb-6">Technical Skills</h3>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Backend Development</span>
+                    <span class="text-sm text-primary-600 dark:text-primary-400"
+                      >Expert</span
+                    >
+                  </div>
+                  <div
+                    class="h-2 bg-slate-200/50 dark:bg-dark-border/30 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full w-[90%] bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Frontend Development</span>
+                    <span class="text-sm text-primary-600 dark:text-primary-400"
+                      >Advanced</span
+                    >
+                  </div>
+                  <div
+                    class="h-2 bg-slate-200/50 dark:bg-dark-border/30 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full w-[80%] bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Database Design</span>
+                    <span class="text-sm text-primary-600 dark:text-primary-400"
+                      >Expert</span
+                    >
+                  </div>
+                  <div
+                    class="h-2 bg-slate-200/50 dark:bg-dark-border/30 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full w-[85%] bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">DevOps</span>
+                    <span class="text-sm text-primary-600 dark:text-primary-400"
+                      >Intermediate</span
+                    >
+                  </div>
+                  <div
+                    class="h-2 bg-slate-200/50 dark:bg-dark-border/30 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full w-[70%] bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technologies -->
+            <div class="card backdrop-blur-xl">
+              <h3 class="text-xl font-semibold mb-6">Technologies</h3>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-4 py-2 rounded-xl bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400"
+                  >Python</span
+                >
+                <span
+                  class="px-4 py-2 rounded-xl bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400"
+                  >Node.js</span
+                >
+                <span
+                  class="px-4 py-2 rounded-xl bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400"
+                  >TypeScript</span
+                >
+                <span
+                  class="px-4 py-2 rounded-xl bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400"
+                  >React</span
+                >
+                <span
+                  class="px-4 py-2 rounded-xl bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400"
+                  >FastAPI</span
+                >
+                <span
+                  class="px-4 py-2 rounded-xl bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="px-4 py-2 rounded-xl bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400"
+                  >MongoDB</span
+                >
+                <span
+                  class="px-4 py-2 rounded-xl bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400"
+                  >Docker</span
+                >
+              </div>
+            </div>
+
+            <!-- Education -->
+            <div class="card backdrop-blur-xl">
+              <h3 class="text-xl font-semibold mb-6">Education</h3>
+              <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
+                  >
+                    <i class="fas fa-graduation-cap text-2xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold">BSc Mechanical Engineering</h4>
                     <p class="text-slate-600 dark:text-dark-muted">RUET</p>
                     <p class="text-sm text-slate-500 dark:text-dark-muted">
                       2016 - 2022
@@ -869,18 +859,14 @@
                   </div>
                 </div>
 
-                <div class="flex">
-                  <div class="flex-shrink-0 mt-1">
-                    <div
-                      class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
-                    >
-                      <i class="fas fa-graduation-cap"></i>
-                    </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-secondary-100 dark:bg-secondary-900/20 flex items-center justify-center text-secondary-600 dark:text-secondary-400"
+                  >
+                    <i class="fas fa-school text-2xl"></i>
                   </div>
-                  <div class="ml-4">
-                    <h3 class="font-medium text-slate-800 dark:text-dark-text">
-                      Higher Secondary Certificate
-                    </h3>
+                  <div>
+                    <h4 class="font-semibold">Higher Secondary Certificate</h4>
                     <p class="text-slate-600 dark:text-dark-muted">
                       Rajshahi College
                     </p>
@@ -891,111 +877,209 @@
                 </div>
               </div>
             </div>
-          </aside>
-
-          <!-- Languages Section -->
-          <aside class="mb-8">
-            <div class="card">
-              <h2
-                class="text-xl font-semibold mb-6 text-slate-800 dark:text-dark-text"
-              >
-                Languages
-              </h2>
-
-              <div class="space-y-4">
-                <div>
-                  <div class="flex justify-between mb-1">
-                    <span class="font-medium text-slate-700 dark:text-dark-text"
-                      >Bengali</span
-                    >
-                    <span class="text-sm text-slate-500 dark:text-dark-muted"
-                      >Native Speaker</span
-                    >
-                  </div>
-                  <div class="flex text-primary-500 dark:text-primary-400">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="flex justify-between mb-1">
-                    <span class="font-medium text-slate-700 dark:text-dark-text"
-                      >English</span
-                    >
-                    <span class="text-sm text-slate-500 dark:text-dark-muted"
-                      >Professional Proficiency</span
-                    >
-                  </div>
-                  <div class="flex text-primary-500 dark:text-primary-400">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-800 text-white py-8 mt-12">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-4 md:mb-0">
-            <a
-              href="#"
-              class="text-2xl font-bold text-white no-underline hover:no-underline"
-            >
-              Md<span class="text-primary-400">Takiuddin</span>
-            </a>
-            <p class="text-slate-400 mt-2">Software Developer</p>
           </div>
+        </div>
+      </section>
 
-          <div class="flex space-x-4">
+      <!-- GitHub Section -->
+      <section id="github" class="section">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <span
+            class="inline-block px-4 py-2 rounded-full bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 text-sm font-medium mb-4"
+          >
+            Open Source
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+            GitHub Contributions
+          </h2>
+          <p class="text-lg text-slate-600 dark:text-dark-muted">
+            My open source contributions and activity
+          </p>
+        </div>
+
+        <div class="card backdrop-blur-xl overflow-hidden">
+          <div class="flex items-center justify-between mb-8">
+            <h3 class="text-xl font-semibold">Contribution Graph</h3>
             <a
               href="https://github.com/takiuddinahmed"
               target="_blank"
-              class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
+              class="btn btn-outline"
             >
-              <i class="fab fa-github"></i>
+              <i class="fab fa-github mr-2"></i> View Profile
+            </a>
+          </div>
+
+          <div
+            id="github-graph"
+            class="github-graph rounded-xl overflow-hidden bg-white dark:bg-dark-card p-4"
+          ></div>
+
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-4">Recent Activity</h3>
+            <div id="ghfeed" class="github-activity"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <span
+            class="inline-block px-4 py-2 rounded-full bg-secondary-100/50 dark:bg-secondary-900/20 text-secondary-600 dark:text-secondary-400 text-sm font-medium mb-4"
+          >
+            Get in Touch
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+            Let's Connect
+          </h2>
+          <p class="text-lg text-slate-600 dark:text-dark-muted">
+            Have a project in mind? Let's discuss how I can help.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card backdrop-blur-xl">
+            <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/20 flex items-center justify-center text-primary-600 dark:text-primary-400"
+                >
+                  <i class="fas fa-envelope text-2xl"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-slate-500 dark:text-dark-muted">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:taki1502106@gmail.com"
+                    class="font-medium hover:text-primary-600 dark:hover:text-primary-400"
+                  >
+                    taki1502106@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-secondary-100 dark:bg-secondary-900/20 flex items-center justify-center text-secondary-600 dark:text-secondary-400"
+                >
+                  <i class="fas fa-map-marker-alt text-2xl"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-slate-500 dark:text-dark-muted">
+                    Location
+                  </p>
+                  <p class="font-medium">Rajshahi, Bangladesh</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400"
+                >
+                  <i class="fab fa-linkedin-in text-2xl"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-slate-500 dark:text-dark-muted">
+                    LinkedIn
+                  </p>
+                  <a
+                    href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
+                    target="_blank"
+                    class="font-medium hover:text-primary-600 dark:hover:text-primary-400"
+                  >
+                    Takiuddin Ahmed
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card backdrop-blur-xl">
+            <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
+            <form class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium mb-2">Name</label>
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-dark-card border border-slate-200 dark:border-dark-border focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Email</label>
+                <input
+                  type="email"
+                  class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-dark-card border border-slate-200 dark:border-dark-border focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Message</label>
+                <textarea
+                  rows="4"
+                  class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-dark-card border border-slate-200 dark:border-dark-border focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-full">
+                <i class="fas fa-paper-plane mr-2"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-32 border-t border-slate-200 dark:border-dark-border">
+      <div class="container py-12">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-8"
+        >
+          <div class="text-center md:text-left">
+            <a
+              href="#"
+              class="text-2xl font-bold gradient-text no-underline hover:no-underline"
+            >
+              Md<span class="text-secondary-500 dark:text-secondary-400"
+                >Takiuddin</span
+              >
+            </a>
+            <p class="text-slate-600 dark:text-dark-muted mt-2">
+              Software Developer & Problem Solver
+            </p>
+          </div>
+
+          <div class="flex items-center gap-6">
+            <a
+              href="https://github.com/takiuddinahmed"
+              target="_blank"
+              class="social-icon"
+            >
+              <i class="fab fa-github text-xl"></i>
             </a>
             <a
               href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
               target="_blank"
-              class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
+              class="social-icon"
             >
-              <i class="fab fa-linkedin-in"></i>
+              <i class="fab fa-linkedin-in text-xl"></i>
             </a>
             <a
               href="mailto:taki1502106@gmail.com"
               target="_blank"
-              class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
+              class="social-icon"
             >
-              <i class="fas fa-envelope"></i>
+              <i class="fas fa-envelope text-xl"></i>
             </a>
           </div>
         </div>
 
-        <div class="border-t border-slate-700 mt-6 pt-6 text-center">
-          <small class="text-slate-400">
-            Designed with <i class="fas fa-heart text-red-500"></i> by
-            <a
-              href="https://takiuddin.me"
-              target="_blank"
-              class="text-white hover:text-primary-400"
-            >
-              Takiuddin
-            </a>
-            for developers
-          </small>
+        <div
+          class="mt-8 pt-8 border-t border-slate-200 dark:border-dark-border text-center"
+        >
+          <p class="text-slate-500 dark:text-dark-muted">
+            © 2024 Md Takiuddin. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
@@ -1014,7 +1098,6 @@
       type="text/javascript"
       src="assets/plugins/github-calendar/dist/github-calendar.min.js"
     ></script>
-    <!-- github activity plugin -->
     <script
       type="text/javascript"
       src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"
