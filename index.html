@@ -346,42 +346,84 @@
 
     <!-- Hero Section -->
     <section
-      class="min-h-screen flex items-center pt-20 pb-32 bg-white dark:bg-gray-900"
+      class="min-h-[80vh] flex items-center bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800"
     >
       <div class="container">
-        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-          <div class="w-full md:w-1/2 text-center md:text-left">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">
-              Hi, I'm
-              <span class="text-gray-900 dark:text-white">Takiuddin</span>
-            </h1>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Content -->
+          <div class="lg:col-span-7 space-y-8">
+            <div class="space-y-4">
+              <h1 class="text-4xl lg:text-5xl font-bold tracking-tight">
+                Software Developer specializing in
+                <span class="text-gray-900 dark:text-white block mt-2"
+                  >Backend Development</span
+                >
+              </h1>
 
-            <p
-              class="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed"
+              <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
+                Building scalable and efficient solutions with modern
+                technologies. Experienced in Python, Node.js, and cloud
+                infrastructure.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-4">
+              <a href="#contact" class="btn btn-primary"> Get in touch </a>
+              <a href="#experience" class="btn btn-outline">
+                View Experience
+              </a>
+            </div>
+
+            <div
+              class="pt-8 flex items-center gap-6 border-t border-gray-100 dark:border-gray-800"
             >
-              A Software Developer specialized in backend development with
-              expertise in modern technologies.
-            </p>
-
-            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a href="#about" class="btn btn-primary"> About Me </a>
               <a
                 href="https://github.com/takiuddinahmed"
                 target="_blank"
-                class="btn btn-outline"
+                class="social-icon"
+                aria-label="GitHub"
               >
-                GitHub
+                <i class="fab fa-github"></i>
               </a>
+              <a
+                href="https://www.linkedin.com/in/takiuddin-ahmed-871607b5/"
+                target="_blank"
+                class="social-icon"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="mailto:taki1502106@gmail.com"
+                class="social-icon"
+                aria-label="Email"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+              <span class="text-sm text-gray-500 dark:text-gray-400 ml-2"
+                >Available for new opportunities</span
+              >
             </div>
           </div>
 
-          <div class="w-full md:w-1/2">
-            <div class="relative">
+          <!-- Image -->
+          <div class="lg:col-span-5">
+            <div class="relative aspect-square max-w-md mx-auto">
               <img
                 src="https://avatars.githubusercontent.com/u/25157202"
                 alt="Md Takiuddin"
-                class="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-lg object-cover border border-gray-200 dark:border-gray-700"
+                class="rounded-lg object-cover w-full h-full border border-gray-200 dark:border-gray-700"
               />
+              <div
+                class="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 border border-gray-100 dark:border-gray-700"
+              >
+                <div class="flex items-center gap-2 text-sm">
+                  <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                  <span class="text-gray-600 dark:text-gray-400"
+                    >Backend Developer</span
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
