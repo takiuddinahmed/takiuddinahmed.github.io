@@ -178,11 +178,11 @@
         }
 
         a {
-          @apply text-gray-900 transition-all duration-200 ease-in-out hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded;
+          @apply text-gray-900 transition-all duration-200 ease-in-out hover:text-gray-600 focus:outline-none active:outline-none rounded;
         }
 
         .dark a {
-          @apply text-white hover:text-gray-300 focus:ring-white;
+          @apply text-white hover:text-gray-300 active:outline-none active:ring-0 focus:outline-none focus:ring-0;
         }
 
         ::selection {
@@ -199,6 +199,15 @@
 
         .dark .gradient-text {
           @apply text-white;
+        }
+
+        /* Remove focus and active styles for all interactive elements */
+        a,
+        button,
+        input,
+        textarea,
+        select {
+          @apply focus:outline-none focus:ring-0 focus:ring-offset-0 active:outline-none active:ring-0;
         }
       }
 
@@ -224,15 +233,15 @@
         }
 
         .btn {
-          @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+          @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-0 active:outline-none active:ring-0 disabled:opacity-50 disabled:cursor-not-allowed;
         }
 
         .btn-primary {
-          @apply bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 focus:ring-gray-900 dark:focus:ring-white relative overflow-hidden;
+          @apply bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 relative overflow-hidden;
         }
 
         .btn-outline {
-          @apply border-2 border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 focus:ring-gray-300 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:border-gray-600;
+          @apply border-2 border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:border-gray-600;
         }
 
         .timeline-item {
@@ -248,7 +257,12 @@
         }
 
         .social-icon {
-          @apply w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200;
+          @apply w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 focus:outline-none focus:ring-0 active:outline-none active:ring-0;
+        }
+
+        /* Form elements focus and active styles */
+        .form-input {
+          @apply focus:outline-none focus:ring-0 focus:border-primary-500 active:outline-none active:ring-0;
         }
       }
     </style>
@@ -395,7 +409,7 @@
 
     <!-- Hero Section -->
     <section
-      class="relative min-h-[calc(100vh-5rem)] bg-white dark:bg-gray-900 flex items-center overflow-x-hidden"
+      class="relative min-h-[calc(100vh-5rem)] lg:min-h-screen bg-white dark:bg-gray-900 flex items-center overflow-x-hidden"
     >
       <!-- Subtle Grid Background -->
       <div
@@ -1452,11 +1466,11 @@
                     <label class="block text-sm font-medium mb-2"
                       >Message</label
                     >
-                    <textareaa
+                    <textarea
                       rows="4"
                       class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-dark-card/50 border border-slate-200/50 dark:border-dark-border/50 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-300"
                       placeholder="Your message here..."
-                    ></textareaa>
+                    ></textarea>
                   </div>
                   <button
                     type="submit"
