@@ -340,21 +340,23 @@
 
     <!-- Hero Section -->
     <section
-      class="min-h-screen bg-white dark:bg-gray-900 relative flex items-center"
+      class="relative min-h-[calc(100vh-5rem)] bg-white dark:bg-gray-900 flex items-center overflow-x-hidden"
     >
       <!-- Subtle Grid Background -->
       <div
         class="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
       ></div>
 
-      <div class="container relative">
+      <div class="container relative py-12 lg:py-20">
         <div class="max-w-7xl mx-auto">
           <!-- Main Content -->
           <div
             class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
           >
             <!-- Left Column - Content -->
-            <div class="lg:col-span-7 space-y-10">
+            <div
+              class="lg:col-span-7 space-y-8 lg:space-y-10 px-4 sm:px-6 lg:px-0"
+            >
               <!-- Header -->
               <div class="space-y-6">
                 <div
@@ -373,7 +375,9 @@
                   >
                 </div>
 
-                <h1 class="text-4xl lg:text-6xl font-bold tracking-tight">
+                <h1
+                  class="text-4xl lg:text-6xl font-bold tracking-tight max-w-3xl"
+                >
                   Hi, I'm
                   <span class="text-gray-900 dark:text-white">Takiuddin</span>
                   <span
@@ -393,21 +397,25 @@
               </div>
 
               <!-- Experience Highlights -->
-              <div class="flex items-center gap-12">
+              <div class="flex flex-wrap items-center gap-8 lg:gap-12">
                 <div>
                   <div class="text-3xl font-bold">5+</div>
                   <div class="text-sm text-gray-600 dark:text-gray-400">
                     Years of<br />Experience
                   </div>
                 </div>
-                <div class="h-12 w-px bg-gray-200 dark:bg-gray-700"></div>
+                <div
+                  class="hidden lg:block h-12 w-px bg-gray-200 dark:bg-gray-700"
+                ></div>
                 <div>
                   <div class="text-3xl font-bold">50+</div>
                   <div class="text-sm text-gray-600 dark:text-gray-400">
                     Projects<br />Completed
                   </div>
                 </div>
-                <div class="h-12 w-px bg-gray-200 dark:bg-gray-700"></div>
+                <div
+                  class="hidden lg:block h-12 w-px bg-gray-200 dark:bg-gray-700"
+                ></div>
                 <div>
                   <div class="text-3xl font-bold">3</div>
                   <div class="text-sm text-gray-600 dark:text-gray-400">
@@ -488,8 +496,8 @@
             </div>
 
             <!-- Right Column - Image -->
-            <div class="lg:col-span-5">
-              <div class="relative">
+            <div class="lg:col-span-5 px-4 sm:px-6 lg:px-0">
+              <div class="relative max-w-sm mx-auto lg:max-w-none">
                 <!-- Main Image -->
                 <div class="relative z-10">
                   <div
@@ -528,7 +536,7 @@
 
           <!-- Social Links -->
           <div
-            class="mt-16 flex items-center justify-center lg:justify-start gap-6"
+            class="mt-16 flex items-center justify-center lg:justify-start gap-6 px-4 sm:px-6 lg:px-0"
           >
             <a
               href="https://github.com/takiuddinahmed"
