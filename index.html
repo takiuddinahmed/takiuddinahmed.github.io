@@ -921,241 +921,270 @@
       </section>
 
       <!-- Skills Section -->
-      <section id="skills" class="section relative overflow-hidden">
-        <!-- Background Decorations -->
-        <div class="absolute inset-0 overflow-hidden opacity-10">
-          <div
-            class="absolute top-1/4 right-0 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl animate-float"
-          ></div>
-          <div
-            class="absolute bottom-1/4 left-0 w-96 h-96 bg-secondary-500 rounded-full mix-blend-multiply filter blur-3xl animate-float"
-            style="animation-delay: 1.5s"
-          ></div>
-        </div>
-
-        <div class="container relative">
-          <div class="max-w-4xl mx-auto text-center mb-16">
-            <span
-              class="inline-block px-4 py-2 rounded-full bg-primary-100/50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 text-sm font-medium mb-4"
+      <section id="skills" class="section bg-white dark:bg-slate-900 py-20">
+        <div class="container">
+          <div class="max-w-3xl mx-auto text-center mb-12">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-3"
             >
-              Skills & Expertise
-            </span>
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-              Technical Proficiency
+              Technical Skills
             </h2>
-            <p class="text-lg text-slate-600 dark:text-dark-muted">
-              Mastering modern technologies to create exceptional solutions
+            <p class="text-lg text-slate-600 dark:text-slate-400">
+              My proficiency in various technologies and tools.
             </p>
           </div>
 
           <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10"
           >
-            <!-- Backend Development -->
-            <div
-              class="card backdrop-blur-xl group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-server text-primary-500"></i> Backend
-                Development
-              </h3>
-              <div class="flex flex-wrap gap-4">
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-node-js text-3xl text-[#339933] group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Node.js</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-python text-3xl text-[#3776AB] group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Python</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fas fa-bolt text-3xl text-yellow-500 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">FastAPI</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-js-square text-3xl text-yellow-400 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Express.js</span>
-                </div>
+            <!-- Column 1: Backend & Frontend -->
+            <div>
+              <div class="mb-8">
+                <h3
+                  class="text-xl font-semibold text-primary-600 dark:text-primary-400 mb-4 pb-2 border-b border-slate-200 dark:border-slate-700"
+                >
+                  Backend Development
+                </h3>
+                <ul class="space-y-3">
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-primary-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-node-js text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Node.js
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-primary-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-python text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Python
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-primary-500 transition-colors"
+                  >
+                    <i
+                      class="fas fa-bolt text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >FastAPI
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-primary-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-js-square text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Express.js
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3
+                  class="text-xl font-semibold text-secondary-600 dark:text-secondary-400 mb-4 pb-2 border-b border-slate-200 dark:border-slate-700"
+                >
+                  Frontend Development
+                </h3>
+                <ul class="space-y-3">
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-secondary-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-react text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >React
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-secondary-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-js text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >TypeScript
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-secondary-500 transition-colors"
+                  >
+                    <i
+                      class="fas fa-paint-brush text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Tailwind CSS
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-secondary-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-neos text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Next.js
+                  </li>
+                </ul>
               </div>
             </div>
 
-            <!-- Frontend Development -->
-            <div
-              class="card backdrop-blur-xl group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-code text-secondary-500"></i> Frontend
-                Development
-              </h3>
-              <div class="flex flex-wrap gap-4">
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-react text-3xl text-[#61DAFB] group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">React</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-js text-3xl text-[#3178c6] group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">TypeScript</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fas fa-paint-brush text-3xl text-pink-400 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Tailwind</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-neos text-3xl text-gray-700 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Next.js</span>
-                </div>
+            <!-- Column 2: Database & Mobile -->
+            <div>
+              <div class="mb-8">
+                <h3
+                  class="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4 pb-2 border-b border-slate-200 dark:border-slate-700"
+                >
+                  Database & DevOps
+                </h3>
+                <ul class="space-y-3">
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-blue-500 transition-colors"
+                  >
+                    <i
+                      class="fas fa-database text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >PostgreSQL
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-blue-500 transition-colors"
+                  >
+                    <i
+                      class="fas fa-leaf text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >MongoDB
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-blue-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-docker text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Docker
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-blue-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-aws text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >AWS
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3
+                  class="text-xl font-semibold text-green-600 dark:text-green-400 mb-4 pb-2 border-b border-slate-200 dark:border-slate-700"
+                >
+                  Mobile Development
+                </h3>
+                <ul class="space-y-3">
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-green-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-android text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Flutter
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-green-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-google text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Dart
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-green-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-react text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >React Native
+                  </li>
+                </ul>
               </div>
             </div>
 
-            <!-- Database & DevOps -->
-            <div
-              class="card backdrop-blur-xl group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-database text-blue-500"></i> Database & DevOps
-              </h3>
-              <div class="flex flex-wrap gap-4">
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fas fa-database text-3xl text-blue-600 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">PostgreSQL</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fas fa-leaf text-3xl text-green-700 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">MongoDB</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-docker text-3xl text-[#2496ED] group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Docker</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-aws text-3xl text-[#FF9900] group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">AWS</span>
-                </div>
+            <!-- Column 3: Languages & Tools -->
+            <div>
+              <div class="mb-8">
+                <h3
+                  class="text-xl font-semibold text-purple-600 dark:text-purple-400 mb-4 pb-2 border-b border-slate-200 dark:border-slate-700"
+                >
+                  Programming Languages
+                </h3>
+                <ul class="space-y-3">
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-purple-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-js text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >JavaScript
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-purple-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-js text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >TypeScript
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-purple-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-python text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Python
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-purple-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-golang text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Go
+                  </li>
+                </ul>
               </div>
-            </div>
-
-            <!-- Mobile Development -->
-            <div
-              class="card backdrop-blur-xl group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-mobile-alt text-green-500"></i> Mobile
-                Development
-              </h3>
-              <div class="flex flex-wrap gap-4">
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-android text-3xl text-green-600 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Flutter</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-google text-3xl text-blue-400 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Dart</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-react text-3xl text-[#61DAFB] group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">React Native</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Programming Languages -->
-            <div
-              class="card backdrop-blur-xl group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-code text-purple-500"></i> Programming
-                Languages
-              </h3>
-              <div class="flex flex-wrap gap-4">
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-js text-3xl text-yellow-400 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">JavaScript</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-js text-3xl text-[#3178c6] group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">TypeScript</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-python text-3xl text-[#3776AB] group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Python</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-golang text-3xl text-blue-400 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Go</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tools & Others -->
-            <div
-              class="card backdrop-blur-xl group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-tools text-pink-500"></i> Tools & Others
-              </h3>
-              <div class="flex flex-wrap gap-4">
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-git-alt text-3xl text-[#F05032] group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Git</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fas fa-code text-3xl text-indigo-500 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">VS Code</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fab fa-linux text-3xl text-black group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Linux</span>
-                </div>
-                <div class="flex flex-col items-center group">
-                  <i
-                    class="fas fa-paper-plane text-3xl text-pink-400 group-hover:scale-110 transition-transform"
-                  ></i>
-                  <span class="mt-2 text-sm">Postman</span>
-                </div>
+              <div>
+                <h3
+                  class="text-xl font-semibold text-pink-600 dark:text-pink-400 mb-4 pb-2 border-b border-slate-200 dark:border-slate-700"
+                >
+                  Tools & Workflow
+                </h3>
+                <ul class="space-y-3">
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-pink-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-git-alt text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Git & GitHub
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-pink-500 transition-colors"
+                  >
+                    <i
+                      class="fas fa-code-branch text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >VS Code
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-pink-500 transition-colors"
+                  >
+                    <i
+                      class="fab fa-linux text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Linux Environment
+                  </li>
+                  <li
+                    class="flex items-center text-slate-700 dark:text-slate-300 hover:text-pink-500 transition-colors"
+                  >
+                    <i
+                      class="fas fa-paper-plane text-lg w-6 text-center mr-2 text-slate-500 dark:text-slate-400"
+                    ></i
+                    >Postman
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
