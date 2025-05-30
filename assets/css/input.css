@@ -200,7 +200,7 @@
   }
 
   .container {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply px-4 sm:px-6 lg:px-8;
   }
 
   .section-title {
@@ -246,5 +246,19 @@
   /* Form elements focus and active styles */
   .form-input {
     @apply focus:outline-none focus:ring-0 focus:border-primary-500 active:outline-none active:ring-0;
+  }
+}
+
+@utility container {
+  @variant sm {
+    @apply max-w-6xl mx-auto;
+  }
+
+  @variant lg {
+    @apply max-w-6xl mx-auto;
+  }
+
+  @variant xl {
+    @apply max-w-6xl mx-auto;
   }
 }
