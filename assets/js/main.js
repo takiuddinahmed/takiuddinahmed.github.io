@@ -8,17 +8,20 @@ const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 // Set initial theme
 if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-  html.classList.add("dark");
+  html.setAttribute("data-theme", "dark");
   darkSwitch.checked = true;
+} else {
+  html.removeAttribute("data-theme");
+  darkSwitch.checked = false;
 }
 
 // Handle theme toggle
 darkSwitch.addEventListener("change", function () {
   if (this.checked) {
-    html.classList.add("dark");
+    html.setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
   } else {
-    html.classList.remove("dark");
+    html.removeAttribute("data-theme");
     localStorage.setItem("theme", "light");
   }
 });
