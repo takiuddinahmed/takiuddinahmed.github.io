@@ -55,6 +55,81 @@ mobileMenuLinks.forEach((link) => {
 
 // Theme Toggle
 document.addEventListener("DOMContentLoaded", () => {
+  // --- Chat Widget Logic ---
+  const chatOpenBtn = document.getElementById("chat-open-btn");
+  const chatPopup = document.getElementById("chat-popup");
+  const chatCloseBtn = document.getElementById("chat-close-btn");
+  const chatForm = document.getElementById("chat-form");
+  const chatInput = document.getElementById("chat-input");
+  const chatMessages = document.getElementById("chat-messages");
+
+  // Toggle popup
+  function openChat() {
+    chatPopup.classList.remove("invisible", "opacity-0", "pointer-events-none");
+    chatPopup.classList.add("visible", "opacity-100");
+    setTimeout(() => chatInput.focus(), 300);
+  }
+  function closeChat() {
+    chatPopup.classList.add("invisible", "opacity-0", "pointer-events-none");
+    chatPopup.classList.remove("visible", "opacity-100");
+  }
+  if (chatOpenBtn && chatPopup && chatCloseBtn) {
+    chatOpenBtn.addEventListener("click", openChat);
+    chatCloseBtn.addEventListener("click", closeChat);
+  }
+
+  // Add message to chat
+  function addMessage(text, from) {
+    const msgDiv = document.createElement("div");
+    msgDiv.className = from === "user"
+      ? "text-right"
+      : "text-left";
+    msgDiv.innerHTML = `<span class="inline-block px-3 py-2 rounded-lg ${from === "user" ? "bg-primary-600 text-white" : "bg-slate-200 dark:bg-dark-border text-gray-800 dark:text-gray-100"} max-w-[75%]">${text}</span>`;
+    chatMessages.appendChild(msgDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  // Handle send
+  if (chatForm) {
+    chatForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const prompt = chatInput.value.trim();
+      if (!prompt) return;
+      addMessage(prompt, "user");
+      chatInput.value = "";
+      addMessage("<i class='fas fa-spinner fa-spin'></i> ...", "bot");
+      try {
+        const res = await fetch("http://localhost:3000/chatbot/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt }),
+        });
+        const data = await res.json();
+        // Remove spinner
+        chatMessages.lastChild.remove();
+        if (data && data.answer) {
+          addMessage(data.answer, "bot");
+        } else {
+          addMessage("Sorry, I didn't get a valid response.", "bot");
+        }
+      } catch (err) {
+        chatMessages.lastChild.remove();
+        addMessage("Error connecting to chatbot API.", "bot");
+      }
+    });
+  }
+  // Optional: open with Enter if focused on button
+  if (chatOpenBtn) {
+    chatOpenBtn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") openChat();
+    });
+  }
+  // Optional: close with Esc
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeChat();
+  });
+  // --- End Chat Widget Logic ---
+
   // Check for saved theme preference, otherwise use system preference
   if (
     localStorage.theme === "dark" ||

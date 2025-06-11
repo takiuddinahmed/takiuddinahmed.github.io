@@ -1241,5 +1241,57 @@
 
     <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
+    <!-- Chat Widget Start -->
+    <div id="chat-widget-container">
+      <!-- Floating Chat Button -->
+      <button
+        id="chat-open-btn"
+        class="fixed z-50 bottom-6 right-6 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg w-14 h-14 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-400 transition-all duration-300"
+      >
+        <i class="fas fa-comment-dots text-2xl"></i>
+      </button>
+      <!-- Chat Popup -->
+      <div
+        id="chat-popup"
+        class="fixed z-50 bottom-24 right-6 w-80 max-w-xs min-h-96 bg-white dark:bg-dark-card rounded-xl shadow-2xl border border-slate-200 dark:border-dark-border flex flex-col overflow-hidden transition-all duration-300 invisible opacity-0 pointer-events-none"
+      >
+        <!-- Header -->
+        <div
+          class="bg-primary-600 text-white px-4 py-3 flex items-center justify-between"
+        >
+          <span class="font-semibold">Chat with Me</span>
+          <button
+            id="chat-close-btn"
+            class="text-white hover:text-gray-200 text-lg focus:outline-none"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <!-- Messages -->
+        <div
+          id="chat-messages"
+          class="flex-1 px-4 py-3 space-y-2 overflow-y-auto bg-slate-50 dark:bg-dark-bg min-h-80 max-h-80"
+        ></div>
+        <!-- Input -->
+        <form
+          id="chat-form"
+          class="flex items-center gap-2 border-t border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card p-2"
+        >
+          <input
+            id="chat-input"
+            type="text"
+            class="flex-1 min-w-0 px-3 py-2 rounded-lg border border-slate-200 dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-primary-400 dark:bg-dark-bg dark:text-white"
+            placeholder="Type your message..."
+            autocomplete="off"
+          />
+          <button
+            type="submit"
+            class="ml-2 px-3 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-primary-400 transition-all duration-200"
+          >
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
