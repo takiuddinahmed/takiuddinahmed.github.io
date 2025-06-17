@@ -56,7 +56,11 @@ mobileMenuLinks.forEach((link) => {
 // Theme Toggle
 document.addEventListener("DOMContentLoaded", () => {
   // --- Chat Widget Logic ---
-  const chatOpenBtn = document.getElementById("chat-open-btn");
+
+  document.querySelectorAll(".chat-trigger").forEach((btn) => {
+    btn.addEventListener("click", openChat);
+  });
+
   const chatPopup = document.getElementById("chat-popup");
   const chatCloseBtn = document.getElementById("chat-close-btn");
   const chatForm = document.getElementById("chat-form");
@@ -73,8 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chatPopup.classList.add("invisible", "opacity-0", "pointer-events-none");
     chatPopup.classList.remove("visible", "opacity-100");
   }
-  if (chatOpenBtn && chatPopup && chatCloseBtn) {
-    chatOpenBtn.addEventListener("click", openChat);
+  if (chatPopup && chatCloseBtn) {
     chatCloseBtn.addEventListener("click", closeChat);
   }
 
@@ -120,13 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-  // Optional: open with Enter if focused on button
-  if (chatOpenBtn) {
-    chatOpenBtn.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") openChat();
-    });
-  }
-  // Optional: close with Esc
+
+  // close with Esc
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeChat();
   });
