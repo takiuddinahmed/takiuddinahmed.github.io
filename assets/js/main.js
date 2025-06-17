@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
       chatInput.value = "";
       addMessage("<i class='fas fa-spinner fa-spin'></i> ...", "bot");
       try {
-        const res = await fetch("http://34.41.18.95/chatbot/ask", {
+        const res = await fetch("https://ask-api.takiuddin.me/chatbot/ask", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ prompt }),
