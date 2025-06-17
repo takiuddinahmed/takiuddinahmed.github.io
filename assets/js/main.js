@@ -81,10 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add message to chat
   function addMessage(text, from) {
     const msgDiv = document.createElement("div");
-    msgDiv.className = from === "user"
-      ? "text-right"
-      : "text-left";
-    msgDiv.innerHTML = `<span class="inline-block px-3 py-2 rounded-lg ${from === "user" ? "bg-primary-600 text-white" : "bg-slate-200 dark:bg-dark-border text-gray-800 dark:text-gray-100"} max-w-[75%]">${text}</span>`;
+    msgDiv.className = from === "user" ? "text-right" : "text-left";
+    msgDiv.innerHTML = `<span class="inline-block px-3 py-2 rounded-lg ${
+      from === "user"
+        ? "bg-primary-600 text-white"
+        : "bg-slate-200 dark:bg-dark-border text-gray-800 dark:text-gray-100"
+    } max-w-[75%]">${text}</span>`;
     chatMessages.appendChild(msgDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
@@ -99,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       chatInput.value = "";
       addMessage("<i class='fas fa-spinner fa-spin'></i> ...", "bot");
       try {
-        const res = await fetch("http://localhost:3000/chatbot/ask", {
+        const res = await fetch("http://34.41.18.95/chatbot/ask", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ prompt }),
