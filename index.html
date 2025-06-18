@@ -1254,24 +1254,43 @@
       <!-- Chat Popup -->
       <div
         id="chat-popup"
-        class="fixed z-50 bottom-16 md:bottom-24 right-6 md:w-80 w-64 max-w-xs md:min-h-96 min-h-64 bg-white dark:bg-dark-card rounded-xl shadow-2xl border border-slate-200 dark:border-dark-border flex flex-col overflow-hidden transition-all duration-300 invisible opacity-0 pointer-events-none"
+        class="fixed z-50 bottom-16 md:bottom-24 right-6 md:w-80 w-64 max-w-xs bg-white dark:bg-dark-card rounded-xl shadow-2xl border border-slate-200 dark:border-dark-border flex flex-col overflow-hidden transition-all duration-300 invisible opacity-0 pointer-events-none"
+        data-default-class="fixed z-50 bottom-16 md:bottom-24 right-6 md:w-80 w-64 max-w-xs  bg-white dark:bg-dark-card rounded-xl shadow-2xl border border-slate-200 dark:border-dark-border flex flex-col overflow-hidden transition-all duration-300 min-[60vh] h-[60vh]"
+        data-maximized-class="fixed left-0 right-0 top-0 bottom-0 z-50 w-full max-w-none min-w-0 bg-white dark:bg-dark-card rounded-none shadow-none border-none flex flex-col transition-all duration-300 h-screen min-h-screen"
       >
         <!-- Header -->
         <div
           class="bg-primary-600 text-white px-4 py-3 flex items-center justify-between"
         >
           <span class="font-semibold">Chat with Me</span>
-          <button
-            id="chat-close-btn"
-            class="text-white hover:text-gray-200 text-lg focus:outline-none"
-          >
-            <i class="fas fa-times"></i>
-          </button>
+          <!-- Button group: maximize, minimize, close -->
+          <div class="flex gap-2 items-center">
+            <button
+              id="chat-maximize-btn"
+              class="text-white hover:text-gray-200 text-lg focus:outline-none"
+              title="Maximize"
+            >
+              <i class="fas fa-expand" id="maximize-icon"></i>
+            </button>
+            <button
+              id="chat-minimize-btn"
+              class="text-white hover:text-gray-200 text-lg focus:outline-none hidden"
+              title="Minimize"
+            >
+              <i class="fas fa-compress" id="minimize-icon"></i>
+            </button>
+            <button
+              id="chat-close-btn"
+              class="text-white hover:text-gray-200 text-lg focus:outline-none"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
         </div>
         <!-- Messages -->
         <div
           id="chat-messages"
-          class="flex-1 px-4 py-3 space-y-2 overflow-y-auto bg-slate-50 dark:bg-dark-bg min-h-80 max-h-80"
+          class="flex-1 px-4 py-3 space-y-2 overflow-y-auto bg-slate-50 dark:bg-dark-bg"
         ></div>
         <!-- Input -->
         <form

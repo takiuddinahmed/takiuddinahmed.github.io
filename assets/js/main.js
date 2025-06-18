@@ -63,12 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const chatPopup = document.getElementById("chat-popup");
   const chatCloseBtn = document.getElementById("chat-close-btn");
+  const chatMaximizeBtn = document.getElementById("chat-maximize-btn");
+  const chatMinimizeBtn = document.getElementById("chat-minimize-btn");
+  const maximizeIcon = document.getElementById("maximize-icon");
+  const minimizeIcon = document.getElementById("minimize-icon");
   const chatForm = document.getElementById("chat-form");
   const chatInput = document.getElementById("chat-input");
   const chatMessages = document.getElementById("chat-messages");
 
   // Toggle popup
   function openChat() {
+    // Always open in minimized state
+    chatPopup.setAttribute("data-maximized", "false");
+    chatPopup.className = chatPopup.getAttribute("data-default-class");
+    chatMaximizeBtn.classList.remove("hidden");
+    chatMinimizeBtn.classList.add("hidden");
     chatPopup.classList.remove("invisible", "opacity-0", "pointer-events-none");
     chatPopup.classList.add("visible", "opacity-100");
     setTimeout(() => chatInput.focus(), 300);
@@ -79,6 +88,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   if (chatPopup && chatCloseBtn) {
     chatCloseBtn.addEventListener("click", closeChat);
+  }
+
+  // Maximize
+  if (chatPopup && chatMaximizeBtn) {
+    chatMaximizeBtn.addEventListener("click", function () {
+      chatPopup.setAttribute("data-maximized", "true");
+      chatPopup.className = chatPopup.getAttribute("data-maximized-class");
+      chatMaximizeBtn.classList.add("hidden");
+      chatMinimizeBtn.classList.remove("hidden");
+      // Ensure chat input is visible
+      chatForm.classList.remove("hidden");
+      // Scroll to bottom
+      setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 100);
+    });
+  }
+  // Minimize
+  if (chatPopup && chatMinimizeBtn) {
+    chatMinimizeBtn.addEventListener("click", function () {
+      chatPopup.setAttribute("data-maximized", "false");
+      chatPopup.className = chatPopup.getAttribute("data-default-class");
+      chatMaximizeBtn.classList.remove("hidden");
+      chatMinimizeBtn.classList.add("hidden");
+      // Ensure chat input is visible
+      chatForm.classList.remove("hidden");
+      // Scroll to bottom
+      setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 100);
+    });
   }
 
   // Add message to chat
