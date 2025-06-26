@@ -100,7 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Ensure chat input is visible
       chatForm.classList.remove("hidden");
       // Scroll to bottom
-      setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 100);
+      setTimeout(() => {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 100);
     });
   }
   // Minimize
@@ -113,11 +115,16 @@ document.addEventListener("DOMContentLoaded", () => {
       // Ensure chat input is visible
       chatForm.classList.remove("hidden");
       // Scroll to bottom
-      setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 100);
+      setTimeout(() => {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 100);
     });
   }
 
   // Add message to chat
+  let conversationId = null;
+  // const apiUrl = "https://ask-api.takiuddin.me/chatbot/ask";
+  const apiUrl = "http://localhost:3000/chatbot/ask";
   function addMessage(text, from) {
     const msgDiv = document.createElement("div");
     msgDiv.className = from === "user" ? "text-right" : "text-left";
@@ -140,16 +147,25 @@ document.addEventListener("DOMContentLoaded", () => {
       chatInput.value = "";
       addMessage("<i class='fas fa-spinner fa-spin'></i> ...", "bot");
       try {
-        const res = await fetch("https://ask-api.takiuddin.me/chatbot/ask", {
+        // conversationId থাকলে সেটাও পাঠাবে
+        const body = { prompt };
+        if (conversationId) {
+          body.conversationId = conversationId;
+        }
+        const res = await fetch(apiUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ prompt }),
+          body: JSON.stringify(body),
         });
         const data = await res.json();
         // Remove spinner
         chatMessages.lastChild.remove();
         if (data && data.answer) {
           addMessage(data.answer, "bot");
+          // conversationId সংরক্ষণ
+          if (data.conversationId) {
+            conversationId = data.conversationId;
+          }
         } else {
           addMessage("Sorry, I didn't get a valid response.", "bot");
         }
