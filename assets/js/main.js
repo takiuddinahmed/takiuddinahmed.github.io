@@ -40,20 +40,46 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatInput = document.getElementById("chat-input");
   const chatMessages = document.getElementById("chat-messages");
 
-  // Toggle popup
+  // Sidebar open/close animation
   function openChat() {
-    // Always open in minimized state
     chatPopup.setAttribute("data-maximized", "false");
-    chatPopup.className = chatPopup.getAttribute("data-default-class");
-    chatMaximizeBtn.classList.remove("hidden");
-    chatMinimizeBtn.classList.add("hidden");
     chatPopup.classList.remove("invisible", "opacity-0", "pointer-events-none");
     chatPopup.classList.add("visible", "opacity-100");
+    // Sidebar style: slide in from right, always fully on screen
+    chatPopup.style.right = "0";
+    chatPopup.style.left = "auto";
+    chatPopup.style.transition =
+      "right 0.4s cubic-bezier(.4,2,.6,1), opacity 0.3s";
+    chatPopup.style.width = "450px";
+    chatPopup.style.maxWidth = "100vw";
+    chatPopup.style.height = "100vh";
+    chatPopup.style.top = "0";
+    chatPopup.style.bottom = "0";
+    chatPopup.style.left = "unset";
+    chatPopup.style.borderRadius = "0.75rem 0 0 0.75rem";
+    chatPopup.style.boxShadow = "-2px 0 24px 0 rgba(0,0,0,0.10)";
+    chatPopup.style.background = chatPopup.classList.contains("dark")
+      ? "#18181b"
+      : "#fff";
+    chatPopup.style.display = "flex";
+    chatPopup.style.flexDirection = "column";
+    chatPopup.style.position = "fixed";
+    chatPopup.style.zIndex = 9999;
+    chatMaximizeBtn.classList.remove("hidden");
+    chatMinimizeBtn.classList.add("hidden");
     setTimeout(() => chatInput.focus(), 300);
   }
   function closeChat() {
-    chatPopup.classList.add("invisible", "opacity-0", "pointer-events-none");
-    chatPopup.classList.remove("visible", "opacity-100");
+    // Sidebar style: slide out to right
+    chatPopup.style.right = "-400px";
+    chatPopup.style.left = "auto";
+    chatPopup.style.transition =
+      "right 0.4s cubic-bezier(.4,2,.6,1), opacity 0.3s";
+    setTimeout(() => {
+      chatPopup.classList.add("invisible", "opacity-0", "pointer-events-none");
+      chatPopup.classList.remove("visible", "opacity-100");
+      chatPopup.style.display = "none";
+    }, 400);
   }
   if (chatPopup && chatCloseBtn) {
     chatCloseBtn.addEventListener("click", closeChat);
@@ -63,12 +89,16 @@ document.addEventListener("DOMContentLoaded", function () {
   if (chatPopup && chatMaximizeBtn) {
     chatMaximizeBtn.addEventListener("click", function () {
       chatPopup.setAttribute("data-maximized", "true");
-      chatPopup.className = chatPopup.getAttribute("data-maximized-class");
+      chatPopup.style.width = "100vw";
+      chatPopup.style.right = "0";
+      chatPopup.style.left = "0";
+      chatPopup.style.borderRadius = "0";
+      chatPopup.style.height = "100vh";
+      chatPopup.style.top = "0";
+      chatPopup.style.bottom = "0";
       chatMaximizeBtn.classList.add("hidden");
       chatMinimizeBtn.classList.remove("hidden");
-      // Ensure chat input is visible
       chatForm.classList.remove("hidden");
-      // Scroll to bottom
       setTimeout(() => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
       }, 100);
@@ -78,12 +108,16 @@ document.addEventListener("DOMContentLoaded", function () {
   if (chatPopup && chatMinimizeBtn) {
     chatMinimizeBtn.addEventListener("click", function () {
       chatPopup.setAttribute("data-maximized", "false");
-      chatPopup.className = chatPopup.getAttribute("data-default-class");
+      chatPopup.style.width = "450px";
+      chatPopup.style.right = "0";
+      chatPopup.style.left = "auto";
+      chatPopup.style.borderRadius = "0.75rem 0 0 0.75rem";
+      chatPopup.style.height = "100vh";
+      chatPopup.style.top = "0";
+      chatPopup.style.bottom = "0";
       chatMaximizeBtn.classList.remove("hidden");
       chatMinimizeBtn.classList.add("hidden");
-      // Ensure chat input is visible
       chatForm.classList.remove("hidden");
-      // Scroll to bottom
       setTimeout(() => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
       }, 100);
@@ -94,14 +128,18 @@ document.addEventListener("DOMContentLoaded", function () {
   let conversationId = null;
   // const apiUrl = "https://ask-api.takiuddin.me/chatbot/ask";
   const apiUrl = "http://localhost:3000/chatbot/ask";
-  function addMessage(text, from) {
+  function addMessage(text, from, isLoading = false) {
     const msgDiv = document.createElement("div");
     msgDiv.className = from === "user" ? "text-right" : "text-left";
-    msgDiv.innerHTML = `<span class="inline-block px-3 py-2 rounded-lg ${
-      from === "user"
-        ? "bg-primary-600 text-white"
-        : "bg-slate-200 dark:bg-dark-border text-gray-800 dark:text-gray-100"
-    } max-w-[75%]">${text}</span>`;
+    if (isLoading) {
+      msgDiv.innerHTML = `<span class="inline-block px-3 py-2 rounded-lg bg-slate-200 dark:bg-dark-border text-gray-800 dark:text-gray-100 max-w-[75%] flex items-center gap-2"><span class='loader'></span> <span>Thinking...</span></span>`;
+    } else {
+      msgDiv.innerHTML = `<span class="inline-block px-3 py-2 rounded-lg ${
+        from === "user"
+          ? "bg-primary-600 text-white"
+          : "bg-slate-200 dark:bg-dark-border text-gray-800 dark:text-gray-100"
+      } max-w-[75%]">${text}</span>`;
+    }
     chatMessages.appendChild(msgDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
@@ -114,9 +152,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!prompt) return;
       addMessage(prompt, "user");
       chatInput.value = "";
-      addMessage("<i class='fas fa-spinner fa-spin'></i> ...", "bot");
+      addMessage("", "bot", true); // Show loader
       try {
-        // conversationId থাকলে সেটাও পাঠাবে
         const body = { prompt };
         if (conversationId) {
           body.conversationId = conversationId;
@@ -127,11 +164,10 @@ document.addEventListener("DOMContentLoaded", function () {
           body: JSON.stringify(body),
         });
         const data = await res.json();
-        // Remove spinner
+        // Remove loader
         chatMessages.lastChild.remove();
         if (data && data.answer) {
           addMessage(data.answer, "bot");
-          // conversationId সংরক্ষণ
           if (data.conversationId) {
             conversationId = data.conversationId;
           }
