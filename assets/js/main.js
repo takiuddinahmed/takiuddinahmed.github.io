@@ -89,9 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (chatPopup && chatMaximizeBtn) {
     chatMaximizeBtn.addEventListener("click", function () {
       chatPopup.setAttribute("data-maximized", "true");
-      chatPopup.style.width = "100vw";
+      chatPopup.style.width = "calc(100vw - 16px)";
       chatPopup.style.right = "0";
       chatPopup.style.left = "0";
+      chatPopup.style.marginLeft = "0";
+      chatPopup.style.transform = "none";
       chatPopup.style.borderRadius = "0";
       chatPopup.style.height = "100vh";
       chatPopup.style.top = "0";
