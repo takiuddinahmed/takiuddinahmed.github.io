@@ -102,18 +102,37 @@ document.addEventListener("DOMContentLoaded", function () {
   let conversationId = null;
   const apiUrl = "http://localhost:3000/chatbot/ask";
   function addMessage(text, from, isLoading = false) {
-    const msgDiv = document.createElement("div");
-    msgDiv.className = from === "user" ? "text-right" : "text-left";
-    if (isLoading) {
-      msgDiv.innerHTML = `<span class='px-3 py-2 rounded-lg bg-slate-200 dark:bg-dark-border text-gray-800 dark:text-gray-100 max-w-[75%] flex items-center gap-2'><span class='loader'></span> <span>Thinking...</span></span>`;
-    } else {
-      msgDiv.innerHTML = `<span class='px-3 py-2 rounded-lg ${
-        from === "user"
-          ? "bg-primary-600 text-white"
-          : "bg-slate-200 dark:bg-dark-border text-gray-800 dark:text-gray-100"
-      } max-w-[75%]'>${text}</span>`;
+    const msgWrapper = document.createElement("div");
+    msgWrapper.className = `flex ${
+      from === "user" ? "justify-end" : "justify-start"
+    } px-2`;
+
+    const bubble = document.createElement("div");
+
+    // Common bubble styles
+    bubble.className = `
+    inline-flex items-center gap-2 px-4 py-2 max-w-[80%] md:max-w-[70%] break-words
+    rounded-xl shadow-sm text-sm leading-relaxed
+    ${
+      from === "user"
+        ? "bg-primary-600 text-white rounded-br-none"
+        : "bg-gray-200 dark:bg-dark-border text-gray-800 dark:text-gray-100 rounded-bl-none"
     }
-    chatMessages.appendChild(msgDiv);
+  `
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (isLoading) {
+      bubble.innerHTML = `
+      <span class="loader w-4 h-4 border-2 border-t-transparent border-gray-400 rounded-full animate-spin"></span>
+      <span>Thinking...</span>
+    `;
+    } else {
+      bubble.textContent = text;
+    }
+
+    msgWrapper.appendChild(bubble);
+    chatMessages.appendChild(msgWrapper);
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
