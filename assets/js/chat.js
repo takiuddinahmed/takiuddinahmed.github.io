@@ -11,12 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatInput = document.getElementById("chat-input");
   const chatMessages = document.getElementById("chat-messages");
 
+  // Create a container for centered content
+  const chatContentWrapper = document.createElement("div");
+  chatContentWrapper.className = "flex-1 flex flex-col w-full h-full";
+  chatMessages.parentNode.insertBefore(chatContentWrapper, chatMessages);
+  chatContentWrapper.appendChild(chatMessages);
+  chatContentWrapper.appendChild(chatForm);
+
   // Sidebar open/close animation
   function openChat() {
     chatPopup.setAttribute("data-maximized", "false");
     chatPopup.classList.remove("invisible", "opacity-0", "pointer-events-none");
     chatPopup.classList.add("visible", "opacity-100");
-    chatPopup.style.transition = "all 0.3s ease";
+    chatPopup.style.transition =
+      "right 0.5s cubic-bezier(.4,2,.6,1), width 0.4s cubic-bezier(.4,2,.6,1), border-radius 0.4s, opacity 0.3s";
     chatPopup.style.right = "-500px";
     chatPopup.style.left = "auto";
     chatPopup.style.width = "450px";
@@ -35,6 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
     chatPopup.style.zIndex = 9999;
     chatMaximizeBtn.classList.remove("hidden");
     chatMinimizeBtn.classList.add("hidden");
+    
+    // Reset to normal width
+    chatContentWrapper.classList.remove("max-w-4xl", "mx-auto");
+    
     requestAnimationFrame(() => {
       chatPopup.style.right = "0";
     });
@@ -58,8 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (chatPopup && chatMaximizeBtn) {
     chatMaximizeBtn.addEventListener("click", function () {
       chatPopup.setAttribute("data-maximized", "true");
-      chatPopup.style.transition =
-         "all 0.5s ease";
+      chatPopup.style.transition = "all 0.5s ease";
       chatPopup.style.width = "calc(100vw - 16px)";
       chatPopup.style.right = "0";
       chatPopup.style.left = "0";
@@ -69,6 +80,10 @@ document.addEventListener("DOMContentLoaded", function () {
       chatPopup.style.height = "100vh";
       chatPopup.style.top = "0";
       chatPopup.style.bottom = "0";
+      
+      // Apply centered max-width container
+      chatContentWrapper.classList.add("max-w-4xl", "mx-auto");
+      
       chatMaximizeBtn.classList.add("hidden");
       chatMinimizeBtn.classList.remove("hidden");
       chatForm.classList.remove("hidden");
@@ -82,8 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (chatPopup && chatMinimizeBtn) {
     chatMinimizeBtn.addEventListener("click", function () {
       chatPopup.setAttribute("data-maximized", "false");
-      chatPopup.style.transition =
-         "all 0.5s ease";
+      chatPopup.style.transition = "all 0.5s ease";
       chatPopup.style.width = "450px";
       chatPopup.style.right = "0";
       chatPopup.style.left = "auto";
@@ -91,6 +105,10 @@ document.addEventListener("DOMContentLoaded", function () {
       chatPopup.style.height = "100vh";
       chatPopup.style.top = "0";
       chatPopup.style.bottom = "0";
+      
+      // Remove centered container
+      chatContentWrapper.classList.remove("max-w-4xl", "mx-auto");
+      
       chatMaximizeBtn.classList.remove("hidden");
       chatMinimizeBtn.classList.add("hidden");
       chatForm.classList.remove("hidden");
