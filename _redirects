@@ -26,6 +26,7 @@ https://www.takiuddin.me/* https://takiuddin.me/:splat 301!
 # Resume redirect (easier to share)
 /cv /assets/resume.pdf
 /resume /assets/resume.pdf
+/image /assets/images/profile.jpg
 
 # 404 fallback
 /* /404.html 404 
