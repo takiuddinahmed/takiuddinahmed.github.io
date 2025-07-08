@@ -187,6 +187,8 @@
       referrerpolicy="no-referrer"
     />
 
+    <script src="./assets/js/theme.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css"
@@ -194,6 +196,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="assets/css/output.css" />
+
     
     <!-- Preload critical resources -->
     <link rel="preload" href="assets/css/output.css" as="style" />
@@ -202,6 +205,24 @@
     
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+
+
+    <style>
+      .loader {
+        border: 2px solid transparent;
+        border-top-color: #4b5563; /* Gray-600 */
+        border-radius: 9999px;
+        width: 1rem;
+        height: 1rem;
+        animation: spin 0.6s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
   </head>
 
   <body class="dark:bg-dark-bg">
@@ -1454,58 +1475,63 @@
 
     <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/chat.js"></script>
 
-    <!-- Chat Widget Start -->
-    <div id="chat-widget-container">
-      <!-- Floating Chat Button -->
-      <button
-        class="fixed z-50 bottom-4 md:bottom-6 right-4 md:right-6 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg md:w-14 md:h-14 w-12 h-12 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-400 transition-all duration-300 cursor-pointer chat-trigger"
-      >
-        <i class="fas fa-comment-dots text-xl"></i>
-      </button>
-      <!-- Chat Popup -->
-      <div
-        id="chat-popup"
-        class="fixed z-50 bottom-16 md:bottom-24 right-6 md:w-80 w-64 max-w-xs bg-white dark:bg-dark-card rounded-xl shadow-2xl border border-slate-200 dark:border-dark-border flex flex-col overflow-hidden transition-all duration-300 invisible opacity-0 pointer-events-none"
-        data-default-class="fixed z-50 bottom-16 md:bottom-24 right-6 md:w-80 w-64 max-w-xs  bg-white dark:bg-dark-card rounded-xl shadow-2xl border border-slate-200 dark:border-dark-border flex flex-col overflow-hidden transition-all duration-300 min-[60vh] h-[60vh]"
-        data-maximized-class="fixed left-0 right-0 top-0 bottom-0 z-50 w-full max-w-none min-w-0 bg-white dark:bg-dark-card rounded-none shadow-none border-none flex flex-col transition-all duration-300 h-screen min-h-screen"
-      >
-        <!-- Header -->
-        <div
-          class="bg-primary-600 text-white px-4 py-3 flex items-center justify-between"
+<!-- Chat Widget Start -->
+<div id="chat-widget-container">
+  <!-- Floating Chat Button -->
+  <button
+    class="fixed z-50 bottom-4 md:bottom-6 right-4 md:right-6 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg md:w-14 md:h-14 w-12 h-12 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-400 transition-all duration-300 cursor-pointer chat-trigger"
+  >
+    <i class="fas fa-comment-dots text-xl"></i>
+  </button>
+
+  <!-- Chat Popup -->
+  <div
+    id="chat-popup"
+    class="fixed z-50 bottom-16 md:bottom-24 right-6 md:w-80 w-64 max-w-xs bg-white dark:bg-dark-card rounded-xl shadow-2xl border border-slate-200 dark:border-dark-border flex flex-col overflow-hidden transition-all duration-300 invisible opacity-0 pointer-events-none"
+    data-default-class="fixed z-50 bottom-16 md:bottom-24 right-6 md:w-80 w-64 max-w-xs bg-white dark:bg-dark-card rounded-xl shadow-2xl border border-slate-200 dark:border-dark-border flex flex-col overflow-hidden transition-all duration-300 min-[60vh] h-[60vh]"
+    data-maximized-class="fixed left-0 right-0 top-0 bottom-0 z-50 w-full max-w-none min-w-0 bg-white dark:bg-dark-card rounded-none shadow-none border-none flex flex-col transition-all duration-300 h-screen min-h-screen"
+  >
+    <!-- Header -->
+    <div class="bg-primary-600 text-white px-4 py-3 flex items-center justify-between">
+      <span class="font-semibold">Chat with Me</span>
+      <!-- Button group: maximize, minimize, close -->
+      <div class="flex gap-2 items-center">
+        <button
+          id="chat-maximize-btn"
+          class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-primary-500/80 hover:bg-primary-700 transition-colors duration-200 text-white focus:outline-none"
+          title="Maximize"
         >
-          <span class="font-semibold">Chat with Me</span>
-          <!-- Button group: maximize, minimize, close -->
-          <div class="flex gap-2 items-center">
-            <button
-              id="chat-maximize-btn"
-              class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-primary-500/80 hover:bg-primary-700 transition-colors duration-200 text-white focus:outline-none"
-              title="Maximize"
-            >
-              <i class="fas fa-expand" id="maximize-icon"></i>
-            </button>
-            <button
-              id="chat-minimize-btn"
-              class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-primary-500/80 hover:bg-primary-700 transition-colors duration-200 text-white focus:outline-none hidden"
-              title="Minimize"
-            >
-              <i class="fas fa-compress" id="minimize-icon"></i>
-            </button>
-            <button
-              id="chat-close-btn"
-              class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-red-500/80 hover:bg-red-700 transition-colors duration-200 text-white focus:outline-none"
-              title="Close"
-            >
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
+          <i class="fas fa-expand" id="maximize-icon"></i>
+        </button>
+        <button
+          id="chat-minimize-btn"
+          class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-primary-500/80 hover:bg-primary-700 transition-colors duration-200 text-white focus:outline-none hidden"
+          title="Minimize"
+        >
+          <i class="fas fa-compress" id="minimize-icon"></i>
+        </button>
+        <button
+          id="chat-close-btn"
+          class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-red-500/80 hover:bg-red-700 transition-colors duration-200 text-white focus:outline-none"
+          title="Close"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages Container (Default Style) -->
+    <div class="flex-1 flex flex-col bg-gray-50 dark:bg-gray-900">
+      <div id="chat-area-unified" class="flex-1 flex flex-col">
         <!-- Messages -->
         <div
           id="chat-messages"
-          class="flex-1 px-4 py-3 space-y-2 overflow-y-auto bg-slate-50 dark:bg-dark-bg"
+          class="flex-1 px-4 py-3 space-y-2 overflow-y-auto bg-gray-50 dark:bg-gray-900"
         ></div>
-        <!-- Input -->
+        
+        <!-- Input (Default Style with border-top) -->
         <form
           id="chat-form"
           class="flex items-center gap-2 border-t border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card p-2"
@@ -1526,5 +1552,12 @@
         </form>
       </div>
     </div>
+  </div>
+</div>
+
+</div>
+
+
+
   </body>
 </html>

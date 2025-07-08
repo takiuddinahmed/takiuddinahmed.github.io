@@ -247,6 +247,152 @@
   .form-input {
     @apply focus:outline-none focus:ring-0 focus:border-primary-500 active:outline-none active:ring-0;
   }
+
+/* Default state - keep original styling */
+#chat-area-unified {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Only apply unified styling when maximized */
+.chat-area-maximized {
+  background: #fff;
+  /* border: 2px solid #bae0ff; */
+  border-radius: 0 !important;
+  margin: 0;
+  box-shadow: 0 0 0 2px rgba(12,135,255,0.08), 0 8px 32px 0 rgba(0,0,0,0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .chat-area-maximized {
+  background: #111827;
+  /* border: 2px solid #0042ab; */
+  box-shadow: 0 0 0 2px rgba(0,98,255,0.10), 0 8px 32px 0 rgba(0,0,0,0.32);
+}
+
+/* Wrapper for centered content in maximized mode */
+.chat-area-maximized .flex-1.flex.flex-col.w-full.h-full {
+  background: linear-gradient(135deg, #f8fafc 60%, #e0eeff 100%);
+  border-radius: 0 !important;
+  border-left: 1.5px solid #e0eeff;
+  border-right: 1.5px solid #e0eeff;
+}
+.dark .chat-area-maximized .flex-1.flex.flex-col.w-full.h-full {
+  background: linear-gradient(135deg, #111827 60%, #00254d 100%);
+  border-left: 1.5px solid #0042ab;
+  border-right: 1.5px solid #0042ab;
+}
+
+/* Messages area styling ONLY when maximized */
+.chat-area-maximized #chat-messages {
+  background: #fff;
+  padding: 2rem 2rem 1rem 2rem;
+  border-radius: 0 !important;
+  border-top: 1.5px solid #e0eeff;
+  border-bottom: 1.5px solid #e0eeff;
+}
+.dark .chat-area-maximized #chat-messages {
+  background: #111827;
+  border-top: 1.5px solid #0042ab;
+  border-bottom: 1.5px solid #0042ab;
+}
+
+/* Input form styling ONLY when maximized */
+.chat-area-maximized #chat-form {
+  background: #fff;
+  border-top: 2px solid #bae0ff;
+  padding: 1.25rem 2rem 2rem 2rem;
+  margin-top: 0;
+  border-radius: 0 !important;
+}
+.dark .chat-area-maximized #chat-form {
+  background: #111827;
+  border-top: 2px solid #0042ab;
+}
+
+/* Enhanced input styling ONLY in maximized mode */
+.chat-area-maximized #chat-input {
+  @apply shadow-sm border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700;
+  transition: all 0.2s ease-in-out;
+}
+
+.chat-area-maximized #chat-input:focus {
+  @apply ring-2 ring-primary-500 border-primary-500 bg-white dark:bg-gray-600;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Enhanced button styling ONLY in maximized mode */
+.chat-area-maximized button[type="submit"] {
+  @apply shadow-md hover:shadow-lg;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Smooth hover effect for the entire chat area ONLY when maximized */
+.chat-area-maximized:hover {
+  box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.15), 0 15px 15px -5px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.dark .chat-area-maximized:hover {
+  box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.5), 0 15px 15px -5px rgba(0, 0, 0, 0.3), 0 0 0 1px
+    rgba(255, 255, 255, 0.15);
+}
+
+/* Custom scrollbar ONLY for maximized chat area */
+.chat-area-maximized #chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-area-maximized #chat-messages::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-700 rounded-full;
+}
+
+.chat-area-maximized #chat-messages::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.chat-area-maximized #chat-messages::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Focus ring animation ONLY for maximized chat area */
+.chat-area-maximized {
+  position: relative;
+}
+
+.chat-area-maximized::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1), rgba(59, 130, 246, 0.1));
+  border-radius: 1.25rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.chat-area-maximized:focus-within::before {
+  opacity: 1;
+}
+
+/* Default state scrollbar (original style) */
+#chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-full;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
 }
 
 @utility container {
