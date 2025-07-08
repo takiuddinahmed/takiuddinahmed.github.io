@@ -1,0 +1,29 @@
+# Cloudflare Pages Configuration
+# Md Takiuddin Ahmed - Senior Backend Developer Portfolio
+
+name = "takiuddin-portfolio"
+compatibility_date = "2024-01-01"
+
+[build]
+command = ""
+cwd = ""
+watch_dir = ""
+
+[env.production]
+name = "takiuddin-portfolio"
+
+[env.preview]  
+name = "takiuddin-portfolio-preview"
+
+# Custom domains (configure in Cloudflare dashboard)
+# routes = [
+#   { pattern = "takiuddin.me", custom_domain = true },
+#   { pattern = "www.takiuddin.me", custom_domain = true }
+# ]
+
+# Build configuration for static site
+[[env.production.routes]]
+pattern = "*"
+
+[[env.preview.routes]]
+pattern = "*" 

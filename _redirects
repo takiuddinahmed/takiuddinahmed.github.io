@@ -1,0 +1,31 @@
+# Cloudflare Pages Redirects
+# Md Takiuddin Ahmed - Senior Backend Developer Portfolio
+
+# Force HTTPS (Cloudflare handles this automatically, but explicit for older browsers)
+http://takiuddin.me/* https://takiuddin.me/:splat 301!
+http://www.takiuddin.me/* https://takiuddin.me/:splat 301!
+
+# Force non-www to www (or vice versa)
+https://www.takiuddin.me/* https://takiuddin.me/:splat 301!
+
+# Redirect common variations
+/home /
+/portfolio /
+/about /
+/contact /#contact
+
+# Handle legacy URLs (if any existed before)
+/index.html /
+
+
+# Social media redirects (optional - for branded short links)
+/github https://github.com/takiuddinahmed 302
+/linkedin https://www.linkedin.com/in/takiuddin-ahmed-871607b5/ 302
+/calendly https://calendly.com/takiuddinahmed-ciyp 302
+
+# Resume redirect (easier to share)
+/cv /assets/resume.pdf
+/resume /assets/resume.pdf
+
+# 404 fallback
+/* /404.html 404 

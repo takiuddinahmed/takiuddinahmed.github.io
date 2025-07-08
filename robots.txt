@@ -1,4 +1,5 @@
 # robots.txt for takiuddin.me portfolio website
+# Md Takiuddin Ahmed - Senior Backend Developer
 
 User-agent: *
 Allow: /
@@ -6,8 +7,34 @@ Allow: /assets/css/
 Allow: /assets/js/
 Allow: /assets/plugins/
 Allow: /assets/images/
+Allow: /assets/resume.pdf
 
-# Prevent caching of assets
+# Prevent caching of assets and sensitive files
 Disallow: /assets/cache/
+Disallow: /.*\.log$
+Disallow: /private/
+Disallow: /temp/
+Disallow: /tmp/
 
+# Common SEO-friendly directives
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/themes/
+Disallow: /search
+Disallow: /*?*
+Disallow: /*#*
+
+# Allow search engines to crawl CSS and JS for better rendering
+Allow: /*.css$
+Allow: /*.js$
+
+# Crawl-delay (optional, can help with server load)
+Crawl-delay: 1
+
+# Sitemap
 Sitemap: https://takiuddin.me/sitemap.xml
+
+# Host directive (helps with canonicalization)
+Host: takiuddin.me
