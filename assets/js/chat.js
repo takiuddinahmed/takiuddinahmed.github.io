@@ -10,13 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatForm = document.getElementById("chat-form")
   const chatInput = document.getElementById("chat-input")
   const chatMessages = document.getElementById("chat-messages")
+  const chatAreaUnified = document.getElementById("chat-area-unified")
 
   // Create a container for centered content
   const chatContentWrapper = document.createElement("div")
   chatContentWrapper.className = "flex-1 flex flex-col w-full h-full"
-  chatMessages.parentNode.insertBefore(chatContentWrapper, chatMessages)
-  chatContentWrapper.appendChild(chatMessages)
-  chatContentWrapper.appendChild(chatForm)
+  chatAreaUnified.parentNode.insertBefore(chatContentWrapper, chatAreaUnified)
+  chatContentWrapper.appendChild(chatAreaUnified)
 
   // Sidebar open/close animation
   function openChat() {
@@ -43,10 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
     chatMaximizeBtn.classList.remove("hidden")
     chatMinimizeBtn.classList.add("hidden")
 
-    // Reset to normal width
+    // Reset to normal width and remove maximized styling
     chatContentWrapper.classList.remove("max-w-4xl", "mx-auto")
-    // Remove maximized styling from messages
-    chatMessages.classList.remove("chat-maximized")
+    chatAreaUnified.classList.remove("chat-area-maximized")
 
     requestAnimationFrame(() => {
       chatPopup.style.right = "0"
@@ -86,8 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Apply centered max-width container
       chatContentWrapper.classList.add("max-w-4xl", "mx-auto")
-      // Add maximized styling to messages
-      chatMessages.classList.add("chat-maximized")
+      // Add maximized styling to unified chat area
+      chatAreaUnified.classList.add("chat-area-maximized")
 
       chatMaximizeBtn.classList.add("hidden")
       chatMinimizeBtn.classList.remove("hidden")
@@ -112,10 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
       chatPopup.style.top = "0"
       chatPopup.style.bottom = "0"
 
-      // Remove centered container
+      // Remove centered container and maximized styling
       chatContentWrapper.classList.remove("max-w-4xl", "mx-auto")
-      // Remove maximized styling from messages
-      chatMessages.classList.remove("chat-maximized")
+      chatAreaUnified.classList.remove("chat-area-maximized")
 
       chatMaximizeBtn.classList.remove("hidden")
       chatMinimizeBtn.classList.add("hidden")
