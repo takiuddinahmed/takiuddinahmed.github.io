@@ -9,61 +9,68 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://kit.fontawesome.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https://avatars.githubusercontent.com https://takiuddin.me; font-src 'self' https://cdnjs.cloudflare.com https://kit.fontawesome.com; connect-src 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://ask-api.takiuddin.me; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https://avatars.githubusercontent.com https://takiuddin.me; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self' https://ask-api.takiuddin.me;
 
-# HTML files - short cache for updates
+# DEVELOPMENT MODE - NO CACHING
+# All files - no cache during development
+/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+  Vary: Accept-Encoding
+
+# Specific content types for better handling
 /*.html
-  Cache-Control: public, max-age=3600, must-revalidate
-  Vary: Accept-Encoding
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
 
-# Root index file
-/
-  Cache-Control: public, max-age=3600, must-revalidate
-  Vary: Accept-Encoding
-
-# CSS and JavaScript files - longer cache
 /assets/css/*
-  Cache-Control: public, max-age=2592000
-  Vary: Accept-Encoding
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
 
 /assets/js/*
-  Cache-Control: public, max-age=2592000
-  Vary: Accept-Encoding
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
 
-# Images - very long cache
 /assets/images/*
-  Cache-Control: public, max-age=31536000
-  Vary: Accept-Encoding
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
 
-# Fonts - long cache
-/assets/fonts/*
-  Cache-Control: public, max-age=31536000
-  Vary: Accept-Encoding
-
-# PDF files (resume)
 /*.pdf
-  Cache-Control: public, max-age=2592000
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
   Content-Type: application/pdf
 
-# Favicon and icons
-/favicon.ico
-  Cache-Control: public, max-age=31536000
-
-# Manifest file
 /manifest.json
-  Cache-Control: public, max-age=604800
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
   Content-Type: application/manifest+json
 
-# Sitemap and robots
 /sitemap.xml
-  Cache-Control: public, max-age=86400
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
   Content-Type: application/xml
 
 /robots.txt
-  Cache-Control: public, max-age=86400
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
   Content-Type: text/plain
 
-# 404 page
-/404.html
-  Cache-Control: public, max-age=3600
-  Vary: Accept-Encoding 
+/assets/favicon/favicon.ico
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+# All favicon files
+/assets/favicon/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0 

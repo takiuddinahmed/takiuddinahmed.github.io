@@ -27,6 +27,7 @@ https://www.takiuddin.me/* https://takiuddin.me/:splat 301!
 /cv /assets/resume.pdf
 /resume /assets/resume.pdf
 /image /assets/images/profile.jpg
+/favicon.ico /assets/favicon/favicon.ico
 
 # 404 fallback
 /* /404.html 404 
