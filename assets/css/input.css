@@ -255,29 +255,58 @@
 
 /* Only apply unified styling when maximized */
 .chat-area-maximized {
-  @apply bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700;
-  margin: 1.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  /* border: 2px solid #bae0ff; */
+  border-radius: 0 !important;
+  margin: 0;
+  box-shadow: 0 0 0 2px rgba(12,135,255,0.08), 0 8px 32px 0 rgba(0,0,0,0.12);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark mode shadow for maximized chat area */
 .dark .chat-area-maximized {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2), 0 0 0 1px
-    rgba(255, 255, 255, 0.1);
+  background: #111827;
+  /* border: 2px solid #0042ab; */
+  box-shadow: 0 0 0 2px rgba(0,98,255,0.10), 0 8px 32px 0 rgba(0,0,0,0.32);
+}
+
+/* Wrapper for centered content in maximized mode */
+.chat-area-maximized .flex-1.flex.flex-col.w-full.h-full {
+  background: linear-gradient(135deg, #f8fafc 60%, #e0eeff 100%);
+  border-radius: 0 !important;
+  border-left: 1.5px solid #e0eeff;
+  border-right: 1.5px solid #e0eeff;
+}
+.dark .chat-area-maximized .flex-1.flex.flex-col.w-full.h-full {
+  background: linear-gradient(135deg, #111827 60%, #00254d 100%);
+  border-left: 1.5px solid #0042ab;
+  border-right: 1.5px solid #0042ab;
 }
 
 /* Messages area styling ONLY when maximized */
 .chat-area-maximized #chat-messages {
-  @apply bg-transparent;
-  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+  background: #fff;
+  padding: 2rem 2rem 1rem 2rem;
+  border-radius: 0 !important;
+  border-top: 1.5px solid #e0eeff;
+  border-bottom: 1.5px solid #e0eeff;
+}
+.dark .chat-area-maximized #chat-messages {
+  background: #111827;
+  border-top: 1.5px solid #0042ab;
+  border-bottom: 1.5px solid #0042ab;
 }
 
 /* Input form styling ONLY when maximized */
 .chat-area-maximized #chat-form {
-  @apply bg-transparent border-t border-gray-100 dark:border-gray-700;
-  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  background: #fff;
+  border-top: 2px solid #bae0ff;
+  padding: 1.25rem 2rem 2rem 2rem;
   margin-top: 0;
+  border-radius: 0 !important;
+}
+.dark .chat-area-maximized #chat-form {
+  background: #111827;
+  border-top: 2px solid #0042ab;
 }
 
 /* Enhanced input styling ONLY in maximized mode */
