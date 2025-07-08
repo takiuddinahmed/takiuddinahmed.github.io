@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chatPopup.setAttribute("data-maximized", "false")
     chatPopup.classList.remove("invisible", "opacity-0", "pointer-events-none")
     chatPopup.classList.add("visible", "opacity-100")
-    chatPopup.style.transition =
-      "right 0.5s cubic-bezier(.4,2,.6,1), width 0.4s cubic-bezier(.4,2,.6,1), border-radius 0.4s, opacity 0.3s"
+    chatPopup.style.transition = "all 0.3s ease"
     chatPopup.style.right = "-500px"
     chatPopup.style.left = "auto"
     chatPopup.style.width = "450px"
@@ -127,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Add message to chat
   let conversationId = null
-  const apiUrl = "http://localhost:3000/chatbot/ask"
+  const apiUrl = "https://ask-api.takiuddin.me/chatbot/ask"
 
   function addMessage(text, from, isLoading = false) {
     const msgWrapper = document.createElement("div")
