@@ -1522,36 +1522,41 @@
       </div>
     </div>
 
-    <!-- Messages Container (Default Style) -->
-    <div class="flex-1 flex flex-col bg-gray-50 dark:bg-gray-900">
-      <div id="chat-area-unified" class="flex-1 flex flex-col">
-        <!-- Messages -->
-        <div
-          id="chat-messages"
-          class="flex-1 px-4 py-3 space-y-2 overflow-y-auto bg-gray-50 dark:bg-gray-900"
-        ></div>
-        
-        <!-- Input (Default Style with border-top) -->
-        <form
-          id="chat-form"
-          class="flex items-center gap-2 border-t border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card p-2"
-        >
-          <input
-            id="chat-input"
-            type="text"
-            class="flex-1 min-w-0 px-3 py-2 rounded-lg border border-slate-200 dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-primary-400 dark:bg-dark-bg dark:text-white"
-            placeholder="Type your message..."
-            autocomplete="off"
-          />
-          <button
-            type="submit"
-            class="ml-2 px-3 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-primary-400 transition-all duration-200"
-          >
-            <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
-      </div>
+   <!-- Messages Container (Fixed Layout) -->
+<div class="flex-1 flex flex-col bg-gray-50 dark:bg-gray-900 overflow-hidden h-[60vh]">
+  <!-- Chat Area (Split Messages & Input) -->
+  <div id="chat-area-unified" class="flex flex-col flex-1 overflow-hidden">
+    
+    <!-- Messages (Scroll Area) -->
+    <div
+      id="chat-messages"
+      class="flex-1 overflow-y-auto px-4 py-3 space-y-2 bg-gray-50 dark:bg-gray-900"
+    >
+      <!-- Messages will go here -->
     </div>
+
+    <!-- Input -->
+    <form
+      id="chat-form"
+      class="flex items-center gap-2 border-t border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card p-2"
+    >
+      <input
+        id="chat-input"
+        type="text"
+        class="flex-1 min-w-0 px-3 py-2 rounded-lg border border-slate-200 dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-primary-400 dark:bg-dark-bg dark:text-white"
+        placeholder="Type your message..."
+        autocomplete="off"
+      />
+      <button
+        type="submit"
+        class="ml-2 px-3 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-primary-400 transition-all duration-200"
+      >
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
   </div>
 </div>
 
