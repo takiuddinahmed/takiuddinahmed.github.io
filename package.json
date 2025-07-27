@@ -4,6 +4,11 @@
     "tailwindcss": "^4.1.8"
   },
   "scripts": {
-    "build:css": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --watch"
+    "build": "node scripts/build.js",
+    "build:cache": "node scripts/build-cache.js",
+    "dev": "node scripts/dev.js",
+    "deploy": "npm run build && wrangler pages deploy . --project-name=takiuddin-portfolio",
+    "deploy:preview": "npm run build && wrangler pages deploy . --project-name=takiuddin-portfolio --branch=preview",
+    "pages:dev": "wrangler pages dev . --project-name=takiuddin-portfolio"
   }
 }

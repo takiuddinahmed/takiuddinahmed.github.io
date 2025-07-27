@@ -11,66 +11,73 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://ask-api.takiuddin.me; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https://avatars.githubusercontent.com https://takiuddin.me; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self' https://ask-api.takiuddin.me;
 
-# DEVELOPMENT MODE - NO CACHING
-# All files - no cache during development
-/*
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
+# PRODUCTION CACHING WITH CACHE INVALIDATION
+# HTML files - short cache with ETag for immediate updates
+/*.html
+  Cache-Control: public, max-age=300, s-maxage=300, must-revalidate
+  ETag: W/"html-93a0bcf3"
   Vary: Accept-Encoding
 
-# Specific content types for better handling
-/*.html
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
-
+# CSS files - long cache with version-based invalidation
 /assets/css/*
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  ETag: W/"css-bfbd48f5"
+  Vary: Accept-Encoding
 
+# JavaScript files - long cache with version-based invalidation
 /assets/js/*
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  ETag: W/"js-dbbc6c3c"
+  Vary: Accept-Encoding
 
+# Images - long cache with version-based invalidation
 /assets/images/*
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  ETag: W/"img-80c6d92d"
+  Vary: Accept-Encoding
 
-/*.pdf
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
-  Content-Type: application/pdf
-
-/manifest.json
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
-  Content-Type: application/manifest+json
-
-/sitemap.xml
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
-  Content-Type: application/xml
-
-/robots.txt
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
-  Content-Type: text/plain
-
-/assets/favicon/favicon.ico
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
-
-# All favicon files
+# Favicon files - long cache
 /assets/favicon/*
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  ETag: W/"favicon-982491a8"
+  Vary: Accept-Encoding
+
+# PDF files - medium cache
+/*.pdf
+  Cache-Control: public, max-age=86400, s-maxage=86400, must-revalidate
+  ETag: W/"pdf-f66cd80e"
+  Content-Type: application/pdf
+  Vary: Accept-Encoding
+
+# Manifest file - short cache for PWA updates
+/manifest.json
+  Cache-Control: public, max-age=3600, s-maxage=3600, must-revalidate
+  ETag: W/"manifest-427f88d0"
+  Content-Type: application/manifest+json
+  Vary: Accept-Encoding
+
+# Sitemap - short cache for SEO updates
+/sitemap.xml
+  Cache-Control: public, max-age=3600, s-maxage=3600, must-revalidate
+  ETag: W/"sitemap-edf46d15"
+  Content-Type: application/xml
+  Vary: Accept-Encoding
+
+# Robots.txt - short cache
+/robots.txt
+  Cache-Control: public, max-age=3600, s-maxage=3600, must-revalidate
+  ETag: W/"robots-fb0106c8"
+  Content-Type: text/plain
+  Vary: Accept-Encoding
+
+# API endpoints - no cache for dynamic content
+/api/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+# Development files (if any) - no cache
+/dev/*
   Cache-Control: no-cache, no-store, must-revalidate
   Pragma: no-cache
   Expires: 0 

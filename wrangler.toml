@@ -1,19 +1,43 @@
 # Cloudflare Pages Configuration
 # Md Takiuddin Ahmed - Senior Backend Developer Portfolio
 
-name = "takiuddin-portfolio"
+name = "takiuddinahmed-github-io"
 compatibility_date = "2024-01-01"
 
 [build]
-command = ""
-cwd = ""
-watch_dir = ""
+command = "npm run build"
+cwd = "."
+watch_dir = "."
 
+# Build environment variables
+[build.environment]
+NODE_VERSION = "18"
+
+# Production environment
 [env.production]
-name = "takiuddin-portfolio"
+name = "takiuddinahmed-github-io"
 
+# Production build settings
+[env.production.build]
+command = "npm run build"
+cwd = "."
+
+# Production environment variables
+[env.production.vars]
+ENVIRONMENT = "production"
+
+# Preview environment
 [env.preview]  
-name = "takiuddin-portfolio-preview"
+name = "takiuddinahmed-github-io-preview"
+
+# Preview build settings
+[env.preview.build]
+command = "npm run build"
+cwd = "."
+
+# Preview environment variables
+[env.preview.vars]
+ENVIRONMENT = "preview"
 
 # Custom domains (configure in Cloudflare dashboard)
 # routes = [
@@ -26,4 +50,37 @@ name = "takiuddin-portfolio-preview"
 pattern = "*"
 
 [[env.preview.routes]]
-pattern = "*" 
+pattern = "*"
+
+# Cloudflare Pages specific optimizations
+[env.production.pages]
+# Enable automatic cache invalidation
+cache_invalidation = true
+
+# Enable automatic image optimization
+image_optimization = true
+
+# Enable automatic minification
+minify = { javascript = true, css = true, html = true }
+
+# Enable automatic compression
+compression = true
+
+# Enable automatic HTTPS redirects
+https_redirect = true
+
+# Enable automatic security headers
+security_headers = true
+
+# Enable automatic error pages
+error_pages = true
+
+# Preview environment optimizations
+[env.preview.pages]
+cache_invalidation = true
+image_optimization = true
+minify = { javascript = true, css = true, html = true }
+compression = true
+https_redirect = true
+security_headers = true
+error_pages = true 
