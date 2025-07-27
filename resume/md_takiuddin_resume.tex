@@ -5,8 +5,10 @@
 \usepackage[margin=0.5in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage{hyperref}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
 \usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{etoolbox}
 
 % Custom section command
 \titleformat{\section}
@@ -26,18 +28,39 @@
   \hrule height 0.4pt width \textwidth
   \vspace{0.5em}
 }
-\newcommand{\contact}[5]{
-  \begin{center}
-    #1 \\
-    #2 
+% ------------------------------------------------
+% contact macro  (args: #1‑#6)
+%   #1 = address / location
+%   #2 = e‑mail
+%   #3 = phone
+%   #4 = GitHub URL
+%   #5 = LinkedIn URL
+%   #6 = personal site / extra link
+% ------------------------------------------------
+\newcommand{\contact}[6]{%
+  \begin{center}\normalsize
+    % ---------- first line ----------
+    \mbox{{\footnotesize\faMapMarker*}\hspace{0.13cm}#1}%
+    \kern0.50cm
+    \mbox{\hrefWithoutArrow{mailto:#2}%
+          {{\footnotesize\faEnvelope[regular]}\hspace{0.13cm}#2}}%
+    \kern0.50cm
+    \mbox{\hrefWithoutArrow{tel:#3}%
+          {{\footnotesize\faPhone*}\hspace{0.13cm}#3}}%
+    \kern0.50cm
+    \mbox{\hrefWithoutArrow{#6}%
+          {{\footnotesize\faLink}\hspace{0.13cm}#6}}%
+    \\[0.3em]                                   % ← break to 2nd line
+    % ---------- second line ----------
+    \mbox{\hrefWithoutArrow{#4}%
+          {{\footnotesize\faGithub}\hspace{0.13cm}#4}}%
+    \kern0.25cm
+    \mbox{\hrefWithoutArrow{#5}%
+          {{\footnotesize\faLinkedinIn}\hspace{0.13cm}#5}}%
   \end{center}
-  \begin{center}
-    \textbf{Links:} #3 \textbullet{} #4 \textbullet{} #5
-  \end{center}
-  \vspace{-0.5em}
-  \hrule height 0.4pt width \textwidth
-  \vspace{0.5em}
+  \vspace{-0.5em}\hrule height0.4pt width\textwidth\vspace{0.5em}
 }
+
 \newcommand{\role}[4]{
   \begin{center}
   \textbf{#1} \hfill \textbf{#2} \\
@@ -45,11 +68,17 @@
   \end{center}
 }
 
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{#2\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
 \begin{document}
 
 \name{Md Takiuddin}
 \vspace{-0.5em}
-\contact{+880 1723 100 925}{takiuddinahmed@gmail.com}{https://github.com/takiuddinahmed}{https://linkedin.com/in/takiuddin-ahmed-871607b5}{https://takiuddin.me}
+\contact{Bangladesh}{takiuddinahmed@gmail.com}{+880 1723 100 925}{https://github.com/takiuddinahmed}{https://linkedin.com/in/takiuddin-ahmed-871607b5}{https://takiuddin.me}
 
 
 \vspace{-0.5em}
