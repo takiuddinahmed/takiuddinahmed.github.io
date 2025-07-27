@@ -1,0 +1,142 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% Custom section command
+\titleformat{\section}
+  {\large\bfseries\uppercase}
+  {}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{*1.5}{*0.5}
+
+% Remove page numbers
+\pagenumbering{gobble}
+
+% Custom commands
+\newcommand{\name}[1]{
+  \begin{center}
+    \Huge\textbf{#1}
+  \end{center}
+  \vspace{-0.5em}
+  \hrule height 0.4pt width \textwidth
+  \vspace{0.5em}
+}
+\newcommand{\contact}[5]{
+  \begin{center}
+    #1 \\
+    #2 
+  \end{center}
+  \begin{center}
+    \textbf{Links:} #3 \textbullet{} #4 \textbullet{} #5
+  \end{center}
+  \vspace{-0.5em}
+  \hrule height 0.4pt width \textwidth
+  \vspace{0.5em}
+}
+\newcommand{\role}[4]{
+  \begin{center}
+  \textbf{#1} \hfill \textbf{#2} \\
+  \textit{#3} \hfill \textit{#4}
+  \end{center}
+}
+
+\begin{document}
+
+\name{Md Takiuddin}
+\vspace{-0.5em}
+\contact{+880 1723 100 925}{takiuddinahmed@gmail.com}{https://github.com/takiuddinahmed}{https://linkedin.com/in/takiuddin-ahmed-871607b5}{https://takiuddin.me}
+
+
+\vspace{-0.5em}
+\begin{center}
+\textit{Senior Backend Engineer with 5+ years of experience building scalable microservices and cloud-native applications. Proven expertise in Python, TypeScript, Go, and modern DevOps practices. Delivered enterprise solutions for Fortune-scale companies with focus on performance, reliability, and maintainable code.}
+\end{center}
+
+\section{PROFESSIONAL EXPERIENCE}
+
+\vspace{1em}
+\role{COGNITUS CONSULTING LLC}{Remote}{Senior Software Developer}{November 2023--Present}
+\begin{itemize}[leftmargin=*,nosep]
+  \item Core contributor to LambdaX enterprise contract-lifecycle-management platform serving Fortune-scale companies
+  \item Designed and implemented agreement-header, line-item, dataset, and modification microservices using Python (FastAPI), SQLAlchemy, and PostgreSQL
+  \item Built Redis Streams + Kafka event propagation system sustaining 15,000+ events/sec in load tests
+  \item Extended drag-and-drop orchestration engine with 50+ reusable action blocks, reducing legal-ops turnaround from days to hours
+  \item Optimized SQLAlchemy queries with CTEs and proper indexing, improving contract-search latency from 750ms to <180ms (P95)
+  \item Implemented Socket.io-based user-activity streams feeding Elasticsearch audit index for SOC-2 compliance
+\end{itemize}
+
+\role{GRYPE DIGITAL}{Remote}{Software Developer}{May 2022--November 2023}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Led 4-developer backend team for Member Lounge SaaS platform using NestJS, TypeScript, MongoDB, and RabbitMQ
+  \item Architected tiered subscription billing system with proration logic, Stripe integration, and automated invoicing
+  \item Built threaded discussion forum with rich-media uploads and RabbitMQ-driven notification engine (browser, email, SMS)
+  \item Implemented multi-factor authentication reducing account-takeover incidents to zero post-launch
+  \item Established zero-downtime deployment strategy using Blue/Green approach on Docker Swarm, maintaining 99.9\% uptime
+\end{itemize}
+
+\role{BUGFIXERS}{Dhaka, Bangladesh}{Full-Stack Developer}{March 2020--April 2022}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Developed secure intranet desktop applications for Bangladesh Navy using Electron + React with offline capabilities
+  \item Built real-time dashboards with Socket.io auto-refresh improving operational awareness for client administrators
+  \item Introduced microservice decomposition with RabbitMQ event buses and Redis caching, reducing deployment time by 60\%
+  \item Implemented CI/CD pipelines on GitHub Actions and AWS CodeDeploy, shortening release cycles from weekly to daily
+  \item Resolved 150+ critical production bugs achieving <1\% open-bug rate and refactored legacy PHP/JS codebases to modern stacks
+\end{itemize}
+
+\vspace{1em}
+\section{KEY PROJECTS}
+
+\vspace{0.5em}
+\role{TAXSTAR -- UAE CORPORATE-TAX SAAS}{Independent Project}{Solo Architect \& Developer}{August 2023--February 2024}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Built end-to-end FinTech SaaS helping UAE businesses comply with federal corporate-tax rules
+  \item Implemented rules-driven engine for automated tax calculations, forecasting, and deadline reminders
+  \item Integrated with Xero and Zoho ERP systems eliminating manual CSV uploads and reducing onboarding effort by 90\%
+  \item Designed multi-tenant architecture ready for horizontal scaling and future VAT/payroll-tax modules
+\end{itemize}
+
+\role{HONEST ELITE -- SOCIAL-MEDIA PLATFORM}{Independent Project}{Full-Stack Developer}{September 2022--March 2024}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Developed rich-media social network with real-time chat, voice/video calls, and personalized recommendations
+  \item Built GraphQL API on NestJS microservices with Next.js SSR frontend and WebRTC for calls
+  \item Implemented collaborative and content-based recommender system improving feed relevancy and user engagement
+  \item Maintained <250ms round-trip latency for messaging and calls using Redis Streams for notifications
+\end{itemize}
+
+\vspace{1em}
+\section{TECHNICAL SKILLS}
+
+\vspace{0.5em}
+\begin{itemize}[leftmargin=*,nosep]
+  \item \textbf{Languages:} Python (FastAPI, Flask), TypeScript/JavaScript (NestJS, React/Next.js), Go, SQL (PostgreSQL), NoSQL (MongoDB, Redis)
+  \item \textbf{Cloud \& DevOps:} Docker, Kubernetes, AWS (EC2, S3, Route 53), GitHub Actions, NGINX, Linux VPS
+  \item \textbf{Messaging \& Streaming:} Apache Kafka, RabbitMQ, Redis Streams, Socket.io, gRPC
+  \item \textbf{Authentication \& Security:} Keycloak, OAuth 2.0/OIDC, JWT, MFA implementations, OWASP security practices
+  \item \textbf{Observability:} Prometheus, Elasticsearch/Kibana, Jaeger, load testing (Locust, k6)
+  \item \textbf{AI \& Data:} LangChain, scikit-learn, pandas, NumPy, Elasticsearch (BM25, k-NN)
+\end{itemize}
+
+\vspace{1em}
+\section{EDUCATION}
+
+\vspace{0.5em}
+\role{RAJSHAHI UNIVERSITY OF ENGINEERING \& TECHNOLOGY}{Rajshahi, Bangladesh}{Bachelor of Science in Mechanical Engineering}{January 2016--January 2022}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Capstone: "Low-Cost Autonomous Line-Follower Robot for Warehouse Logistics" -- 1st runner-up in RUET TechFest 2019
+  \item Coursework: Thermodynamics, Fluid Mechanics, CAD/CAM, Control Systems, Materials Science, Industrial Automation
+\end{itemize}
+
+\vspace{1em}
+\section{LANGUAGES}
+
+\vspace{0.5em}
+\begin{itemize}[leftmargin=*,nosep]
+  \item Bangla (Native), English (Full Professional), Hindi (Limited Working)
+\end{itemize}
+
+\end{document}
