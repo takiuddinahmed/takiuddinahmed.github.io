@@ -12,34 +12,7 @@
         <priority>1.00</priority>
     </url>
     
-    <!-- Section anchors (for better internal linking) -->
-    <url>
-        <loc>https://takiuddin.me/#about</loc>
-        <lastmod>2024-12-22T00:00:00+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
-    </url>
-    
-    <url>
-        <loc>https://takiuddin.me/#experience</loc>
-        <lastmod>2024-12-22T00:00:00+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
-    </url>
-    
-    <url>
-        <loc>https://takiuddin.me/#skills</loc>
-        <lastmod>2024-12-22T00:00:00+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.70</priority>
-    </url>
-    
-    <url>
-        <loc>https://takiuddin.me/#contact</loc>
-        <lastmod>2024-12-22T00:00:00+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
-    </url>
+    <!-- Section anchors removed to prevent duplicate content issues -->
     
     <!-- Resume -->
     <url>

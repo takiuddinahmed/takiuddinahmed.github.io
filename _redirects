@@ -8,14 +8,14 @@ http://www.takiuddin.me/* https://takiuddin.me/:splat 301!
 # Force non-www to www (or vice versa)
 https://www.takiuddin.me/* https://takiuddin.me/:splat 301!
 
-# Redirect common variations
-/home /
-/portfolio /
-/about /
-/contact /#contact
+# Redirect common variations (removed to prevent duplicate content)
+# /home /
+# /portfolio /
+# /about /
+# /contact /#contact
 
 # Handle legacy URLs (if any existed before)
-/index.html /
+# /index.html /
 
 
 # Social media redirects (optional - for branded short links)
