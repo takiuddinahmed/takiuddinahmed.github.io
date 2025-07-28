@@ -238,6 +238,168 @@
           transform: rotate(360deg);
         }
       }
+      
+      /* Enhanced button accessibility styles */
+      .btn {
+        position: relative;
+        transition: all 0.2s ease-in-out;
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+      
+      .btn:focus-visible {
+        outline: 2px solid #4f46e5;
+        outline-offset: 2px;
+      }
+      
+      .btn:active {
+        transform: translateY(1px);
+      }
+      
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+      
+      /* Enhanced interactive element affordances */
+      .social-icon {
+        position: relative;
+        transition: all 0.2s ease-in-out;
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+      
+      .social-icon:focus-visible {
+        outline: 2px solid #4f46e5;
+        outline-offset: 2px;
+      }
+      
+      .social-icon:hover {
+        transform: translateY(-2px);
+      }
+      
+      .social-icon:active {
+        transform: translateY(0);
+      }
+      
+      /* Enhanced form input accessibility */
+      input:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid #4f46e5;
+        outline-offset: 2px;
+      }
+      
+      /* Enhanced link accessibility */
+      a:focus-visible {
+        outline: 2px solid #4f46e5;
+        outline-offset: 2px;
+        text-decoration: underline;
+      }
+      
+      /* Chat button specific enhancements */
+      .chat-trigger {
+        position: relative;
+        transition: all 0.2s ease-in-out;
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+      
+      .chat-trigger:focus-visible {
+        outline: 2px solid #4f46e5;
+        outline-offset: 2px;
+      }
+      
+      .chat-trigger:hover {
+        transform: scale(1.05);
+      }
+      
+      .chat-trigger:active {
+        transform: scale(0.95);
+      }
+      
+      /* Enhanced mobile menu button */
+      #mobileMenuBtn:focus-visible {
+        outline: 2px solid #4f46e5;
+        outline-offset: 2px;
+      }
+      
+      /* Enhanced theme toggle button */
+      label[for="darkSwitch"]:focus-within {
+        outline: 2px solid #4f46e5;
+        outline-offset: 2px;
+      }
+      
+      /* Enhanced navigation links */
+      nav a:hover {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      
+      /* Enhanced project cards */
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      
+      /* Enhanced social icons */
+      .social-icon:hover {
+        background-color: #4f46e5;
+        color: white;
+        transform: translateY(-2px);
+      }
+      
+      /* Enhanced form inputs */
+      input:focus,
+      textarea:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+      }
+      
+      /* Enhanced button states */
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+      }
+      
+      .btn-outline:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Enhanced focus indicators for all interactive elements */
+      button:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible,
+      select:focus-visible,
+      a:focus-visible {
+        outline: 2px solid #4f46e5;
+        outline-offset: 2px;
+      }
+      
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        .btn {
+          border: 2px solid currentColor;
+        }
+        
+        .social-icon {
+          border: 1px solid currentColor;
+        }
+        
+        input, textarea {
+          border: 2px solid currentColor;
+        }
+      }
+      
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
     </style>
 
   </head>
@@ -299,8 +461,10 @@
             <div class="flex items-center gap-4">
               <label
                 for="darkSwitch"
-                class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-border/30 flex items-center justify-center text-slate-600 dark:text-dark-text hover:bg-primary-500 dark:hover:bg-primary-500 hover:text-white transition-all duration-300 cursor-pointer"
+                class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-border/30 flex items-center justify-center text-slate-600 dark:text-dark-text hover:bg-primary-500 dark:hover:bg-primary-500 hover:text-white transition-all duration-300 cursor-pointer focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2"
                 aria-label="Toggle dark mode"
+                role="button"
+                tabindex="0"
               >
                 <input type="checkbox" id="darkSwitch" class="hidden" />
                 <i class="fas fa-moon dark:!hidden" aria-hidden="true"></i>
@@ -310,9 +474,10 @@
               <!-- Mobile Menu Button -->
               <button
                 id="mobileMenuBtn"
-                class="md:hidden w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-border/30 flex items-center justify-center text-slate-600 dark:text-dark-text hover:bg-primary-500 dark:hover:bg-primary-500 hover:text-white transition-all duration-300"
+                class="md:hidden w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-border/30 flex items-center justify-center text-slate-600 dark:text-dark-text hover:bg-primary-500 dark:hover:bg-primary-500 hover:text-white transition-all duration-300 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                 aria-label="Toggle mobile menu"
                 aria-expanded="false"
+                aria-controls="mobileMenu"
               >
                 <i class="fas fa-bars text-xl" aria-hidden="true"></i>
               </button>
@@ -528,8 +693,9 @@
                 <div class="flex flex-wrap items-center gap-4">
                   <button
                     type="button"
-                    class="btn btn-primary group relative overflow-hidden cursor-pointer chat-trigger"
+                    class="btn btn-primary group relative overflow-hidden cursor-pointer chat-trigger focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                     aria-label="Start AI chat conversation"
+                    aria-describedby="chat-description"
                   >
                     <span class="relative z-10 text-white dark:text-gray-900"
                       >Let's Talk via AI</span
@@ -552,6 +718,7 @@
                       aria-hidden="true"
                     ></div>
                   </button>
+                  <div id="chat-description" class="sr-only">Opens an AI chat interface to ask questions about my work and experience</div>
                   <a href="#contact" class="btn btn-outline"> Contact </a>
                   <a
                     href="assets/files/md_takiuddin_resume.pdf"
@@ -1720,15 +1887,18 @@
                     </div>
                     <button
                       type="submit"
-                      class="btn btn-primary dark:text-gray-900 w-full group"
+                      class="btn btn-primary dark:text-gray-900 w-full group focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                      aria-describedby="submit-description"
                     >
                       <span class="inline-flex items-center">
                         <i
                           class="fas fa-paper-plane mr-2 group-hover:translate-x-1 transition-transform"
+                          aria-hidden="true"
                         ></i>
                         Send Message
                       </span>
                     </button>
+                    <div id="submit-description" class="sr-only">Submits your contact form message</div>
                   </form>
                 </div>
               </div>
@@ -1813,10 +1983,13 @@
 <div id="chat-widget-container">
   <!-- Floating Chat Button -->
   <button
-    class="fixed z-50 bottom-4 md:bottom-6 right-4 md:right-6 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg md:w-14 md:h-14 w-12 h-12 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-400 transition-all duration-300 cursor-pointer chat-trigger"
+    class="fixed z-50 bottom-4 md:bottom-6 right-4 md:right-6 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg md:w-14 md:h-14 w-12 h-12 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 transition-all duration-300 cursor-pointer chat-trigger"
+    aria-label="Open chat interface"
+    aria-describedby="chat-widget-description"
   >
-    <i class="fas fa-comment-dots text-xl"></i>
+    <i class="fas fa-comment-dots text-xl" aria-hidden="true"></i>
   </button>
+  <div id="chat-widget-description" class="sr-only">Opens a chat interface to ask questions about my work and experience</div>
 
   <!-- Chat Popup -->
   <div
@@ -1832,24 +2005,27 @@
       <div class="flex gap-2 items-center">
         <button
           id="chat-maximize-btn"
-          class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-primary-500/80 hover:bg-primary-700 transition-colors duration-200 text-white focus:outline-none"
+          class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-primary-500/80 hover:bg-primary-700 transition-colors duration-200 text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-1"
           title="Maximize"
+          aria-label="Maximize chat window"
         >
-          <i class="fas fa-expand" id="maximize-icon"></i>
+          <i class="fas fa-expand" id="maximize-icon" aria-hidden="true"></i>
         </button>
         <button
           id="chat-minimize-btn"
-          class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-primary-500/80 hover:bg-primary-700 transition-colors duration-200 text-white focus:outline-none hidden"
+          class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-primary-500/80 hover:bg-primary-700 transition-colors duration-200 text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-1 hidden"
           title="Minimize"
+          aria-label="Minimize chat window"
         >
-          <i class="fas fa-compress" id="minimize-icon"></i>
+          <i class="fas fa-compress" id="minimize-icon" aria-hidden="true"></i>
         </button>
         <button
           id="chat-close-btn"
-          class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-red-500/80 hover:bg-red-700 transition-colors duration-200 text-white focus:outline-none"
+          class="w-8 h-8 flex items-center justify-center rounded-full border border-white/30 bg-red-500/80 hover:bg-red-700 transition-colors duration-200 text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-1"
           title="Close"
+          aria-label="Close chat window"
         >
-          <i class="fas fa-times"></i>
+          <i class="fas fa-times" aria-hidden="true"></i>
         </button>
       </div>
     </div>
@@ -1881,9 +2057,10 @@
       />
       <button
         type="submit"
-        class="ml-2 px-3 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-primary-400 transition-all duration-200"
+        class="ml-2 px-3 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-1 transition-all duration-200"
+        aria-label="Send message"
       >
-        <i class="fas fa-paper-plane"></i>
+        <i class="fas fa-paper-plane" aria-hidden="true"></i>
       </button>
     </form>
   </div>
