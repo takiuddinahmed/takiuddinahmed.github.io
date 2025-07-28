@@ -59,6 +59,8 @@
 
     <meta name="msvalidate.01" content="E10325114750E3C06172C97C567E33F0" />
     
+    <!-- Security Headers: Configured in _headers file (Cloudflare Pages) -->
+    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -2171,7 +2173,7 @@
                   <h3 class="text-2xl font-bold mb-8 gradient-text">
                     Send a Message
                   </h3>
-                  <form class="space-y-6">
+                  <form class="space-y-6" method="POST" action="mailto:takiuddinahmed@gmail.com" enctype="text/plain">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label class="block text-sm font-medium mb-2">Name</label>
@@ -2179,6 +2181,8 @@
                           type="text"
                           class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-dark-card/50 border border-slate-200/50 dark:border-dark-border/50 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-300"
                           placeholder="Your name"
+                          maxlength="100"
+                          required
                         />
                       </div>
                       <div>
@@ -2189,6 +2193,8 @@
                           type="email"
                           class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-dark-card/50 border border-slate-200/50 dark:border-dark-border/50 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-300"
                           placeholder="your@email.com"
+                          maxlength="254"
+                          required
                         />
                       </div>
                     </div>
@@ -2200,6 +2206,8 @@
                         type="text"
                         class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-dark-card/50 border border-slate-200/50 dark:border-dark-border/50 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-300"
                         placeholder="What's this about?"
+                        maxlength="200"
+                        required
                       />
                     </div>
                     <div>
@@ -2210,6 +2218,8 @@
                         rows="4"
                         class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-dark-card/50 border border-slate-200/50 dark:border-dark-border/50 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-300"
                         placeholder="Your message here..."
+                        maxlength="2000"
+                        required
                       ></textarea>
                     </div>
                     <button
@@ -2400,6 +2410,7 @@
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       data-cookie-consent="required"
       crossorigin="anonymous"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
     ></script>
     <script
       type="text/javascript"
@@ -2482,6 +2493,7 @@
     <form
       id="chat-form"
       class="flex items-center gap-2 border-t border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card p-2"
+      onsubmit="return false;"
     >
       <input
         id="chat-input"
@@ -2489,6 +2501,7 @@
         class="flex-1 min-w-0 px-3 py-2 rounded-lg border border-slate-200 dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-primary-400 dark:bg-dark-bg dark:text-white"
         placeholder="Type your message..."
         autocomplete="off"
+        maxlength="500"
       />
       <button
         type="submit"

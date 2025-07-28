@@ -26,6 +26,15 @@ Disallow: /search
 Disallow: /*?*
 Disallow: /*#*
 
+# Security: Prevent access to potential sensitive areas
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /tmp/
+Disallow: /backup/
+Disallow: /logs/
+
 # Allow search engines to crawl CSS and JS for better rendering
 Allow: /*.css$
 Allow: /*.js$
