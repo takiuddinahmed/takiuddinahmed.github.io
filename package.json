@@ -3,11 +3,21 @@
     "@tailwindcss/cli": "^4.1.8",
     "tailwindcss": "^4.1.8"
   },
+  "devDependencies": {
+    "sharp": "^0.33.0"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.33.0"
+  },
   "scripts": {
     "build": "node scripts/build.js",
+    "build:production": "node scripts/build-production.js",
     "build:cache": "node scripts/build-cache.js",
     "dev": "node scripts/dev.js",
+    "optimize:images": "node scripts/optimize-images.js",
+    "optimize:images:responsive": "node scripts/optimize-images.js --responsive",
     "deploy": "npm run build && wrangler pages deploy . --project-name=takiuddin-portfolio",
+    "deploy:production": "npm run build:production && wrangler pages deploy . --project-name=takiuddin-portfolio",
     "deploy:preview": "npm run build && wrangler pages deploy . --project-name=takiuddin-portfolio --branch=preview",
     "pages:dev": "wrangler pages dev . --project-name=takiuddin-portfolio"
   }

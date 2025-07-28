@@ -217,11 +217,18 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" href="assets/css/output.css" as="style" />
-    <link rel="preload" href="assets/images/profile.jpg" as="image" />
+    <link rel="preload" href="assets/images/optimized/profile.avif" as="image" type="image/avif" />
+    <link rel="preload" href="assets/images/profile.jpg" as="image" type="image/jpeg" />
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" />
     
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+    
+    <!-- Image optimization hints -->
+    <link rel="preload" href="assets/images/optimized/cognitus-logo.avif" as="image" type="image/avif" />
+    <link rel="preload" href="assets/images/cognitus-logo.svg" as="image" type="image/svg+xml" />
+    <link rel="preload" href="assets/images/optimized/grype-logo.avif" as="image" type="image/avif" />
+    <link rel="preload" href="assets/images/grype-logo.png" as="image" type="image/png" />
 
 
     <style>
@@ -398,6 +405,87 @@
           animation-duration: 0.01ms !important;
           animation-iteration-count: 1 !important;
           transition-duration: 0.01ms !important;
+        }
+      }
+      
+      /* Image optimization styles */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      
+      /* Lazy loading placeholder */
+      img[loading="lazy"] {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+      
+      /* Image loading states */
+      .image-container {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .image-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        z-index: 1;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+      
+      .image-container img {
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      .image-container img.loaded {
+        opacity: 1;
+      }
+      
+      .image-container img.loaded + .image-container::before {
+        opacity: 0;
+      }
+      
+      /* Dark mode support for loading placeholders */
+      @media (prefers-color-scheme: dark) {
+        img[loading="lazy"] {
+          background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+          background-size: 200% 100%;
+        }
+        
+        .image-container::before {
+          background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+          background-size: 200% 100%;
+        }
+      }
+      
+      /* Responsive image optimization */
+      @media (max-width: 768px) {
+        img[width][height] {
+          width: auto;
+          height: auto;
+          max-width: 100%;
         }
       }
     </style>
@@ -740,14 +828,26 @@
                     <div
                       class="aspect-square rounded-2xl overflow-hidden border-2 border-gray-900 dark:border-white shadow-2xl"
                     >
-                      <img
-                        src="assets/images/profile.jpg"
-                        alt="Md Takiuddin Ahmed - Senior Backend Developer"
-                        class="w-full h-full object-cover"
-                        width="400"
-                        height="400"
-                        loading="eager"
-                      />
+                      <picture>
+                        <source
+                          srcset="assets/images/optimized/profile.avif"
+                          type="image/avif"
+                        />
+                        <source
+                          srcset="assets/images/optimized/profile.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          src="assets/images/profile.jpg"
+                          alt="Md Takiuddin Ahmed - Senior Backend Developer"
+                          class="w-full h-full object-cover"
+                          width="400"
+                          height="400"
+                          loading="eager"
+                          decoding="async"
+                          fetchpriority="high"
+                        />
+                      </picture>
                     </div>
                   </div>
 
@@ -968,11 +1068,25 @@
                         <div
                           class="w-20 h-20 rounded-2xl bg-white dark:bg-dark-card shadow-2xl border-2 border-primary-500 p-4 transform rotate-3 transition-transform group-hover:rotate-6"
                         >
-                          <img
-                            src="assets/images/cognitus-logo.svg"
-                            alt="Cognitus"
-                            class="w-full h-full object-contain"
-                          />
+                          <picture>
+                            <source
+                              srcset="assets/images/optimized/cognitus-logo.avif"
+                              type="image/avif"
+                            />
+                            <source
+                              srcset="assets/images/optimized/cognitus-logo.webp"
+                              type="image/webp"
+                            />
+                            <img
+                              src="assets/images/cognitus-logo.svg"
+                              alt="Cognitus"
+                              class="w-full h-full object-contain"
+                              width="80"
+                              height="80"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </picture>
                         </div>
                       </div>
                       <div class="flex-grow">
@@ -1063,12 +1177,26 @@
                         <div
                           class="w-20 h-20 rounded-2xl bg-white dark:bg-dark-card shadow-2xl border-2 border-secondary-500 p-4 transform -rotate-3 transition-transform group-hover:-rotate-6"
                         >
-                          <img
-                            src="assets/images/grype-logo.png"
-                            alt="Grype Digital"
-                            class="w-full h-full object-contain"
-                            onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><text x=\'50%\' y=\'50%\' style=\'dominant-baseline:middle;text-anchor:middle;font-size:50px;font-family:system-ui;fill:%23f97316\'>G</text></svg>'"
-                          />
+                          <picture>
+                            <source
+                              srcset="assets/images/optimized/grype-logo.avif"
+                              type="image/avif"
+                            />
+                            <source
+                              srcset="assets/images/optimized/grype-logo.webp"
+                              type="image/webp"
+                            />
+                            <img
+                              src="assets/images/grype-logo.png"
+                              alt="Grype Digital"
+                              class="w-full h-full object-contain"
+                              width="80"
+                              height="80"
+                              loading="lazy"
+                              decoding="async"
+                              onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><text x=\'50%\' y=\'50%\' style=\'dominant-baseline:middle;text-anchor:middle;font-size:50px;font-family:system-ui;fill:%23f97316\'>G</text></svg>'"
+                            />
+                          </picture>
                         </div>
                       </div>
                       <div class="flex-grow">
@@ -1978,6 +2106,7 @@
     <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/chat.js"></script>
+    <script src="assets/js/image-optimizer.js"></script>
 
 <!-- Chat Widget Start -->
 <div id="chat-widget-container">
