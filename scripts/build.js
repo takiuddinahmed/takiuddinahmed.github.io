@@ -24,33 +24,8 @@ try {
     console.log('⚠️  CSS input file not found, skipping CSS build');
   }
   
-  // Step 2: Optimize images (if enabled)
-  if (config.features.imageOptimization) {
-    console.log('🖼️  Optimizing images...');
-    try {
-      // Check if sharp is available
-      require.resolve('sharp');
-      
-      // Run image optimization using execSync for simplicity
-      console.log('📸 Processing images...');
-      const responsiveFlag = config.images.responsive ? ' --responsive' : '';
-      execSync(`node scripts/optimize-images.js${responsiveFlag}`, { 
-        stdio: 'inherit' 
-      });
-      
-      console.log('✅ Image optimization completed!');
-    } catch (error) {
-      if (error.code === 'MODULE_NOT_FOUND') {
-        console.log('⚠️  Sharp not installed, skipping image optimization');
-        console.log('💡 Run "npm install" to install image optimization dependencies');
-      } else {
-        console.log('⚠️  Image optimization failed:', error.message);
-        console.log('💡 Continuing build without image optimization...');
-      }
-    }
-  } else {
-    console.log('⏭️  Image optimization disabled in config');
-  }
+  // Step 2: Image optimization (run manually when needed)
+  console.log('⏭️  Image optimization skipped - run "npm run optimize:images" manually');
   
   // Step 3: Update cache invalidation headers (if enabled)
   if (config.features.cacheHeaders) {

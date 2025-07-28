@@ -26,7 +26,7 @@ module.exports = {
   
   // Feature flags
   features: {
-    imageOptimization: true,
+    imageOptimization: false, // Disabled - run manually
     cacheHeaders: true,
     minification: process.env.NODE_ENV === 'production'
   },

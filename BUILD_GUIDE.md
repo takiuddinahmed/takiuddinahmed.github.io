@@ -9,9 +9,8 @@ This guide explains the build process and how image optimization is integrated i
 npm run build
 ```
 - Builds CSS with Tailwind
-- Optimizes images (basic optimization)
 - Updates cache headers
-- **No responsive images** (faster build)
+- **Fast build** (no image optimization)
 
 ### Production Build
 ```bash
@@ -19,18 +18,19 @@ npm run build:production
 ```
 - Sets `NODE_ENV=production`
 - Builds CSS with Tailwind
-- Optimizes images with responsive versions
 - Updates cache headers
-- **Includes responsive images** (slower but optimized)
+- **Optimized for production** (minification enabled)
 
 ### Manual Image Optimization
 ```bash
-# Basic optimization
+# Basic optimization (run when needed)
 npm run optimize:images
 
-# Responsive optimization
+# Responsive optimization (run when needed)
 npm run optimize:images:responsive
 ```
+
+
 
 ## 📁 Build Process Steps
 
@@ -38,10 +38,11 @@ npm run optimize:images:responsive
 - Compiles Tailwind CSS from `input.css` to `output.css`
 - Uses configuration from `build-config.js`
 
-### 2. **Image Optimization** (if enabled)
+### 2. **Image Optimization** (manual)
+- Run `npm run optimize:images` when needed
 - Converts images to AVIF and WebP formats
 - Optimizes original formats (JPEG, PNG)
-- Creates responsive versions in production
+- Creates responsive versions with `--responsive` flag
 - Uses Sharp library for high-quality optimization
 
 ### 3. **Cache Headers** (if enabled)
@@ -61,12 +62,12 @@ module.exports = {
     enabled: true,
     quality: 85,
     formats: ['webp', 'avif'],
-    responsive: process.env.NODE_ENV === 'production',
+    responsive: false, // Set manually when needed
     maxWidth: 1920,
     maxHeight: 1920
   },
   features: {
-    imageOptimization: true,
+    imageOptimization: false, // Disabled - run manually
     cacheHeaders: true,
     minification: process.env.NODE_ENV === 'production'
   }
@@ -84,6 +85,22 @@ module.exports = {
 assets/
 ├── css/
 │   └── output.css (unminified)
+└── _headers (updated)
+```
+
+### Production Build
+```
+assets/
+├── css/
+│   └── output.css (minified)
+└── _headers (updated)
+```
+
+### After Manual Image Optimization
+```
+assets/
+├── css/
+│   └── output.css
 ├── images/
 │   └── optimized/
 │       ├── profile.avif
@@ -95,30 +112,13 @@ assets/
 └── _headers (updated)
 ```
 
-### Production Build
-```
-assets/
-├── css/
-│   └── output.css (minified)
-├── images/
-│   └── optimized/
-│       ├── profile.avif
-│       ├── profile.webp
-│       ├── profile-sm.jpg
-│       ├── profile-md.jpg
-│       ├── profile-lg.jpg
-│       ├── profile-xl.jpg
-│       └── ... (responsive versions)
-└── _headers (updated)
-```
-
 ## 🔧 Customization
 
-### Disable Image Optimization
+### Enable Image Optimization in Build (if needed)
 ```javascript
 // In build-config.js
 features: {
-  imageOptimization: false
+  imageOptimization: true
 }
 ```
 
@@ -159,15 +159,20 @@ npm install sharp
 ## 📊 Performance Impact
 
 ### Development Build
-- **Build time**: ~5-10 seconds
-- **Image optimization**: Basic (AVIF + WebP)
-- **File sizes**: Optimized but not minimal
+- **Build time**: ~2-5 seconds
+- **Image optimization**: None (manual)
+- **File sizes**: Original sizes
 
 ### Production Build
-- **Build time**: ~15-30 seconds
+- **Build time**: ~3-8 seconds
+- **Image optimization**: None (manual)
+- **File sizes**: Original sizes
+
+### Manual Image Optimization
+- **Optimization time**: ~10-20 seconds
 - **Image optimization**: Full (AVIF + WebP + Responsive)
-- **File sizes**: Highly optimized
-- **Performance gain**: 40-60% smaller images
+- **File sizes**: 40-60% smaller
+- **Performance gain**: Significant when optimized
 
 ## 🔄 Continuous Integration
 
@@ -186,6 +191,7 @@ jobs:
         with:
           node-version: '18'
       - run: npm install
+      - run: npm run optimize:images:responsive  # Manual optimization
       - run: npm run build:production
       - run: npm run deploy:production
 ```
@@ -193,11 +199,12 @@ jobs:
 ## 📝 Best Practices
 
 1. **Use production build for deployment**
-2. **Commit optimized images** to version control
-3. **Monitor build times** and optimize if needed
-4. **Test builds locally** before deployment
-5. **Keep Sharp version updated** for best performance
+2. **Run image optimization manually** when adding new images
+3. **Commit optimized images** to version control
+4. **Monitor build times** and optimize if needed
+5. **Test builds locally** before deployment
+6. **Keep Sharp version updated** for best performance
 
 ---
 
-**Note**: The build process is designed to be fast for development and comprehensive for production. Adjust the configuration based on your specific needs. 
+**Note**: The build process is now optimized for speed. Image optimization is run manually when needed, allowing for faster builds during development. 
