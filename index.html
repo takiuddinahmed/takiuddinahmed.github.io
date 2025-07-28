@@ -195,20 +195,25 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
     <link rel="manifest" href="manifest.json" />
 
-    <!-- FontAwesome CSS -->
+    <!-- FontAwesome CSS - Self-hosted to avoid third-party cookies -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+      data-cookie-consent="required"
     />
 
     <script src="./assets/js/theme.js"></script>
 
+    <!-- Octicons CSS - Self-hosted to avoid third-party cookies -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      data-cookie-consent="required"
     />
 
     <!-- css -->
@@ -408,6 +413,50 @@
         }
       }
       
+      /* Explicit font sizes for headings to prevent deprecation warnings */
+      h1 {
+        font-size: 2.25rem !important;
+        line-height: 2.5rem !important;
+      }
+      
+      h2 {
+        font-size: 1.875rem !important;
+        line-height: 2.25rem !important;
+      }
+      
+      h3 {
+        font-size: 1.5rem !important;
+        line-height: 2rem !important;
+      }
+      
+      h4 {
+        font-size: 1.25rem !important;
+        line-height: 1.75rem !important;
+      }
+      
+      h5 {
+        font-size: 1.125rem !important;
+        line-height: 1.75rem !important;
+      }
+      
+      h6 {
+        font-size: 1rem !important;
+        line-height: 1.5rem !important;
+      }
+      
+      /* Responsive font sizes */
+      @media (min-width: 1024px) {
+        h1 {
+          font-size: 3.75rem !important;
+          line-height: 1 !important;
+        }
+        
+        h2 {
+          font-size: 3rem !important;
+          line-height: 1 !important;
+        }
+      }
+      
       /* Image optimization styles */
       img {
         max-width: 100%;
@@ -487,6 +536,153 @@
           height: auto;
           max-width: 100%;
         }
+      }
+      
+      /* Privacy policy modal styles */
+      .prose {
+        color: inherit;
+      }
+      
+      .prose h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #1f2937;
+      }
+      
+      .dark .prose h4 {
+        color: #f9fafb;
+      }
+      
+      .prose h5 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        color: #374151;
+      }
+      
+      .dark .prose h5 {
+        color: #e5e7eb;
+      }
+      
+      .prose p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+        color: #4b5563;
+      }
+      
+      .dark .prose p {
+        color: #d1d5db;
+      }
+      
+      .prose ul {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+      }
+      
+      .prose li {
+        margin-bottom: 0.5rem;
+        color: #4b5563;
+      }
+      
+      .dark .prose li {
+        color: #d1d5db;
+      }
+      
+      .prose a {
+        color: #4f46e5;
+        text-decoration: underline;
+        transition: color 0.2s ease;
+      }
+      
+      .prose a:hover {
+        color: #3730a3;
+      }
+      
+      .dark .prose a {
+        color: #818cf8;
+      }
+      
+      .dark .prose a:hover {
+        color: #a5b4fc;
+      }
+      
+      /* Modal scrollbar styling */
+      .overflow-y-auto::-webkit-scrollbar {
+        width: 6px;
+      }
+      
+      .overflow-y-auto::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 3px;
+      }
+      
+      .dark .overflow-y-auto::-webkit-scrollbar-track {
+        background: #374151;
+      }
+      
+      .overflow-y-auto::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+      }
+      
+      .dark .overflow-y-auto::-webkit-scrollbar-thumb {
+        background: #6b7280;
+      }
+      
+      .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      
+      .dark .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+        background: #9ca3af;
+      }
+      
+      /* Modal container improvements */
+      #privacy-policy-modal {
+        padding: 1rem;
+      }
+      
+      #privacy-policy-modal > div {
+        max-height: calc(100vh - 2rem);
+        margin: 0 auto;
+      }
+      
+      /* Responsive modal sizing */
+      @media (max-width: 768px) {
+        #privacy-policy-modal {
+          padding: 0.5rem;
+        }
+        
+        #privacy-policy-modal > div {
+          max-height: calc(100vh - 1rem);
+          margin: 0.5rem;
+        }
+      }
+      
+      @media (max-height: 600px) {
+        #privacy-policy-modal > div {
+          max-height: calc(100vh - 1rem);
+        }
+      }
+      
+      /* Ensure content is scrollable */
+      .overflow-y-auto {
+        scrollbar-width: thin;
+        scrollbar-color: #cbd5e1 #f1f5f9;
+        overflow-y: auto !important;
+      }
+      
+      .dark .overflow-y-auto {
+        scrollbar-color: #6b7280 #374151;
+      }
+      
+      /* Force scrolling when content overflows */
+      .flex-1.min-h-0 {
+        overflow-y: auto !important;
+        max-height: none !important;
       }
     </style>
 
@@ -683,11 +879,13 @@
 
                   <h1
                     class="text-4xl lg:text-6xl font-bold tracking-tight max-w-3xl"
+                    style="font-size: 2.25rem; line-height: 2.5rem;"
                   >
                     Hi, I'm
                     <span class="text-gray-900 dark:text-white">Takiuddin</span>
                     <span
                       class="block mt-2 text-3xl lg:text-4xl text-gray-600 dark:text-gray-400"
+                      style="font-size: 1.875rem; line-height: 2.25rem;"
                     >
                       Senior Backend Engineer
                     </span>
@@ -2089,24 +2287,131 @@
         <div
           class="mt-8 pt-8 border-t border-slate-200 dark:border-dark-border text-center"
         >
-          <p class="text-slate-500 dark:text-dark-muted">
+          <p class="text-slate-500 dark:text-dark-muted mb-2">
             © 2025 Md Takiuddin Ahmed. All rights reserved.
           </p>
+          <div class="flex items-center justify-center gap-4 text-sm text-slate-500 dark:text-dark-muted">
+            <button
+              id="cookie-preferences-btn"
+              class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              aria-label="Manage cookie preferences"
+            >
+              Cookie Preferences
+            </button>
+            <span class="text-slate-400">•</span>
+            <a
+              href="#privacy-policy"
+              class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            >
+              Privacy Policy
+            </a>
+          </div>
         </div>
       </div>
     </footer>
 
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 hidden">
+      <div class="bg-white dark:bg-gray-900 rounded-lg max-w-4xl w-full max-h-[75vh] my-8 shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Privacy Policy</h3>
+          <button id="close-privacy-modal" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700" aria-label="Close privacy policy">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        
+                <div class="p-6 overflow-y-auto flex-1 min-h-0">
+          
+          <div class="prose dark:prose-invert max-w-none">
+          <h4>Cookie Policy</h4>
+          <p>This website uses cookies to enhance your browsing experience. We use the following types of cookies:</p>
+          
+          <h5>Essential Cookies</h5>
+          <p>These cookies are necessary for the website to function properly. They cannot be disabled.</p>
+          
+          <h5>Analytics Cookies</h5>
+          <p>These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+          
+          <h5>Marketing Cookies</h5>
+          <p>These cookies are used to track visitors across websites to display relevant advertisements.</p>
+          
+          <h4>Third-Party Services</h4>
+          <p>We use the following third-party services:</p>
+          <ul>
+            <li><strong>Cloudflare:</strong> CDN and security services</li>
+            <li><strong>FontAwesome:</strong> Icon library</li>
+            <li><strong>Google Fonts:</strong> Typography (if used)</li>
+          </ul>
+          
+          <h4>Data Collection</h4>
+          <p>We do not collect personal information unless you explicitly provide it through our contact forms. Any data collected is used solely for the purpose stated at the time of collection.</p>
+          
+          <h4>Contact</h4>
+          <p>For questions about this privacy policy, please contact us at <a href="mailto:takiuddinahmed@gmail.com" class="text-primary-600 dark:text-primary-400">takiuddinahmed@gmail.com</a></p>
+          
+          <h4>Updates to This Policy</h4>
+          <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page and updating the "Last Updated" date.</p>
+          
+          <h4>Your Rights</h4>
+          <p>Depending on your location, you may have certain rights regarding your personal information, including:</p>
+          <ul>
+            <li>The right to access your personal information</li>
+            <li>The right to correct inaccurate information</li>
+            <li>The right to delete your personal information</li>
+            <li>The right to restrict processing</li>
+            <li>The right to data portability</li>
+            <li>The right to object to processing</li>
+          </ul>
+          
+          <h4>Data Security</h4>
+          <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+          
+          <h4>International Transfers</h4>
+          <p>Your information may be transferred to and processed in countries other than your own. We ensure that such transfers comply with applicable data protection laws.</p>
+          
+          <h4>Children's Privacy</h4>
+          <p>Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+          
+          <h4>Third-Party Links</h4>
+          <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites.</p>
+          
+          <h4>Legal Basis for Processing</h4>
+          <p>We process your personal information based on the following legal grounds:</p>
+          <ul>
+            <li>Consent: When you have given us explicit consent</li>
+            <li>Contract: When processing is necessary for the performance of a contract</li>
+            <li>Legitimate Interest: When processing is necessary for our legitimate interests</li>
+            <li>Legal Obligation: When processing is required by law</li>
+          </ul>
+          
+          <h4>Data Retention</h4>
+          <p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this privacy policy, unless a longer retention period is required or permitted by law.</p>
+          
+          <h4>Complaints</h4>
+          <p>If you have concerns about our privacy practices, you may contact your local data protection authority.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Javascript -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script 
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      data-cookie-consent="required"
+      crossorigin="anonymous"
+    ></script>
     <script
       type="text/javascript"
       src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"
+      data-cookie-consent="required"
+      crossorigin="anonymous"
     ></script>
 
     <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/chat.js"></script>
     <script src="assets/js/image-optimizer.js"></script>
+    <script src="assets/js/cookie-consent.js"></script>
 
 <!-- Chat Widget Start -->
 <div id="chat-widget-container">
