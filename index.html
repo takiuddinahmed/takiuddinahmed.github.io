@@ -2405,28 +2405,7 @@
       </div>
     </div>
 
-    <!-- Javascript -->
-    <script 
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      data-cookie-consent="required"
-      crossorigin="anonymous"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-    ></script>
-    <script
-      type="text/javascript"
-      src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"
-      data-cookie-consent="required"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Custom JS -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/chat.js"></script>
-    <script src="assets/js/image-optimizer.js"></script>
-    <script src="assets/js/cookie-consent.js"></script>
-
-
-<!-- Get User info Modal -->
+    <!-- Get User info Modal -->
 <div id="user-info-modal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center px-4 md:px-16 py-8 md:py-16 transition-all duration-300">
   <div class="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-md shadow-2xl border border-gray-200 dark:border-gray-700 transform transition-all duration-300 relative overflow-hidden">
 
@@ -2502,18 +2481,36 @@
 
 
 
+    <!-- Javascript -->
+    <script 
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      data-cookie-consent="required"
+      crossorigin="anonymous"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"
+      data-cookie-consent="required"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/chat.js"></script>
+    <script src="assets/js/image-optimizer.js"></script>
+    <script src="assets/js/cookie-consent.js"></script>
+    
+  <!-- Floating Chat Button -->
+    <div class="fixed bottom-4 right-4 ">
+  <button class="px-3 py-2 rounded-full bg-primary-600 hover:bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-1 transition-all duration-200 chat-trigger shadow-lg md:w-14 md:h-14 w-12 h-12">
+     <i class="fas fa-comment-dots text-xl" aria-hidden="true"></i>
+  </button>
+</div>
 
 
 <!-- Chat Widget Start -->
 <div id="chat-widget-container">
-  <!-- Floating Chat Button -->
-  <button
-    class="fixed z-50 bottom-4 md:bottom-6 right-4 md:right-6 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg md:w-14 md:h-14 w-12 h-12 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 transition-all duration-300 cursor-pointer chat-trigger"
-    aria-label="Open chat interface"
-    aria-describedby="chat-widget-description"
-  >
-    <i class="fas fa-comment-dots text-xl" aria-hidden="true"></i>
-  </button>
   <div id="chat-widget-description" class="sr-only">Opens a chat interface to ask questions about my work and experience</div>
 
   <!-- Chat Popup -->

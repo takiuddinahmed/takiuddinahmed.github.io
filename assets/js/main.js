@@ -24,8 +24,4 @@ document.addEventListener("DOMContentLoaded", function () {
       isMenuOpen = false;
     });
   });
-
-  // --- Chat Widget Logic ---
-  // (moved to chat.js)
-  // --- End Chat Widget Logic ---
 });
