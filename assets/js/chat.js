@@ -19,10 +19,39 @@ document.addEventListener("DOMContentLoaded", () => {
   chatAreaUnified.parentNode.insertBefore(chatContentWrapper, chatAreaUnified);
   chatContentWrapper.appendChild(chatAreaUnified);
 
+  // Modal close functionality
+  function closeModal() {
+    userInfoModal.classList.add("hidden");
+  }
+
+  // Open modal when chat trigger is clicked
   document.querySelectorAll(".chat-trigger").forEach((btn) => {
     btn.addEventListener("click", () => {
       userInfoModal.classList.remove("hidden");
     });
+  });
+
+  // Close modal when clicking outside
+  userInfoModal.addEventListener("click", (e) => {
+    if (e.target === userInfoModal) {
+      closeModal();
+    }
+  });
+
+  // Prevent modal from closing when clicking inside the modal content
+  userInfoModal.querySelector("div").addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  // ESC key to close modal
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (!userInfoModal.classList.contains("hidden")) {
+        closeModal();
+      } else {
+        closeChat();
+      }
+    }
   });
 
   userInfoForm.addEventListener("submit", async (e) => {
@@ -41,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json();
       if (data?.conversationId) {
         conversationId = data.conversationId;
-        userInfoModal.classList.add("hidden");
+        closeModal();
         openChat();
       } else {
         alert("Failed to initialize chat.");
@@ -208,8 +237,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeChat();
-  });
 });
