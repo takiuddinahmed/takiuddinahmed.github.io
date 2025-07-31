@@ -1,138 +1,161 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let conversationId = null;
+  const apiInitUrl = "http://localhost:3000/chatbot/init";
+  const apiChatUrl = "http://localhost:3000/chatbot/ask";
+
+  const userInfoModal = document.getElementById("user-info-modal");
+  const userInfoForm = document.getElementById("user-info-form");
+  const chatPopup = document.getElementById("chat-popup");
+  const chatCloseBtn = document.getElementById("chat-close-btn");
+  const chatMaximizeBtn = document.getElementById("chat-maximize-btn");
+  const chatMinimizeBtn = document.getElementById("chat-minimize-btn");
+  const chatForm = document.getElementById("chat-form");
+  const chatInput = document.getElementById("chat-input");
+  const chatMessages = document.getElementById("chat-messages");
+  const chatAreaUnified = document.getElementById("chat-area-unified");
+
+  const chatContentWrapper = document.createElement("div");
+  chatContentWrapper.className = "flex-1 flex flex-col w-full h-full";
+  chatAreaUnified.parentNode.insertBefore(chatContentWrapper, chatAreaUnified);
+  chatContentWrapper.appendChild(chatAreaUnified);
+
   document.querySelectorAll(".chat-trigger").forEach((btn) => {
-    btn.addEventListener("click", openChat)
-  })
+    btn.addEventListener("click", () => {
+      userInfoModal.classList.remove("hidden");
+    });
+  });
 
-  const chatPopup = document.getElementById("chat-popup")
-  const chatCloseBtn = document.getElementById("chat-close-btn")
-  const chatMaximizeBtn = document.getElementById("chat-maximize-btn")
-  const chatMinimizeBtn = document.getElementById("chat-minimize-btn")
-  const chatForm = document.getElementById("chat-form")
-  const chatInput = document.getElementById("chat-input")
-  const chatMessages = document.getElementById("chat-messages")
-  const chatAreaUnified = document.getElementById("chat-area-unified")
+  userInfoForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("user-name").value.trim();
+    const email = document.getElementById("user-email").value.trim();
 
-  // Create a container for centered content
-  const chatContentWrapper = document.createElement("div")
-  chatContentWrapper.className = "flex-1 flex flex-col w-full h-full"
-  chatAreaUnified.parentNode.insertBefore(chatContentWrapper, chatAreaUnified)
-  chatContentWrapper.appendChild(chatAreaUnified)
+    if (!name || !email) return alert("Please enter your name and email.");
 
-  // Sidebar open/close animation
+    try {
+      const res = await fetch(apiInitUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email }),
+      });
+      const data = await res.json();
+      if (data?.conversationId) {
+        conversationId = data.conversationId;
+        userInfoModal.classList.add("hidden");
+        openChat();
+      } else {
+        alert("Failed to initialize chat.");
+      }
+    } catch (err) {
+      alert("Error connecting to server.");
+    }
+  });
+
   function openChat() {
-    chatPopup.setAttribute("data-maximized", "false")
-    chatPopup.classList.remove("invisible", "opacity-0", "pointer-events-none")
-    chatPopup.classList.add("visible", "opacity-100")
-    chatPopup.style.transition = "all 0.3s ease"
-    chatPopup.style.right = "-500px"
-    chatPopup.style.left = "auto"
-    chatPopup.style.width = "450px"
-    chatPopup.style.maxWidth = "100vw"
-    chatPopup.style.height = "100vh"
-    chatPopup.style.top = "0"
-    chatPopup.style.bottom = "0"
-    chatPopup.style.borderRadius = "0.75rem 0 0 0.75rem"
-    chatPopup.style.boxShadow = "-2px 0 24px 0 rgba(0,0,0,0.10)"
-    chatPopup.style.background = chatPopup.classList.contains("dark") ? "#18181b" : "#fff"
-    chatPopup.style.display = "flex"
-    chatPopup.style.flexDirection = "column"
-    chatPopup.style.position = "fixed"
-    chatPopup.style.zIndex = 9999
+    chatPopup.setAttribute("data-maximized", "false");
+    chatPopup.classList.remove("invisible", "opacity-0", "pointer-events-none");
+    chatPopup.classList.add("visible", "opacity-100");
+    chatPopup.style.transition = "all 0.3s ease";
+    chatPopup.style.right = "-500px";
+    chatPopup.style.left = "auto";
+    chatPopup.style.width = "450px";
+    chatPopup.style.maxWidth = "100vw";
+    chatPopup.style.height = "100vh";
+    chatPopup.style.top = "0";
+    chatPopup.style.bottom = "0";
+    chatPopup.style.borderRadius = "0.75rem 0 0 0.75rem";
+    chatPopup.style.boxShadow = "-2px 0 24px 0 rgba(0,0,0,0.10)";
+    chatPopup.style.background = chatPopup.classList.contains("dark")
+      ? "#18181b"
+      : "#fff";
+    chatPopup.style.display = "flex";
+    chatPopup.style.flexDirection = "column";
+    chatPopup.style.position = "fixed";
+    chatPopup.style.zIndex = 9999;
 
-    chatMaximizeBtn.classList.remove("hidden")
-    chatMinimizeBtn.classList.add("hidden")
+    chatMaximizeBtn.classList.remove("hidden");
+    chatMinimizeBtn.classList.add("hidden");
 
-    // Reset to normal width and remove maximized styling
-    chatContentWrapper.classList.remove("max-w-4xl", "mx-auto")
-    chatAreaUnified.classList.remove("chat-area-maximized")
+    chatContentWrapper.classList.remove("max-w-4xl", "mx-auto");
+    chatAreaUnified.classList.remove("chat-area-maximized");
 
     requestAnimationFrame(() => {
-      chatPopup.style.right = "0"
-    })
+      chatPopup.style.right = "0";
+    });
 
-    setTimeout(() => chatInput.focus(), 500)
+    setTimeout(() => chatInput.focus(), 500);
   }
 
   function closeChat() {
-    chatPopup.style.right = "-500px"
-
+    chatPopup.style.right = "-500px";
     setTimeout(() => {
-      chatPopup.classList.add("invisible", "opacity-0", "pointer-events-none")
-      chatPopup.classList.remove("visible", "opacity-100")
-      chatPopup.style.display = "none"
-    }, 500)
+      chatPopup.classList.add("invisible", "opacity-0", "pointer-events-none");
+      chatPopup.classList.remove("visible", "opacity-100");
+      chatPopup.style.display = "none";
+    }, 500);
   }
 
-  if (chatPopup && chatCloseBtn) {
-    chatCloseBtn.addEventListener("click", closeChat)
-  }
+  if (chatCloseBtn) chatCloseBtn.addEventListener("click", closeChat);
 
-  // Maximize functionality
-  if (chatPopup && chatMaximizeBtn) {
+  if (chatMaximizeBtn) {
     chatMaximizeBtn.addEventListener("click", () => {
-      chatPopup.setAttribute("data-maximized", "true")
-      chatPopup.style.transition = "all 0.5s ease"
-      chatPopup.style.width = "calc(100vw - 16px)"
-      chatPopup.style.right = "0"
-      chatPopup.style.left = "0"
-      chatPopup.style.marginLeft = "0"
-      chatPopup.style.transform = "none"
-      chatPopup.style.borderRadius = "0"
-      chatPopup.style.height = "100vh"
-      chatPopup.style.top = "0"
-      chatPopup.style.bottom = "0"
+      chatPopup.setAttribute("data-maximized", "true");
+      chatPopup.style.transition = "all 0.5s ease";
+      chatPopup.style.width = "calc(100vw - 16px)";
+      chatPopup.style.right = "0";
+      chatPopup.style.left = "0";
+      chatPopup.style.marginLeft = "0";
+      chatPopup.style.transform = "none";
+      chatPopup.style.borderRadius = "0";
+      chatPopup.style.height = "100vh";
+      chatPopup.style.top = "0";
+      chatPopup.style.bottom = "0";
 
-      // Apply centered max-width container
-      chatContentWrapper.classList.add("max-w-4xl", "mx-auto")
-      // Add maximized styling to unified chat area
-      chatAreaUnified.classList.add("chat-area-maximized")
+      chatContentWrapper.classList.add("max-w-4xl", "mx-auto");
+      chatAreaUnified.classList.add("chat-area-maximized");
 
-      chatMaximizeBtn.classList.add("hidden")
-      chatMinimizeBtn.classList.remove("hidden")
-      chatForm.classList.remove("hidden")
+      chatMaximizeBtn.classList.add("hidden");
+      chatMinimizeBtn.classList.remove("hidden");
+      chatForm.classList.remove("hidden");
 
       setTimeout(() => {
-        chatMessages.scrollTop = chatMessages.scrollHeight
-      }, 400)
-    })
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 400);
+    });
   }
 
-  // Minimize functionality
-  if (chatPopup && chatMinimizeBtn) {
+  if (chatMinimizeBtn) {
     chatMinimizeBtn.addEventListener("click", () => {
-      chatPopup.setAttribute("data-maximized", "false")
-      chatPopup.style.transition = "all 0.5s ease"
-      chatPopup.style.width = "450px"
-      chatPopup.style.right = "0"
-      chatPopup.style.left = "auto"
-      chatPopup.style.borderRadius = "0.75rem 0 0 0.75rem"
-      chatPopup.style.height = "100vh"
-      chatPopup.style.top = "0"
-      chatPopup.style.bottom = "0"
+      chatPopup.setAttribute("data-maximized", "false");
+      chatPopup.style.transition = "all 0.5s ease";
+      chatPopup.style.width = "450px";
+      chatPopup.style.right = "0";
+      chatPopup.style.left = "auto";
+      chatPopup.style.borderRadius = "0.75rem 0 0 0.75rem";
+      chatPopup.style.height = "100vh";
+      chatPopup.style.top = "0";
+      chatPopup.style.bottom = "0";
 
-      // Remove centered container and maximized styling
-      chatContentWrapper.classList.remove("max-w-4xl", "mx-auto")
-      chatAreaUnified.classList.remove("chat-area-maximized")
+      chatContentWrapper.classList.remove("max-w-4xl", "mx-auto");
+      chatAreaUnified.classList.remove("chat-area-maximized");
 
-      chatMaximizeBtn.classList.remove("hidden")
-      chatMinimizeBtn.classList.add("hidden")
-      chatForm.classList.remove("hidden")
+      chatMaximizeBtn.classList.remove("hidden");
+      chatMinimizeBtn.classList.add("hidden");
+      chatForm.classList.remove("hidden");
 
       setTimeout(() => {
-        chatMessages.scrollTop = chatMessages.scrollHeight
-      }, 400)
-    })
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 400);
+    });
   }
-
-  // Add message to chat
-  let conversationId = null
-  const apiUrl = "https://ask-api.takiuddin.me/chatbot/ask"
 
   function addMessage(text, from, isLoading = false) {
-    const msgWrapper = document.createElement("div")
-    msgWrapper.className = `flex ${from === "user" ? "justify-end" : "justify-start"} px-2`
+    const msgWrapper = document.createElement("div");
+    msgWrapper.className = `flex ${
+      from === "user" ? "justify-end" : "justify-start"
+    } px-2`;
 
-    const bubble = document.createElement("div")
+    const bubble = document.createElement("div");
     bubble.className = `
       inline-flex items-center gap-2 px-4 py-2 max-w-[80%] md:max-w-[70%] break-words
       rounded-xl shadow-sm text-sm leading-relaxed
@@ -143,63 +166,50 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     `
       .replace(/\s+/g, " ")
-      .trim()
+      .trim();
 
-    if (isLoading) {
-      bubble.innerHTML = `
-        <span class="loader w-4 h-4 border-2 border-t-transparent border-gray-400 rounded-full animate-spin"></span>
-        <span>Thinking...</span>
-      `
-    } else {
-      bubble.textContent = text
-    }
+    bubble.innerHTML = isLoading
+      ? `<span class="loader w-4 h-4 border-2 border-t-transparent border-gray-400 rounded-full animate-spin"></span>
+         <span>Thinking...</span>`
+      : text;
 
-    msgWrapper.appendChild(bubble)
-    chatMessages.appendChild(msgWrapper)
-    chatMessages.scrollTop = chatMessages.scrollHeight
+    msgWrapper.appendChild(bubble);
+    chatMessages.appendChild(msgWrapper);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  // Handle message sending
   if (chatForm) {
     chatForm.addEventListener("submit", async (e) => {
-      e.preventDefault()
+      e.preventDefault();
+      const prompt = chatInput.value.trim();
+      if (!prompt || !conversationId) return;
 
-      const prompt = chatInput.value.trim()
-      if (!prompt) return
-
-      addMessage(prompt, "user")
-      chatInput.value = ""
-
-      addMessage("", "bot", true) // Show loader
+      addMessage(prompt, "user");
+      chatInput.value = "";
+      addMessage("", "bot", true);
 
       try {
-        const body = { prompt }
-        if (conversationId) body.conversationId = conversationId
-
-        const res = await fetch(apiUrl, {
+        const res = await fetch(apiChatUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        })
-
-        const data = await res.json()
-        chatMessages.lastChild.remove() // Remove loader
+          body: JSON.stringify({ prompt, conversationId }),
+        });
+        const data = await res.json();
+        chatMessages.lastChild.remove();
 
         if (data?.answer) {
-          addMessage(data.answer, "bot")
-          if (data.conversationId) conversationId = data.conversationId
+          addMessage(data.answer, "bot");
         } else {
-          addMessage("Sorry, I didn't get a valid response.", "bot")
+          addMessage("Sorry, I didn't get a valid response.", "bot");
         }
       } catch (err) {
-        chatMessages.lastChild.remove()
-        addMessage("Error connecting to chatbot API.", "bot")
+        chatMessages.lastChild.remove();
+        addMessage("Error connecting to chatbot API.", "bot");
       }
-    })
+    });
   }
 
-  // Close with Esc key
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeChat()
-  })
-})
+    if (e.key === "Escape") closeChat();
+  });
+});

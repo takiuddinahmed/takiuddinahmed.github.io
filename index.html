@@ -2425,6 +2425,23 @@
     <script src="assets/js/image-optimizer.js"></script>
     <script src="assets/js/cookie-consent.js"></script>
 
+
+    <!-- Get User info Modal  -->
+<div id="user-info-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white p-6 rounded-lg w-full max-w-sm space-y-4 shadow-md">
+    <h2 class="text-lg font-bold">Start a Chat</h2>
+    <form id="user-info-form" class="space-y-3">
+      <input required id="user-name" type="text" placeholder="Your Name" class="w-full border border-gray-300 p-2 rounded" />
+      <input required id="user-email" type="email" placeholder="Your Email" class="w-full border border-gray-300 p-2 rounded" />
+      <button type="submit" class="bg-blue-600 text-white py-2 w-full rounded hover:bg-blue-700">Start Chat</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
 <!-- Chat Widget Start -->
 <div id="chat-widget-container">
   <!-- Floating Chat Button -->
