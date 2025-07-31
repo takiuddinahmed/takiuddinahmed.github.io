@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   let conversationId = null;
-  const apiInitUrl = "https://ask-api.takiuddin.me/chatbot/init";
-  const apiChatUrl = "https://ask-api.takiuddin.me/chatbot/ask";
+  const apiInitUrl = "http://localhost:3000/chatbot/init";
+  const apiChatUrl = "http://localhost:3000/chatbot/ask";
 
   const userInfoModal = document.getElementById("user-info-modal");
   const userInfoForm = document.getElementById("user-info-form");
@@ -24,10 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
     userInfoModal.classList.add("hidden");
   }
 
-  // Open modal when chat trigger is clicked
+  // Open modal or open chat based on conversationId
   document.querySelectorAll(".chat-trigger").forEach((btn) => {
     btn.addEventListener("click", () => {
-      userInfoModal.classList.remove("hidden");
+      console.log("conversationId", conversationId);
+      if (conversationId) {
+        openChat();
+      } else {
+        userInfoModal.classList.remove("hidden");
+      }
     });
   });
 
