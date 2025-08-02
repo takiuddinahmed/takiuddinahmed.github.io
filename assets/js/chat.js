@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   let conversationId = null;
-  const apiInitUrl = "http://localhost:3000/chatbot/init";
-  const apiChatUrl = "http://localhost:3000/chatbot/ask";
+  const apiInitUrl = "https://ask-api.takiuddin.me/chatbot/init";
+  const apiChatUrl = "https://ask-api.takiuddin.me/chatbot/ask";
 
   const userInfoModal = document.getElementById("user-info-modal");
   const userInfoForm = document.getElementById("user-info-form");
@@ -32,6 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
         openChat();
       } else {
         userInfoModal.classList.remove("hidden");
+        setTimeout(() => {
+          document.getElementById("user-name").focus();
+        });
       }
     });
   });
