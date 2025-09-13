@@ -1,24 +1,31 @@
 {
+  "name": "takiuddin-portfolio-hono",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.tsx",
   "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.4.0",
     "@tailwindcss/cli": "^4.1.8",
+    "hono": "^4.6.3",
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
-    "sharp": "^0.33.0"
+    "@cloudflare/workers-types": "^4.20241106.0",
+    "@types/node": "^22.8.6",
+    "sharp": "^0.33.0",
+    "typescript": "^5.6.3",
+    "wrangler": "^4.36.0"
   },
   "optionalDependencies": {
     "sharp": "^0.33.0"
   },
   "scripts": {
-    "build": "node scripts/build.js",
-    "build:production": "node scripts/build-production.js",
-    "build:cache": "node scripts/build-cache.js",
-    "dev": "node scripts/dev.js",
+    "dev": "wrangler dev src/index.tsx",
+    "build": "npm run build:css && wrangler deploy --dry-run",
+    "build:css": "npx tailwindcss -i assets/css/input.css -o assets/css/output.css",
+    "deploy": "npm run build:css && wrangler deploy",
+    "deploy:preview": "npm run build:css && wrangler deploy --env preview",
     "optimize:images": "node scripts/optimize-images.js",
-    "optimize:images:responsive": "node scripts/optimize-images.js --responsive",
-    "deploy": "npm run build && wrangler pages deploy . --project-name=takiuddin-portfolio",
-    "deploy:production": "npm run build:production && wrangler pages deploy . --project-name=takiuddin-portfolio",
-    "deploy:preview": "npm run build && wrangler pages deploy . --project-name=takiuddin-portfolio --branch=preview",
-    "pages:dev": "wrangler pages dev . --project-name=takiuddin-portfolio"
+    "optimize:images:responsive": "node scripts/optimize-images.js --responsive"
   }
 }

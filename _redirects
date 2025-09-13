@@ -24,10 +24,10 @@ https://www.takiuddin.me/* https://takiuddin.me/:splat 301!
 /calendly https://calendly.com/takiuddinahmed-ciyp 302
 
 # Resume redirect (easier to share)
-/cv /assets/files/md_takiuddin_resume.pdf
-/resume /assets/files/md_takiuddin_resume.pdf
-/image /assets/images/profile.jpg
-/favicon.ico /assets/favicon/favicon.ico
+/cv /files/md_takiuddin_resume.pdf
+/resume /files/md_takiuddin_resume.pdf
+/image /images/profile.jpg
+/favicon.ico /favicon/favicon.ico
 
 # 404 fallback
 /* /404.html 404 

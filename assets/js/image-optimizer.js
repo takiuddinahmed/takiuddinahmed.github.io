@@ -176,9 +176,9 @@ class ImageOptimizer {
   // Preload critical images
   preloadCriticalImages() {
     const criticalImages = [
-      'assets/images/profile.jpg',
-      'assets/images/cognitus-logo.svg',
-      'assets/images/grype-logo.png'
+      'images/profile.jpg',
+      'images/cognitus-logo.svg',
+      'images/grype-logo.png'
     ];
 
     criticalImages.forEach(src => {

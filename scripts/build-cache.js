@@ -50,8 +50,8 @@ function updateHeadersFile() {
   const faviconHash = generateHash(path.join(__dirname, '..', 'assets', 'favicon'));
   const pdfHash = generateHash(path.join(__dirname, '..', 'assets', 'files'));
   const manifestHash = generateHash(path.join(__dirname, '..', 'manifest.json'));
-  const sitemapHash = generateHash(path.join(__dirname, '..', 'sitemap.xml'));
-  const robotsHash = generateHash(path.join(__dirname, '..', 'robots.txt'));
+  const sitemapHash = generateHash(path.join(__dirname, '..', 'assets', 'sitemap.xml'));
+  const robotsHash = generateHash(path.join(__dirname, '..', 'assets', 'robots.txt'));
   
   // Update ETag values in headers content
   headersContent = headersContent.replace(/ETag: W\/"html-version[^"]*"/g, `ETag: W/"html-${htmlHash}"`);
@@ -85,8 +85,8 @@ function watchAndUpdate() {
     path.join(__dirname, '..', 'index.html'),
     path.join(__dirname, '..', 'assets'),
     path.join(__dirname, '..', 'manifest.json'),
-    path.join(__dirname, '..', 'sitemap.xml'),
-    path.join(__dirname, '..', 'robots.txt')
+    path.join(__dirname, '..', 'assets', 'sitemap.xml'),
+    path.join(__dirname, '..', 'assets', 'robots.txt')
   ];
   
   console.log('👀 Watching for file changes...');

@@ -3,9 +3,13 @@
  * Optimizes images for web performance using sharp
  */
 
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 class ImageOptimizer {
   constructor() {
@@ -209,16 +213,16 @@ class ImageOptimizer {
 }
 
 // Run optimization if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const optimizer = new ImageOptimizer();
   
   const args = process.argv.slice(2);
   
   if (args.includes('--responsive')) {
-    optimizer.createResponsiveImages();
+    await optimizer.createResponsiveImages();
   } else {
-    optimizer.optimizeImages();
+    await optimizer.optimizeImages();
   }
 }
 
-module.exports = ImageOptimizer; 
+export default ImageOptimizer; 

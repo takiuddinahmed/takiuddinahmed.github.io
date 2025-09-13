@@ -1,0 +1,25 @@
+{
+  // Cloudflare Workers Configuration
+  // Md Takiuddin Ahmed - Senior Backend Developer Portfolio - Hono App
+  
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "takiuddinahmed-portfolio",
+  "main": "src/index.tsx",
+  "compatibility_date": "2024-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  
+  // Build configuration
+  "build": {
+    "command": "npm run build:css"
+  },
+  
+  // Environment variables
+  "vars": {
+    "ENVIRONMENT": "development"
+  },
+
+  "assets": {
+    "directory": "./assets"
+  },  
+
+}

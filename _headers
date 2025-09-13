@@ -10,6 +10,7 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://ask-api.takiuddin.me https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https://avatars.githubusercontent.com https://takiuddin.me; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self' https://ask-api.takiuddin.me https://static.cloudflareinsights.com; frame-ancestors 'none'; upgrade-insecure-requests;
+  Server: Taki-Server
 
 # PRODUCTION CACHING WITH CACHE INVALIDATION
 # HTML files - short cache with ETag for immediate updates
@@ -19,25 +20,25 @@
   Vary: Accept-Encoding
 
 # CSS files - long cache with version-based invalidation
-/assets/css/*
+/css/*
   Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
   ETag: W/"css-bfbd48f5"
   Vary: Accept-Encoding
 
 # JavaScript files - long cache with version-based invalidation
-/assets/js/*
+/js/*
   Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
   ETag: W/"js-dbbc6c3c"
   Vary: Accept-Encoding
 
 # Images - long cache with version-based invalidation
-/assets/images/*
+/images/*
   Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
   ETag: W/"img-80c6d92d"
   Vary: Accept-Encoding
 
 # Favicon files - long cache
-/assets/favicon/*
+/favicon/*
   Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
   ETag: W/"favicon-982491a8"
   Vary: Accept-Encoding
