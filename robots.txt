@@ -3,44 +3,17 @@
 
 User-agent: *
 Allow: /
-Allow: /assets/css/
-Allow: /assets/js/
-Allow: /assets/plugins/
-Allow: /assets/images/
-Allow: /assets/resume.pdf
-
-# Prevent caching of assets and sensitive files
-Disallow: /assets/cache/
-Disallow: /.*\.log$
-Disallow: /private/
-Disallow: /temp/
-Disallow: /tmp/
-
-# Common SEO-friendly directives
-Disallow: /cgi-bin/
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /wp-content/plugins/
-Disallow: /wp-content/themes/
-Disallow: /search
-Disallow: /*?*
-Disallow: /*#*
-
-# Security: Prevent access to potential sensitive areas
-Disallow: /admin/
-Disallow: /login/
-Disallow: /private/
-Disallow: /temp/
-Disallow: /tmp/
-Disallow: /backup/
-Disallow: /logs/
 
 # Allow search engines to crawl CSS and JS for better rendering
 Allow: /*.css$
 Allow: /*.js$
+Allow: /assets/
 
-# Crawl-delay (optional, can help with server load)
-Crawl-delay: 1
+# Only disallow truly sensitive areas
+Disallow: /private/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /*.log$
 
 # Sitemap
 Sitemap: https://takiuddin.me/sitemap.xml
