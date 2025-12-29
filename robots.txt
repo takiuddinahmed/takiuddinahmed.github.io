@@ -5,18 +5,14 @@ User-agent: *
 Allow: /
 
 # Allow search engines to crawl CSS and JS for better rendering
-Allow: /*.css$
-Allow: /*.js$
+Allow: /*.css
+Allow: /*.js
 Allow: /assets/
 
-# Only disallow truly sensitive areas
+# Only disallow truly sensitive areas (these don't exist but kept for safety)
 Disallow: /private/
 Disallow: /admin/
 Disallow: /login/
-Disallow: /*.log$
 
 # Sitemap
 Sitemap: https://takiuddin.me/sitemap.xml
-
-# Host directive (helps with canonicalization)
-Host: takiuddin.me
