@@ -31,6 +31,7 @@ https://www.takiuddin.me/* https://takiuddin.me/:splat 301!
 
 # Legacy/broken URLs redirect to home
 /gameapp.gov.bd / 301
+/?q=* / 301
 
 # 404 fallback
 /* /404.html 404 
