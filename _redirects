@@ -29,5 +29,8 @@ https://www.takiuddin.me/* https://takiuddin.me/:splat 301!
 /image /assets/images/profile.jpg
 /favicon.ico /assets/favicon/favicon.ico
 
+# Legacy/broken URLs redirect to home
+/gameapp.gov.bd / 301
+
 # 404 fallback
 /* /404.html 404 
