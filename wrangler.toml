@@ -45,13 +45,6 @@ ENVIRONMENT = "preview"
 #   { pattern = "www.takiuddin.me", custom_domain = true }
 # ]
 
-# Build configuration for static site
-[[env.production.routes]]
-pattern = "*"
-
-[[env.preview.routes]]
-pattern = "*"
-
 # Cloudflare Pages specific optimizations
 [env.production.pages]
 # Enable automatic cache invalidation
