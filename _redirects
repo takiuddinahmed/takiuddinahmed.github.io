@@ -31,10 +31,4 @@ https://www.takiuddin.me/* https://takiuddin.me/:splat 301!
 
 # Legacy/broken URLs redirect to home
 /gameapp.gov.bd / 301
-/?q=* / 301
-
-# Serve index.html for root explicitly (prevents catch-all from matching it)
-/ /index.html 200
-
-# 404 fallback - only for paths that don't exist
-/* /404.html 404 
+/?q=* / 301 
