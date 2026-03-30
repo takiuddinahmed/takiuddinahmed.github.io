@@ -4,6 +4,7 @@
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
+    "html-minifier-terser": "^7.2.0",
     "sharp": "^0.33.0"
   },
   "optionalDependencies": {

@@ -14,7 +14,8 @@ try {
   const inputCssPath = config.css.input;
   if (fs.existsSync(inputCssPath)) {
     try {
-      execSync(`npx tailwindcss -i ${config.css.input} -o ${config.css.output}`, { 
+      const minifyFlag = config.css.minify ? ' --minify' : '';
+      execSync(`npx tailwindcss -i ${config.css.input} -o ${config.css.output}${minifyFlag}`, { 
         stdio: 'inherit' 
       });
     } catch (error) {
@@ -35,9 +36,12 @@ try {
     console.log('⏭️  Cache headers disabled in config');
   }
   
-  // Step 4: Optional: Minify assets (if you have minification tools)
-  console.log('⚡ Minifying assets...');
-  // Add minification commands here if needed
+  // Step 4: Minify HTML in production
+  if (config.features.minification) {
+    console.log('⏭️  HTML minification handled by build-production.js (deploy-time only)');
+  } else {
+    console.log('⏭️  HTML minification skipped (production only)');
+  }
   
   console.log('✅ Build completed successfully!');
   console.log('📤 Ready for deployment to Cloudflare Pages');

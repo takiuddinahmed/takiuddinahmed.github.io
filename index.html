@@ -1,32 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
   <head>
-    <title>Md Takiuddin Ahmed - Senior Backend Engineer | Python, FastAPI, Microservices Expert</title>
-    <!-- Meta -->
     <meta charset="utf-8" />
-    <meta name="description" content="Senior Backend Engineer with 5+ years of experience in Python, FastAPI, Node.js, React.js, Next.js, microservices architecture, and cloud-native development. Expert in PostgreSQL, MongoDB, Redis, Kafka, Docker, and Kubernetes." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Md Takiuddin Ahmed - Senior Backend Engineer | Python, FastAPI, Microservices Expert</title>
+    <meta name="description" content="Md Takiuddin Ahmed is a Senior Backend Engineer with 5+ years of experience in Python, FastAPI, Node.js, React.js, Next.js, TypeScript, microservices architecture, and cloud-native development. Expert in PostgreSQL, MongoDB, Redis, Kafka, Docker, Kubernetes, and AWS. Available for remote full-time roles and freelance consulting." />
     <meta name="author" content="Md Takiuddin Ahmed" />
-    <meta name="keywords" content="Backend Engineer, Python, FastAPI, Node.js, React.js, Next.js, Microservices, PostgreSQL, MongoDB, Redis, Kafka, Docker, Kubernetes, Cloud Computing, Software Developer" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    
-    <!-- Primary Meta Tags -->
-    <meta
-      name="description"
-      content="Md Takiuddin Ahmed is a Senior Backend Engineer with 5+ years of experience in Python, FastAPI, Node.js, React.js, Next.js, TypeScript, microservices architecture, and cloud-native development. Expert in PostgreSQL, MongoDB, Redis, Kafka, Docker, Kubernetes, and AWS. Available for remote full-time roles and freelance consulting."
-    />
-    <meta name="author" content="Md Takiuddin Ahmed" />
-    <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="revisit-after" content="7 days" />
-    
-    <!-- Keywords -->
-    <meta
-      name="keywords"
-      content="senior backend engineer, python developer, fastapi expert, microservices architect, nodejs developer, reactjs developer, nextjs developer, javascript developer, typescript developer, postgresql expert, mongodb developer, redis developer, kafka developer, docker expert, kubernetes developer, aws developer, cloud native developer, api development, gRPC developer, nestjs developer, sqlalchemy expert, software engineer, remote developer, freelance backend developer, bangladesh developer, takiuddin ahmed, md takiuddin"
-    />
+    <meta name="keywords" content="senior backend engineer, python developer, fastapi expert, microservices architect, nodejs developer, reactjs developer, nextjs developer, javascript developer, typescript developer, postgresql expert, mongodb developer, redis developer, kafka developer, docker expert, kubernetes developer, aws developer, cloud native developer, api development, gRPC developer, nestjs developer, sqlalchemy expert, software engineer, remote developer, freelance backend developer, bangladesh developer, takiuddin ahmed, md takiuddin" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://takiuddin.me/" />
@@ -212,45 +197,24 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
     <link rel="manifest" href="manifest.json" />
 
-    <!-- FontAwesome CSS - Self-hosted to avoid third-party cookies -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-      data-cookie-consent="required"
-    />
-
-    <script src="./assets/js/theme.js"></script>
-
-    <!-- Octicons CSS - Self-hosted to avoid third-party cookies -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-      data-cookie-consent="required"
-    />
-
-    <!-- css -->
-    <link rel="stylesheet" href="assets/css/output.css" />
-
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="assets/css/output.css" as="style" />
-    <link rel="preload" href="assets/images/optimized/profile.avif" as="image" type="image/avif" />
-    <link rel="preload" href="assets/images/profile.jpg" as="image" type="image/jpeg" />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" />
-    
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
-    
-    <!-- Image optimization hints -->
-    <link rel="preload" href="assets/images/optimized/cognitus-logo.avif" as="image" type="image/avif" />
-    <link rel="preload" href="assets/images/cognitus-logo.svg" as="image" type="image/svg+xml" />
-    <link rel="preload" href="assets/images/optimized/grype-logo.avif" as="image" type="image/avif" />
-    <link rel="preload" href="assets/images/grype-logo.png" as="image" type="image/png" />
+
+    <!-- Preload: LCP profile image only (above the fold) -->
+    <link rel="preload" href="assets/images/optimized/profile.avif" as="image" type="image/avif" fetchpriority="high" />
+
+    <!-- Inline anti-FOUC: apply theme before first paint, no network request -->
+    <script>(function(){var t=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&p)){document.documentElement.setAttribute('data-theme','dark');document.documentElement.classList.add('dark');}})();</script>
+
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="assets/css/output.css" />
+
+    <!-- Icon fonts: loaded async so they never block rendering -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'" data-cookie-consent="required" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css" as="style" crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'" data-cookie-consent="required" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
 
 
     <style>
@@ -1331,11 +1295,11 @@
                               type="image/webp"
                             />
                             <img
-                              src="assets/images/cognitus-logo.svg"
+                              src="assets/images/cognitus-logo.png"
                               alt="Cognitus"
                               class="w-full h-full object-contain"
-                              width="80"
-                              height="80"
+                              width="183"
+                              height="53"
                               loading="lazy"
                               decoding="async"
                             />
@@ -1359,7 +1323,7 @@
                           </a>
                         </div>
                         <p class="text-slate-600 dark:text-dark-muted mb-6">
-                          Core contributor to LambdaX enterprise contract-lifecycle-management platform. Designed and implemented agreement-header, line-item, dataset, and modification microservices. Built Redis Streams + Kafka fabric for high-throughput event propagation, sustaining >15k events/sec. Improved contract-search latency from ~750ms to <180ms through query optimization.
+                          Core contributor to LambdaX enterprise contract-lifecycle-management platform. Designed and implemented agreement-header, line-item, dataset, and modification microservices. Built Redis Streams + Kafka fabric for high-throughput event propagation, sustaining &gt;15k events/sec. Improved contract-search latency from ~750ms to &lt;180ms through query optimization.
                         </p>
                         <div class="flex flex-wrap gap-2">
                           <span
@@ -1469,7 +1433,7 @@
                           </a>
                         </div>
                         <p class="text-slate-600 dark:text-dark-muted mb-6">
-                          Led backend development for Member Lounge SaaS platform. Architected tiered subscription billing with Stripe integration, reducing revenue leakage to <0.5%. Built threaded discussion forum and RabbitMQ-driven notification engine, increasing average session time by 35%. Implemented MFA authentication and zero-downtime deployments, maintaining 99.9%+ uptime.
+                          Led backend development for Member Lounge SaaS platform. Architected tiered subscription billing with Stripe integration, reducing revenue leakage to &lt;0.5%. Built threaded discussion forum and RabbitMQ-driven notification engine, increasing average session time by 35%. Implemented MFA authentication and zero-downtime deployments, maintaining 99.9%+ uptime.
                         </p>
                         <div class="flex flex-wrap gap-2">
                           <span
@@ -2548,10 +2512,11 @@
     ></script>
 
     <!-- Custom JS -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/chat.js"></script>
-    <script src="assets/js/image-optimizer.js"></script>
-    <script src="assets/js/cookie-consent.js"></script>
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/chat.js" defer></script>
+    <script src="assets/js/image-optimizer.js" defer></script>
+    <script src="assets/js/cookie-consent.js" defer></script>
     
   <!-- Floating Chat Button -->
     <div class="fixed bottom-4 right-4 ">
