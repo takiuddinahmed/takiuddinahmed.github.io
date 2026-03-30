@@ -19,5 +19,25 @@
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
+    <url>
+        <loc>https://takiuddin.me/cv</loc>
+        <lastmod>2025-01-21T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://takiuddin.me/resume</loc>
+        <lastmod>2025-01-21T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <!-- Profile Image -->
+    <url>
+        <loc>https://takiuddin.me/image</loc>
+        <lastmod>2025-01-21T00:00:00+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.50</priority>
+    </url>
     
 </urlset>
