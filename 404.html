@@ -1,51 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found | Md Takiuddin Ahmed</title>
-    <meta name="description" content="The page you're looking for doesn't exist. Visit Md Takiuddin Ahmed's portfolio homepage.">
-    <meta name="robots" content="noindex, nofollow">
-    <!-- 404 pages should not have canonical tags -->
-    <link rel="stylesheet" href="assets/css/output.css">
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 · Page Not Found — Md Takiuddin Ahmed</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Head back to Md Takiuddin Ahmed's portfolio." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+      :root {
+        --bg: #0b0f17;
+        --bg-elev: #11161f;
+        --surface: #0e131c;
+        --border: #1e2633;
+        --border-strong: #2a3343;
+        --text: #dde3ec;
+        --text-dim: #9aa4b4;
+        --text-muted: #6a7486;
+        --accent: #7ccfff;
+        --accent-2: #7ee787;
+        --accent-red: #ff7b72;
+        --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        --sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #fafbfc;
+          --bg-elev: #ffffff;
+          --surface: #f4f6f8;
+          --border: #e2e6ec;
+          --border-strong: #cdd3dc;
+          --text: #1b2330;
+          --text-dim: #4a5364;
+          --text-muted: #6f7a8c;
+          --accent: #0969da;
+          --accent-2: #1a7f37;
+          --accent-red: #cf222e;
         }
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; height: 100%; }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background-image: radial-gradient(
+          ellipse 70% 50% at 50% -10%,
+          rgba(124, 207, 255, 0.08),
+          transparent 60%
+        );
+        background-attachment: fixed;
+      }
+      .box {
+        width: 100%;
+        max-width: 640px;
+        background: var(--bg-elev);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 8px 24px -12px rgba(0,0,0,0.4);
+        overflow: hidden;
+      }
+      .tbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+      }
+      .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+      .dot.r { background: #ff5f57; }
+      .dot.y { background: #febc2e; }
+      .dot.g { background: #28c840; }
+      .tbar .title {
+        margin-left: 10px;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+      .body {
+        padding: 36px 32px 40px;
+        font-family: var(--mono);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+      .prompt { color: var(--accent-2); margin-right: 10px; }
+      .err {
+        color: var(--accent-red);
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin: 8px 0 4px;
+      }
+      h1 {
+        font-family: var(--mono);
+        font-size: clamp(2.4rem, 7vw, 3.6rem);
+        font-weight: 700;
+        margin: 14px 0 8px;
+        letter-spacing: -0.02em;
+      }
+      .msg {
+        color: var(--text-dim);
+        font-family: var(--sans);
+        font-size: 15px;
+        line-height: 1.7;
+        margin: 6px 0 24px;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 8px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-family: var(--mono);
+        font-size: 13.5px;
+        font-weight: 500;
+        text-decoration: none;
+        border: 1px solid transparent;
+        transition: all 0.15s ease;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: var(--bg);
+      }
+      .btn-primary:hover { transform: translateY(-1px); }
+      .btn-secondary {
+        background: transparent;
+        color: var(--text);
+        border-color: var(--border-strong);
+      }
+      .btn-secondary:hover { background: var(--surface); }
+      .comment { color: var(--text-muted); }
     </style>
-</head>
-<body class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-md w-full px-6 py-8 text-center">
-        <div class="mb-8">
-            <h1 class="text-9xl font-bold text-gray-200 dark:text-gray-700 mb-4">404</h1>
-            <h2 class="text-2xl font-semibold gradient-text mb-4">Page Not Found</h2>
-            <p class="text-gray-600 dark:text-gray-400 mb-8">
-                The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
-            </p>
+  </head>
+  <body>
+    <div class="box" role="alert">
+      <div class="tbar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="title">taki@dev: /404 — zsh</span>
+      </div>
+      <div class="body">
+        <p><span class="prompt">$</span> cd <span style="color:var(--accent)">requested-page</span></p>
+        <p class="err">cd: no such file or directory</p>
+        <h1>404</h1>
+        <p class="msg">
+          The page you&rsquo;re looking for doesn&rsquo;t exist &mdash; it may
+          have moved or the URL was mistyped. Let&rsquo;s get you back on track.
+        </p>
+        <p><span class="prompt">$</span> <span class="comment"># try one of these</span></p>
+        <div class="actions">
+          <a href="/" class="btn btn-primary">&larr; Homepage</a>
+          <a href="mailto:takiuddinahmed@gmail.com" class="btn btn-secondary">Contact</a>
+          <a href="https://github.com/takiuddinahmed" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
         </div>
-        
-        <div class="space-y-4">
-            <a href="/" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                </svg>
-                Go to Homepage
-            </a>
-            
-            <div class="flex justify-center space-x-4">
-                <a href="mailto:taki1502106@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    Contact Me
-                </a>
-                <span class="text-gray-300 dark:text-gray-600">|</span>
-                <a href="https://github.com/takiuddinahmed" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    GitHub
-                </a>
-            </div>
-        </div>
+      </div>
     </div>
-</body>
-</html> 
+  </body>
+</html>
