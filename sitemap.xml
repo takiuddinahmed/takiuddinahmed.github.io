@@ -3,31 +3,31 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    
-    <!-- Homepage -->
+
     <url>
         <loc>https://takiuddin.me/</loc>
-        <lastmod>2025-01-21T00:00:00+00:00</lastmod>
+        <lastmod>2026-04-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.00</priority>
     </url>
-    
-    <!-- Resume -->
+
     <url>
         <loc>https://takiuddin.me/assets/files/md_takiuddin_resume.pdf</loc>
-        <lastmod>2025-01-21T00:00:00+00:00</lastmod>
+        <lastmod>2026-04-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
+
     <url>
         <loc>https://takiuddin.me/cv</loc>
-        <lastmod>2025-01-21T00:00:00+00:00</lastmod>
+        <lastmod>2026-04-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
+
     <url>
         <loc>https://takiuddin.me/resume</loc>
-        <lastmod>2025-01-21T00:00:00+00:00</lastmod>
+        <lastmod>2026-04-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
@@ -35,9 +35,9 @@
     <!-- Profile Image -->
     <url>
         <loc>https://takiuddin.me/image</loc>
-        <lastmod>2025-01-21T00:00:00+00:00</lastmod>
+        <lastmod>2026-04-23</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.50</priority>
     </url>
-    
+
 </urlset>
