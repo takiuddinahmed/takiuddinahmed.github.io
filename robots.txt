@@ -1,4 +1,6 @@
 # robots.txt for takiuddin.me — Md Takiuddin Ahmed, Senior Backend Engineer
+# Last updated: 2026-05-02
+# Policy: open by default; explicit allow-list for AI/LLM crawlers.
 
 # Default policy: allow all well-behaved crawlers everywhere.
 User-agent: *
@@ -6,7 +8,6 @@ Allow: /
 Allow: /*.css
 Allow: /*.js
 Allow: /assets/
-
 Disallow: /private/
 Disallow: /admin/
 Disallow: /login/
@@ -16,6 +17,9 @@ User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
 Allow: /
 
 User-agent: Bingbot
@@ -30,8 +34,20 @@ Allow: /
 User-agent: Baiduspider
 Allow: /
 
+User-agent: Slurp
+Allow: /
+
+User-agent: Sogou
+Allow: /
+
+User-agent: Naverbot
+Allow: /
+
+User-agent: SeznamBot
+Allow: /
+
 # --- AI / LLM crawlers (explicitly allowed) ---
-# Google AI training & Gemini grounding
+# Google: AI training (Gemini grounding via Google-Extended)
 User-agent: Google-Extended
 Allow: /
 
@@ -50,6 +66,12 @@ User-agent: ClaudeBot
 Allow: /
 
 User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: anthropic-ai
@@ -77,7 +99,13 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
+User-agent: Meta-ExternalFetcher
+Allow: /
+
 User-agent: FacebookBot
+Allow: /
+
+User-agent: facebookexternalhit
 Allow: /
 
 # ByteDance / TikTok
@@ -96,8 +124,53 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: cohere-training-data-crawler
+Allow: /
+
 # DuckDuckGo AI assist
 User-agent: DuckAssistBot
+Allow: /
+
+# Diffbot (AI / knowledge-graph extraction)
+User-agent: Diffbot
+Allow: /
+
+# Kagi
+User-agent: KagiBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Webz.io / Omgili (AI dataset)
+User-agent: Omgilibot
+Allow: /
+
+User-agent: Omgili
+Allow: /
+
+# Timpi
+User-agent: TimpiBot
+Allow: /
+
+# AI2 (Allen Institute)
+User-agent: AI2Bot
+Allow: /
+
+User-agent: AI2Bot-Dolma
+Allow: /
+
+# Phind
+User-agent: PhindBot
+Allow: /
+
+# Andibot (Andi search)
+User-agent: Andibot
+Allow: /
+
+# Brave Search
+User-agent: PetalBot
 Allow: /
 
 # Sitemap & LLM index

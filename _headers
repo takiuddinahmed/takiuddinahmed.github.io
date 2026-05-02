@@ -67,18 +67,30 @@
 /robots.txt
   Cache-Control: public, max-age=3600, s-maxage=3600, must-revalidate
   ETag: W/"robots-fb0106c8"
-  Content-Type: text/plain
+  Content-Type: text/plain; charset=utf-8
   Vary: Accept-Encoding
+  X-Robots-Tag: noindex
 
 # llms.txt — LLM-friendly site index (llmstxt.org)
 /llms.txt
   Cache-Control: public, max-age=3600, s-maxage=3600, must-revalidate
   Content-Type: text/plain; charset=utf-8
   Vary: Accept-Encoding
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: index, follow
 
 /llms-full.txt
   Cache-Control: public, max-age=3600, s-maxage=3600, must-revalidate
   Content-Type: text/plain; charset=utf-8
+  Vary: Accept-Encoding
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: index, follow
+
+# Resume PDF — let crawlers index but signal authorship via X-Robots-Tag
+/assets/files/md_takiuddin_resume.pdf
+  Cache-Control: public, max-age=86400, s-maxage=86400, must-revalidate
+  Content-Type: application/pdf
+  X-Robots-Tag: index, follow, max-snippet:-1
   Vary: Accept-Encoding
 
 # API endpoints - no cache for dynamic content

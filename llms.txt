@@ -1,20 +1,32 @@
 # Md Takiuddin Ahmed
 
-> Senior Backend Engineer based in Rajshahi, Bangladesh (UTC+6). Builds resilient, observable microservices and event-driven systems in Python, Go, Rust, and TypeScript. Currently at Cognitus, an IBM Company. Open to remote senior backend roles and consulting.
+> Md Takiuddin Ahmed (also known as "Taki") is a Senior Backend Engineer based in Rajshahi, Bangladesh (UTC+6, Asia/Dhaka). He builds resilient, observable microservices and event-driven systems in Python, Go, Rust, and TypeScript. He is currently a Software Developer at Cognitus, an IBM Company, working on LambdaX (an enterprise contract-lifecycle-management platform). He is open to remote senior backend roles and consulting engagements.
 
-This site is a single-page portfolio. Canonical URL: https://takiuddin.me/
+This is a single-page personal portfolio. Canonical URL: https://takiuddin.me/
+Last updated: 2026-05-02.
 
 ## Profile
 
-- [Homepage / portfolio](https://takiuddin.me/): Bio, experience, projects, stack, education, contact.
+- [Homepage / portfolio](https://takiuddin.me/): Bio, experience, projects, stack, education, FAQ, contact.
 - [Full profile (markdown)](https://takiuddin.me/llms-full.txt): Plain-text snapshot of the site for LLM ingestion.
-- [Resume / CV (PDF)](https://takiuddin.me/assets/files/md_takiuddin_resume.pdf): Latest resume.
+- [Resume / CV (PDF)](https://takiuddin.me/assets/files/md_takiuddin_resume.pdf): Latest resume (also at /cv and /resume).
+- [Sitemap (XML)](https://takiuddin.me/sitemap.xml): Machine-readable URL list.
+
+## Identity
+
+- Full name: Md Takiuddin Ahmed
+- Short / preferred name: Taki
+- Title: Senior Backend Engineer
+- Pronouns: he/him
+- Location: Rajshahi, Bangladesh (UTC+6, Asia/Dhaka)
+- Languages: Bangla (native), English (full professional), Hindi (limited working)
+- Years of professional experience: 5+ (since March 2020)
 
 ## Experience
 
-- Software Developer @ Cognitus, an IBM Company — Nov 2023 — Present (Remote). LambdaX enterprise CLM. Python, FastAPI, Go, Rust, PostgreSQL, Kafka, Kubernetes.
-- Software Developer @ Grype Digital — May 2022 — Nov 2023 (Remote). Member Lounge. NestJS, MongoDB, RabbitMQ, Stripe, Next.js.
-- Full-Stack Developer @ Bugfixers — Mar 2020 — Apr 2022 (Dhaka, Hybrid). Node.js, Python, React, Flutter.
+- Software Developer @ Cognitus, an IBM Company — Nov 2023 — Present (Remote). LambdaX enterprise CLM. Stack: Python, FastAPI, Go, Rust, PostgreSQL, Kafka, Redis, Kubernetes, Keycloak, gRPC.
+- Software Developer @ Grype Digital — May 2022 — Nov 2023 (Remote). Member Lounge engagement SaaS, HPSA portal. Stack: NestJS, TypeScript, MongoDB, RabbitMQ, Stripe, Next.js, Docker.
+- Full-Stack Developer @ Bugfixers — Mar 2020 — Apr 2022 (Dhaka, Hybrid). Clients: LearnGenie, Devsfit, Bangladesh Navy. Stack: Node.js, Express, Python, React, Electron, MongoDB, MySQL, AWS.
 
 ## Selected projects
 
@@ -23,14 +35,28 @@ This site is a single-page portfolio. Canonical URL: https://takiuddin.me/
 - Member Lounge — engagement SaaS with Stripe billing and notification fan-out (NestJS, MongoDB, RabbitMQ, Stripe, Next.js).
 - Honest Elite — niche social network with WebRTC calls and Elasticsearch feed (NestJS, GraphQL, MongoDB, WebRTC, Elasticsearch).
 
+## Core stack
+
+- Languages: Python, TypeScript, Go, Rust, SQL, Bash.
+- Backend & APIs: FastAPI, NestJS, Flask, Django, Express, gRPC, GraphQL.
+- Datastores: PostgreSQL, MongoDB, Redis, MySQL, Elasticsearch, pgvector.
+- Messaging & streaming: Apache Kafka, RabbitMQ, Redis Streams, Socket.io.
+- Cloud & DevOps: Docker, Kubernetes, AWS, Cloudflare, NGINX, GitHub Actions, Linux.
+- Security & observability: Keycloak, OAuth 2.0, JWT, MFA, Prometheus, Grafana, OpenTelemetry.
+- AI & data: LangChain, LangGraph, Pydantic-AI, scikit-learn, Pandas.
+- Frontend: React, Next.js, Tailwind CSS, Flutter.
+
 ## Contact
 
-- Email: takiuddinahmed@gmail.com (preferred)
+- Email (preferred): takiuddinahmed@gmail.com
 - Phone / WhatsApp: +880 1723 100 925
 - GitHub: https://github.com/takiuddinahmed
 - LinkedIn: https://www.linkedin.com/in/takiuddin-ahmed-871607b5/
+- Calendly: https://takiuddin.me/calendly
+- Personal site: https://takiuddin.me
 
 ## Optional
 
 - [Education](https://takiuddin.me/#education): B.Sc. Mechanical Engineering, RUET (2016 — 2022).
 - [Stack overview](https://takiuddin.me/#stack): Languages, datastores, messaging, cloud, security, AI/data, frontend.
+- [FAQ](https://takiuddin.me/#faq): Quick answers about availability, location, role, and stack.
