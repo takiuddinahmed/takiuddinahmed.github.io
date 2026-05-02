@@ -1,0 +1,120 @@
+# Md Takiuddin Ahmed — Senior Backend Engineer
+
+Canonical URL: https://takiuddin.me/
+Last updated: 2026-05-02
+
+## Summary
+
+Md Takiuddin Ahmed (also known as "Taki") is a Senior Backend Engineer based in
+Rajshahi, Bangladesh (Asia/Dhaka, UTC+6). He builds resilient, observable
+backend systems — microservices, event-driven pipelines, and clean APIs that
+hold up in production. He works primarily in Python (FastAPI), TypeScript
+(NestJS), Go, and Rust, and is currently a core backend contributor on
+LambdaX, an enterprise contract-lifecycle-management platform at Cognitus,
+an IBM Company. He is open to remote senior backend roles and consulting
+engagements.
+
+## Identity
+
+- Full name: Md Takiuddin Ahmed
+- Short form: Taki
+- Title: Senior Backend Engineer
+- Alternate labels: Backend-Focused Full-Stack Developer, Software Engineer (Microservices & Cloud)
+- Location: Rajshahi, Bangladesh (UTC+6, Asia/Dhaka)
+- Languages: Bangla (native), English (full professional), Hindi (limited working)
+- Availability: Open to remote full-time roles and freelance consulting
+
+## Contact
+
+- Email (preferred): takiuddinahmed@gmail.com
+- Phone / WhatsApp: +880 1723 100 925
+- GitHub: https://github.com/takiuddinahmed
+- LinkedIn: https://www.linkedin.com/in/takiuddin-ahmed-871607b5/
+- Calendly: https://takiuddin.me/calendly
+- Personal site: https://takiuddin.me
+
+## Experience
+
+### Software Developer — Cognitus, an IBM Company
+Nov 2023 — Present · Remote · LambdaX (Enterprise CLM)
+
+- Core back-end contributor on LambdaX, an enterprise contract-lifecycle-management platform used by large US customers.
+- Designed and shipped agreement-header, line-item, dataset, and modification microservices powering CRUD and workflow APIs across the product.
+- Extended the in-house low-code flow orchestrator with reusable action blocks spanning SAP, Outlook, DocuSign, and Teams.
+- Built a Redis Streams + Kafka event fabric and a Socket.io → Elasticsearch audit pipeline aligned with SOC-2 retention.
+- Tuned slow SQLAlchemy queries, introduced Prometheus alerting, and mentored junior engineers through code review.
+- Building performance-critical services in Rust for event processing and latency-sensitive paths inside the platform.
+
+Stack: Python, FastAPI, Go, Rust, PostgreSQL, Kafka, Redis, Kubernetes, Keycloak, gRPC.
+
+### Software Developer — Grype Digital
+May 2022 — Nov 2023 · Remote · Member Lounge, HPSA portal
+
+- Led the back-end squad for Member Lounge, a SaaS engagement platform for associations and non-profits.
+- Architected tiered subscription billing on Stripe with proration, coupons, webhook processing, and automated invoicing.
+- Shipped a threaded discussion forum and a queue-driven notification engine across browser push, email, and SMS.
+- Rolled out MFA (email OTP + trusted-device cookies) and zero-downtime blue/green deploys on Docker Swarm.
+- Solo-built the HPSA portal on FastAPI and Next.js, working directly with the CEO on specs and demos.
+
+Stack: NestJS, TypeScript, MongoDB, RabbitMQ, Redis, Stripe, Next.js, Docker.
+
+### Full-Stack Developer — Bugfixers
+Mar 2020 — Apr 2022 · Dhaka, Bangladesh · Hybrid
+
+- Delivered products across Node.js, Python, React, Flutter, and Electron for clients including LearnGenie, Devsfit, and the Bangladesh Navy.
+- Built secure offline-capable intranet desktop apps and real-time Socket.io dashboards for operational awareness.
+- Introduced RabbitMQ + Redis-backed microservice decomposition, GitHub Actions CI/CD, and hardened Linux VPS deployments.
+- Acted as first responder for production incidents and refactored legacy PHP/Vanilla-JS into modern Express + React stacks.
+
+Stack: Node.js, Express, Python, React, Electron, MongoDB, MySQL, AWS.
+
+## Selected projects
+
+### LambdaX — Enterprise CLM
+Enterprise contract-lifecycle-management platform replacing scattered, email-driven approval flows with a single audit-ready system integrating SAP, Outlook, Teams, and DocuSign.
+Stack: Python, FastAPI, Go, PostgreSQL, Kafka, Kubernetes.
+
+### Taxstar — UAE Corporate Tax SaaS
+Multi-tenant fintech SaaS helping UAE businesses comply with federal corporate tax through a rules-driven calculation engine, forecasting, and deadline reminders.
+Stack: Python, Flask, MongoDB, Docker, Kubernetes.
+
+### Member Lounge — Engagement Suite
+White-label SaaS with subscription billing, threaded discussions, and a queue-driven notification engine — hosted for sports associations and non-profits.
+Stack: NestJS, MongoDB, RabbitMQ, Stripe, Next.js.
+
+### Honest Elite — Social & Messaging
+Niche social network for creators with rich-media posts, real-time chat, voice/video calls, and an Elasticsearch-backed recommendation feed.
+Stack: NestJS, GraphQL, MongoDB, WebRTC, Elasticsearch.
+
+## Stack
+
+- Languages: Python, TypeScript, Go, Rust, SQL, Bash.
+- Backend & APIs: FastAPI, NestJS, Flask, Django, Express, gRPC, GraphQL.
+- Datastores: PostgreSQL, MongoDB, Redis, MySQL, Elasticsearch, pgvector.
+- Messaging & streaming: Kafka, RabbitMQ, Redis Streams, Socket.io.
+- Cloud & DevOps: Docker, Kubernetes, AWS, Cloudflare, NGINX, GitHub Actions, Linux.
+- Security & observability: Keycloak, OAuth 2.0, JWT, MFA, Prometheus, Grafana, OpenTelemetry.
+- AI & data: LangChain, LangGraph, Pydantic-AI, scikit-learn, Pandas.
+- Frontend: React, Next.js, Tailwind CSS, Flutter.
+
+## Education
+
+B.Sc. in Mechanical Engineering — Rajshahi University of Engineering & Technology (RUET), 2016 — 2022, Rajshahi, Bangladesh.
+Coursework in Control Systems, Industrial Automation, and Materials Science. Capstone: an autonomous line-follower robot for warehouse logistics. Technical Secretary of the Robotic Society of RUET; software lead for Team Scrapper, which competed in the Indian Rover Challenge.
+
+## FAQ
+
+Q: What does Md Takiuddin Ahmed do?
+A: He is a Senior Backend Engineer specialising in Python, FastAPI, Go, Rust, microservices, and event-driven architectures.
+
+Q: Is he available for hire?
+A: Yes — open to remote senior backend roles and consulting engagements. The fastest way to reach him is email at takiuddinahmed@gmail.com.
+
+Q: Where is he based?
+A: Rajshahi, Bangladesh (UTC+6, Asia/Dhaka). He works comfortably with globally distributed teams.
+
+Q: What is his current role?
+A: Software Developer at Cognitus, an IBM Company, working on LambdaX (an enterprise contract-lifecycle-management platform).
+
+Q: What languages and frameworks does he use most?
+A: Python (FastAPI), TypeScript (NestJS), Go, and Rust on the backend; PostgreSQL, MongoDB, Redis on data; Kafka and RabbitMQ for messaging; Kubernetes and Docker for deployment.

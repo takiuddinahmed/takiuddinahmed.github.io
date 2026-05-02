@@ -1,18 +1,104 @@
-# robots.txt for takiuddin.me portfolio website
-# Md Takiuddin Ahmed - Senior Backend Developer
+# robots.txt for takiuddin.me — Md Takiuddin Ahmed, Senior Backend Engineer
 
+# Default policy: allow all well-behaved crawlers everywhere.
 User-agent: *
 Allow: /
-
-# Allow search engines to crawl CSS and JS for better rendering
 Allow: /*.css
 Allow: /*.js
 Allow: /assets/
 
-# Only disallow truly sensitive areas (these don't exist but kept for safety)
 Disallow: /private/
 Disallow: /admin/
 Disallow: /login/
 
-# Sitemap
+# --- Search engines ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# --- AI / LLM crawlers (explicitly allowed) ---
+# Google AI training & Gemini grounding
+User-agent: Google-Extended
+Allow: /
+
+# OpenAI: training, search index, on-demand fetcher
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Common Crawl (used by many open LLM datasets)
+User-agent: CCBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Allow: /
+
+# Mistral
+User-agent: MistralAI-User
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# DuckDuckGo AI assist
+User-agent: DuckAssistBot
+Allow: /
+
+# Sitemap & LLM index
 Sitemap: https://takiuddin.me/sitemap.xml

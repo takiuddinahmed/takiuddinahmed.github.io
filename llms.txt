@@ -1,0 +1,36 @@
+# Md Takiuddin Ahmed
+
+> Senior Backend Engineer based in Rajshahi, Bangladesh (UTC+6). Builds resilient, observable microservices and event-driven systems in Python, Go, Rust, and TypeScript. Currently at Cognitus, an IBM Company. Open to remote senior backend roles and consulting.
+
+This site is a single-page portfolio. Canonical URL: https://takiuddin.me/
+
+## Profile
+
+- [Homepage / portfolio](https://takiuddin.me/): Bio, experience, projects, stack, education, contact.
+- [Full profile (markdown)](https://takiuddin.me/llms-full.txt): Plain-text snapshot of the site for LLM ingestion.
+- [Resume / CV (PDF)](https://takiuddin.me/assets/files/md_takiuddin_resume.pdf): Latest resume.
+
+## Experience
+
+- Software Developer @ Cognitus, an IBM Company — Nov 2023 — Present (Remote). LambdaX enterprise CLM. Python, FastAPI, Go, Rust, PostgreSQL, Kafka, Kubernetes.
+- Software Developer @ Grype Digital — May 2022 — Nov 2023 (Remote). Member Lounge. NestJS, MongoDB, RabbitMQ, Stripe, Next.js.
+- Full-Stack Developer @ Bugfixers — Mar 2020 — Apr 2022 (Dhaka, Hybrid). Node.js, Python, React, Flutter.
+
+## Selected projects
+
+- LambdaX — enterprise contract-lifecycle-management platform (Python, FastAPI, Go, PostgreSQL, Kafka, Kubernetes).
+- Taxstar — UAE corporate-tax SaaS (Python, Flask, MongoDB, Docker, Kubernetes).
+- Member Lounge — engagement SaaS with Stripe billing and notification fan-out (NestJS, MongoDB, RabbitMQ, Stripe, Next.js).
+- Honest Elite — niche social network with WebRTC calls and Elasticsearch feed (NestJS, GraphQL, MongoDB, WebRTC, Elasticsearch).
+
+## Contact
+
+- Email: takiuddinahmed@gmail.com (preferred)
+- Phone / WhatsApp: +880 1723 100 925
+- GitHub: https://github.com/takiuddinahmed
+- LinkedIn: https://www.linkedin.com/in/takiuddin-ahmed-871607b5/
+
+## Optional
+
+- [Education](https://takiuddin.me/#education): B.Sc. Mechanical Engineering, RUET (2016 — 2022).
+- [Stack overview](https://takiuddin.me/#stack): Languages, datastores, messaging, cloud, security, AI/data, frontend.
