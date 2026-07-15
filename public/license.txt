@@ -1,29 +1,47 @@
-Bootstrap 5 Portfolio Theme for Developers
-
-Theme name:
+License — takiuddin.me
 =======================================================================
-Developer 
 
-Theme version:
+Copyright (c) 2026 Md Takiuddin Ahmed. All rights reserved.
+
+This website (takiuddin.me) has two parts under two different licenses:
+the source code and the personal content. Where they overlap, the
+content terms below govern the content.
+
+
+Source code
 =======================================================================
-Bootstrap 5 v2.0
+The source code of this site — the Cloudflare Worker (src/), build and
+image scripts, configuration, and the HTML/CSS/JavaScript markup that
+makes up the pages — is released under the MIT License. You may reuse,
+modify, and redistribute the code under those terms. The full text is in
+the LICENSE file at the root of the repository:
 
-Release Date:
+    https://github.com/takiuddinahmed/takiuddinahmed.github.io/blob/main/LICENSE
+
+
+Personal content — All Rights Reserved
 =======================================================================
-2022-06-08
+The personal content of this site is NOT covered by the MIT License and
+is protected by copyright. This includes, without limitation:
 
-Author: 
+  - Written text: biography, "about" copy, project and experience
+    descriptions, FAQ answers, and other prose
+  - The resume / CV (including the PDF at /assets/files/) and its layout
+  - Photographs, portraits, logos, and other images
+  - The name, likeness, and personal branding of Md Takiuddin Ahmed
+
+You may view this content in your browser and link to it. You may NOT
+copy, reproduce, republish, redistribute, adapt, or use it to represent
+yourself or any other person, and you may NOT use it to train machine-
+learning models, without prior written permission.
+
+Brief quotation for commentary, review, or news reporting, with clear
+attribution, is permitted under normal fair-use principles.
+
+
+Contact
 =======================================================================
-Xiaoying Riley at 3rd Wave Media (https://themes.3rdwavemedia.com/)
+For licensing requests or permissions beyond the above:
 
-Contact:
-=======================================================================
-Web: https://themes.3rdwavemedia.com/
-Email: themes@3rdwavemedia.com
-Twitter: @3rdwave_themes
-
-License: 
-=======================================================================
-This template is 100% FREE as long as you keep the footer attribution link. You do not have the rights to resell, sublicense or redistribute (even for free) the template on its own or as a separate attachment from any of your work.
-
-If you’d like to use this template without the footer attribution link, you can buy the commercial license - https://themes.3rdwavemedia.com/bootstrap-templates/resume/free-bootstrap-theme-for-web-developers/
+    Web:   https://takiuddin.me
+    Email: takiuddinahmed@gmail.com
