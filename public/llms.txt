@@ -31,6 +31,7 @@ Last updated: 2026-05-02.
 ## Selected projects
 
 - LambdaX — enterprise contract-lifecycle-management platform (Python, FastAPI, Go, PostgreSQL, Kafka, Kubernetes).
+- Prochesta — AI-powered job- and civil-service-exam prep platform (BCS, bank, government) with model tests, analytics, a Bangla AI assistant, and Flutter mobile apps; CTO & Engineering Lead (Node.js, Express, MongoDB, Next.js, FastAPI, PostgreSQL, pgvector, Flutter, Docker).
 - Taxstar — UAE corporate-tax SaaS (Python, Flask, MongoDB, Docker, Kubernetes).
 - Member Lounge — engagement SaaS with Stripe billing and notification fan-out (NestJS, MongoDB, RabbitMQ, Stripe, Next.js).
 - Honest Elite — niche social network with WebRTC calls and Elasticsearch feed (NestJS, GraphQL, MongoDB, WebRTC, Elasticsearch).

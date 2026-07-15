@@ -176,6 +176,26 @@ Polyglot microservices (Python + FastAPI, Node.js + NestJS, Go); PostgreSQL for 
 
 - Query optimisation (CTEs, indexes) reduced P95 contract-search latency from ~750 ms to well under 200 ms.
 
+## Prochesta – AI-Powered Exam-Preparation Platform
+(prochesta.app · CTO & Engineering Lead · EdTech SaaS for Bangladeshi competitive exams)
+
+#### Objective
+Help job seekers prepare for BCS, bank, and government-service exams through 1,200+ model tests, curated study materials, and a 24/7 AI study assistant — on web and Flutter mobile apps, with offline access — serving 50k+ learners.
+
+#### My role
+CTO & Engineering Lead: created the system architecture, review code across the team, and own the DevOps/CI-CD and deployment pipeline, observability, and performance.
+
+#### Architecture
+Node.js + Express API with MongoDB; Next.js dashboard front end; a Python + FastAPI AI service built on PydanticAI over PostgreSQL + pgvector for retrieval; Flutter mobile apps; containerised with Docker.
+
+#### Key contributions & impact
+
+- Designed the platform architecture spanning the Node.js API, Next.js dashboard, FastAPI AI service, and Flutter apps.
+
+- Built the CI/CD and deployment pipeline and added monitoring and distributed tracing for end-to-end observability.
+
+- Drove performance improvements across the API and the pgvector-backed AI retrieval path to keep the app responsive for 50k+ learners.
+
 ## Taxstar – UAE Corporate-Tax SaaS
 (Independent · Aug 2023 – Feb 2024 · FinTech micro-SaaS for SMB → enterprise)
 
