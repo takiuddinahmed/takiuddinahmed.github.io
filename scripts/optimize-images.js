@@ -9,8 +9,8 @@ const path = require('path');
 
 class ImageOptimizer {
   constructor() {
-    this.inputDir = 'assets/images';
-    this.outputDir = 'assets/images/optimized';
+    this.inputDir = 'public/assets/images';
+    this.outputDir = 'public/assets/images/optimized';
     this.quality = 85;
     this.formats = ['webp', 'avif'];
   }

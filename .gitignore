@@ -87,10 +87,6 @@ jspm_packages/
 # Nuxt.js build / generate output
 .nuxt
 
-# Gatsby files
-.cache/
-public
-
 # Storybook build outputs
 .out
 .storybook-out
@@ -104,6 +100,7 @@ temp/
 
 # Cloudflare Workers
 wrangler.toml.bak
+.wrangler/
 
 # LaTeX compilation files
 *.aux
