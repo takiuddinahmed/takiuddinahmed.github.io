@@ -83,6 +83,11 @@ Enterprise contract-lifecycle-management platform replacing scattered, email-dri
 Role: Core back-end engineer.
 Stack: Python, FastAPI, Go, Rust, PostgreSQL, Kafka, Redis, Kubernetes.
 
+### Prochesta — AI Exam-Prep Platform
+Bangladesh's leading job- and civil-service-exam preparation platform (BCS, bank, government) with 1,200+ model tests and analytics, 10k+ study materials, a Bangla AI study assistant (voice and image input), a community forum, offline access, and Flutter mobile apps serving 50k+ learners.
+Role: CTO & Engineering Lead — designed the architecture, review code, own the CI/CD and deployment pipeline, added monitoring and distributed tracing, and drive performance improvements.
+Stack: Node.js, Express, MongoDB, Next.js (dashboard), Python, FastAPI + PydanticAI (AI), PostgreSQL, pgvector, Flutter, Docker.
+
 ### Taxstar — UAE Corporate Tax SaaS
 Multi-tenant fintech SaaS helping UAE businesses comply with federal corporate tax through a rules-driven calculation engine, forecasting, and deadline reminders.
 Stack: Python, Flask, MongoDB, Docker, Kubernetes.
