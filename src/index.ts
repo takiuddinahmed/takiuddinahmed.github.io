@@ -60,6 +60,9 @@ app.post('/hello', async (c) => {
   return c.json({ ok: true, message: "Thanks for reaching out, I'll be in touch soon.", received })
 })
 
+// Machine-readable / utility files kept out of search results (applied in the catch-all).
+const NOINDEX_PATHS = new Set(['/robots.txt', '/sitemap.xml', '/manifest.json', '/license.txt', '/404.html'])
+
 // 4) Catch-all: serve static assets, layering per-path Cache-Control, Content-Type,
 //    and SEO headers (ported from the old `_headers` per-type blocks). ETag/304 handling
 //    and content negotiation are provided automatically by Workers Static Assets.
@@ -81,10 +84,13 @@ app.all('*', async (c) => {
 
   if (p === '/manifest.json') h.set('Content-Type', 'application/manifest+json')
   if (p === '/sitemap.xml') h.set('Content-Type', 'application/xml')
-  if (p === '/robots.txt') {
-    h.set('Content-Type', 'text/plain; charset=utf-8')
-    h.set('X-Robots-Tag', 'noindex')
-  }
+  if (p === '/robots.txt' || p === '/license.txt') h.set('Content-Type', 'text/plain; charset=utf-8')
+
+  // Utility / machine-readable files: keep the URLs out of search *results*.
+  // noindex only suppresses the file as a result — Google still reads
+  // robots.txt and sitemap.xml normally for crawling and discovery.
+  if (NOINDEX_PATHS.has(p)) h.set('X-Robots-Tag', 'noindex')
+
   if (p === '/llms.txt' || p === '/llms-full.txt') {
     h.set('Content-Type', 'text/plain; charset=utf-8')
     h.set('Access-Control-Allow-Origin', '*')
