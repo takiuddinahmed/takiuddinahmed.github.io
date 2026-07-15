@@ -2,7 +2,7 @@
 # Md Takiuddin Ahmed — Senior Backend Engineer portfolio
 # Hono Worker (src/index.ts) serving static files via Workers Static Assets (./public).
 
-name = "takiuddinahmed-github-io"
+name = "takiuddin-portfolio"
 main = "src/index.ts"
 compatibility_date = "2026-07-15"
 
