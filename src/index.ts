@@ -67,9 +67,20 @@ const NOINDEX_PATHS = new Set(['/robots.txt', '/sitemap.xml', '/manifest.json', 
 //    and SEO headers (ported from the old `_headers` per-type blocks). ETag/304 handling
 //    and content negotiation are provided automatically by Workers Static Assets.
 app.all('*', async (c) => {
+  const url = new URL(c.req.url)
+  const p = url.pathname
+
+  // Legacy Sitelinks-Searchbox artifact: an old SearchAction advertised
+  // /?q={search_term_string}. The site has no search, so 301 any ?q= on the
+  // homepage to the canonical URL — this removes the duplicate Google filed as
+  // "Alternate page with proper canonical tag". Scoped to `q` only so analytics
+  // params (utm_*, gclid, fbclid) are never stripped.
+  if ((p === '/' || p === '/index.html') && url.searchParams.has('q')) {
+    return c.redirect('https://takiuddin.me/', 301)
+  }
+
   const res = await c.env.ASSETS.fetch(c.req.raw)
   const h = new Headers(res.headers)
-  const p = new URL(c.req.url).pathname
 
   if (p.startsWith('/assets/')) {
     h.set('Cache-Control', 'public, max-age=31536000, s-maxage=31536000, immutable')
