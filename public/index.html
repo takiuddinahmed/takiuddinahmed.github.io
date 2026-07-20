@@ -306,7 +306,7 @@
                   "url": "https://prochesta.app/",
                   "applicationCategory": "EducationApplication",
                   "applicationSubCategory": "Competitive Exam Preparation",
-                  "description": "AI-powered job- and civil-service-exam preparation platform (BCS, bank, government) with 1,200+ model tests, analytics, a Bangla AI study assistant, community, and offline-ready mobile apps for 50k+ learners.",
+                  "description": "AI-powered job- and civil-service-exam preparation platform (BCS, bank, government) with model tests, analytics, a Bangla AI study assistant, community, and offline-ready mobile apps.",
                   "operatingSystem": "Web, Android",
                   "creator": { "@id": "https://takiuddin.me/#person" },
                   "softwareRequirements": "Node.js, Express, MongoDB, Next.js, Python, FastAPI, PostgreSQL, pgvector, Flutter, Docker"
@@ -423,7 +423,7 @@
                 "name": "What is his current role?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Software Developer at Cognitus, an IBM Company, since November 2023. He works on LambdaX — an enterprise contract-lifecycle-management platform — owning agreement, line-item, dataset and modification microservices, plus a Redis Streams + Kafka event fabric and Socket.io → Elasticsearch audit pipeline."
+                  "text": "Software Developer at Cognitus, an IBM Company, since November 2023. He works on LambdaX — an enterprise contract-lifecycle-management platform — owning agreement, line-item, dataset and modification microservices, plus a Redis Streams + Kafka event fabric and Socket.io → Elasticsearch audit pipeline. He also implemented an MCP server with FastMCP and an in-app chatbot using PydanticAI and pgvector."
                 }
               },
               {
@@ -1575,6 +1575,7 @@
                   <li>Built a Redis Streams + Kafka event fabric and a Socket.io &rarr; Elasticsearch audit pipeline aligned with SOC&#8209;2 retention.</li>
                   <li>Tuned slow SQLAlchemy queries, introduced Prometheus alerting, and mentored junior engineers through code review.</li>
                   <li>Building performance-critical services in Rust for event processing and latency-sensitive paths inside the platform.</li>
+                  <li>Implemented an MCP server with FastMCP and built an in-app chatbot using PydanticAI and pgvector-backed retrieval.</li>
                 </ul>
                 <div class="xp-stack">
                   <span class="chip">Python</span>
@@ -1587,6 +1588,9 @@
                   <span class="chip">Kubernetes</span>
                   <span class="chip">Keycloak</span>
                   <span class="chip">gRPC</span>
+                  <span class="chip">FastMCP</span>
+                  <span class="chip">PydanticAI</span>
+                  <span class="chip">pgvector</span>
                 </div>
               </div>
             </article>
@@ -1672,16 +1676,20 @@
               </div>
               <h3 class="project-name">LambdaX &mdash; Enterprise CLM</h3>
               <p class="project-desc">
-                Enterprise contract-lifecycle-management platform replacing scattered, email-driven
-                approval flows with a single audit-ready system integrating SAP, Outlook, Teams, and DocuSign.
+                Core back-end engineer on an enterprise contract-lifecycle-management platform replacing
+                scattered, email-driven approval flows with a single audit-ready system integrating SAP,
+                Outlook, Teams, and DocuSign.
               </p>
               <div class="project-stack">
                 <span class="chip">Python</span>
                 <span class="chip">FastAPI</span>
                 <span class="chip">Go</span>
+                <span class="chip">Rust</span>
                 <span class="chip">PostgreSQL</span>
                 <span class="chip">Kafka</span>
                 <span class="chip">Kubernetes</span>
+                <span class="chip">FastMCP</span>
+                <span class="chip">PydanticAI</span>
               </div>
             </article>
 
@@ -1691,9 +1699,9 @@
               </div>
               <h3 class="project-name">Prochesta &mdash; AI Exam-Prep Platform</h3>
               <p class="project-desc">
-                Bangladesh&rsquo;s leading job-exam prep platform (BCS, bank, government) &mdash; model
-                tests with analytics, a Bangla AI study assistant, and offline-ready Flutter apps for
-                50k+ learners. As CTO I own the architecture, CI/CD and deployment, observability, and performance.
+                CTO &amp; Engineering Lead for Bangladesh&rsquo;s leading job-exam prep platform (BCS, bank,
+                government) &mdash; model tests with analytics, an AI tutor and Bangla AI study assistant,
+                and offline-ready Flutter apps. I own the architecture, CI/CD, observability, and performance.
               </p>
               <div class="project-stack">
                 <span class="chip">Node.js</span>
@@ -1711,8 +1719,8 @@
               </div>
               <h3 class="project-name">Taxstar &mdash; UAE Corporate Tax SaaS</h3>
               <p class="project-desc">
-                Multi-tenant fintech SaaS helping UAE businesses comply with federal corporate tax
-                through a rules-driven calculation engine, forecasting, and deadline reminders.
+                Solo architect and developer of a multi-tenant fintech SaaS helping UAE businesses comply
+                with federal corporate tax through a rules-driven calculation engine, forecasting, and deadline reminders.
               </p>
               <div class="project-stack">
                 <span class="chip">Python</span>
@@ -1729,8 +1737,8 @@
               </div>
               <h3 class="project-name">Member Lounge &mdash; Engagement Suite</h3>
               <p class="project-desc">
-                White-label SaaS with subscription billing, threaded discussions, and a
-                queue-driven notification engine &mdash; hosted for sports associations and non-profits.
+                Back-end lead (team of four) on a white-label SaaS with subscription billing, threaded
+                discussions, and a queue-driven notification engine &mdash; hosted for sports associations and non-profits.
               </p>
               <div class="project-stack">
                 <span class="chip">NestJS</span>
@@ -1747,7 +1755,7 @@
               </div>
               <h3 class="project-name">Honest Elite &mdash; Social &amp; Messaging</h3>
               <p class="project-desc">
-                Niche social network for creators with rich-media posts, real-time chat,
+                Full-stack owner of a niche social network for creators with rich-media posts, real-time chat,
                 voice/video calls, and an Elasticsearch-backed recommendation feed.
               </p>
               <div class="project-stack">

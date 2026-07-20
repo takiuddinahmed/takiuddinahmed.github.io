@@ -24,14 +24,14 @@ Last updated: 2026-05-02.
 
 ## Experience
 
-- Software Developer @ Cognitus, an IBM Company — Nov 2023 — Present (Remote). LambdaX enterprise CLM. Stack: Python, FastAPI, Go, Rust, PostgreSQL, Kafka, Redis, Kubernetes, Keycloak, gRPC.
+- Software Developer @ Cognitus, an IBM Company — Nov 2023 — Present (Remote). LambdaX enterprise CLM. Stack: Python, FastAPI, Go, Rust, PostgreSQL, Kafka, Redis, Kubernetes, Keycloak, gRPC, FastMCP, PydanticAI, pgvector.
 - Software Developer @ Grype Digital — May 2022 — Nov 2023 (Remote). Member Lounge engagement SaaS, HPSA portal. Stack: NestJS, TypeScript, MongoDB, RabbitMQ, Stripe, Next.js, Docker.
 - Full-Stack Developer @ Bugfixers — Mar 2020 — Apr 2022 (Dhaka, Hybrid). Clients: LearnGenie, Devsfit, Bangladesh Navy. Stack: Node.js, Express, Python, React, Electron, MongoDB, MySQL, AWS.
 
 ## Selected projects
 
 - LambdaX — enterprise contract-lifecycle-management platform (Python, FastAPI, Go, PostgreSQL, Kafka, Kubernetes).
-- Prochesta — AI-powered job- and civil-service-exam prep platform (BCS, bank, government) with model tests, analytics, a Bangla AI assistant, and Flutter mobile apps; CTO & Engineering Lead (Node.js, Express, MongoDB, Next.js, FastAPI, PostgreSQL, pgvector, Flutter, Docker).
+- Prochesta — AI-powered job- and civil-service-exam prep platform (BCS, bank, government) with model tests, analytics, an AI tutor, a Bangla AI assistant, and Flutter mobile apps; CTO & Engineering Lead (Node.js, Express, MongoDB, Next.js, FastAPI, PostgreSQL, pgvector, Flutter, Docker).
 - Taxstar — UAE corporate-tax SaaS (Python, Flask, MongoDB, Docker, Kubernetes).
 - Member Lounge — engagement SaaS with Stripe billing and notification fan-out (NestJS, MongoDB, RabbitMQ, Stripe, Next.js).
 - Honest Elite — niche social network with WebRTC calls and Elasticsearch feed (NestJS, GraphQL, MongoDB, WebRTC, Elasticsearch).

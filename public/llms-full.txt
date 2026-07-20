@@ -52,6 +52,7 @@ Nov 2023 — Present · Remote · LambdaX (Enterprise CLM)
 - Built a Redis Streams + Kafka event fabric and a Socket.io → Elasticsearch audit pipeline aligned with SOC-2 retention.
 - Tuned slow SQLAlchemy queries, introduced Prometheus alerting, and mentored junior engineers through code review.
 - Building performance-critical services in Rust for event processing and latency-sensitive paths inside the platform.
+- Implemented an MCP server with FastMCP and built an in-app chatbot using PydanticAI and pgvector-backed retrieval.
 
 Stack: Python, FastAPI, Go, Rust, PostgreSQL, Kafka, Redis, Kubernetes, Keycloak, gRPC.
 
@@ -84,7 +85,7 @@ Role: Core back-end engineer.
 Stack: Python, FastAPI, Go, Rust, PostgreSQL, Kafka, Redis, Kubernetes.
 
 ### Prochesta — AI Exam-Prep Platform
-Bangladesh's leading job- and civil-service-exam preparation platform (BCS, bank, government) with 1,200+ model tests and analytics, 10k+ study materials, a Bangla AI study assistant (voice and image input), a community forum, offline access, and Flutter mobile apps serving 50k+ learners.
+Bangladesh's leading job- and civil-service-exam preparation platform (BCS, bank, government) with model tests and analytics, study materials, an AI tutor and Bangla AI study assistant (voice and image input), a community forum, offline access, and Flutter mobile apps.
 Role: CTO & Engineering Lead — designed the architecture, review code, own the CI/CD and deployment pipeline, added monitoring and distributed tracing, and drive performance improvements.
 Stack: Node.js, Express, MongoDB, Next.js (dashboard), Python, FastAPI + PydanticAI (AI), PostgreSQL, pgvector, Flutter, Docker.
 
@@ -129,7 +130,7 @@ Q: Where is Md Takiuddin Ahmed based?
 A: Rajshahi, Bangladesh (UTC+6, Asia/Dhaka). He works comfortably with globally distributed teams across US, EU, and APAC time zones.
 
 Q: What is his current role?
-A: Software Developer at Cognitus, an IBM Company, since November 2023. He works on LambdaX — an enterprise contract-lifecycle-management platform — owning agreement, line-item, dataset, and modification microservices, plus a Redis Streams + Kafka event fabric and a Socket.io → Elasticsearch audit pipeline.
+A: Software Developer at Cognitus, an IBM Company, since November 2023. He works on LambdaX — an enterprise contract-lifecycle-management platform — owning agreement, line-item, dataset, and modification microservices, plus a Redis Streams + Kafka event fabric and a Socket.io → Elasticsearch audit pipeline. He also implemented an MCP server with FastMCP and an in-app chatbot using PydanticAI and pgvector.
 
 Q: What languages and frameworks does he use most?
 A: Python (FastAPI, Flask, Django), TypeScript (NestJS, Express), Go, and Rust on the backend; PostgreSQL, MongoDB, Redis, and Elasticsearch for data; Kafka, RabbitMQ, and Redis Streams for messaging; Docker and Kubernetes for deployment; Keycloak / OAuth 2.0 for auth; Prometheus, Grafana, and OpenTelemetry for observability.

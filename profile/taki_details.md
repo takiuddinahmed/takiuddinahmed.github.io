@@ -57,7 +57,7 @@ Remote | Nov 2023 – Present | Product: LambdaX (Enterprise Contract-Li
 
 Part of a 24-engineer platform team; core contributor to the contract-authoring domain.
 
-Tech stack: Python (FastAPI), SQLAlchemy, Node.js, Go, PostgreSQL, Redis, Kafka, gRPC, Kubernetes, Keycloak, Docker, Socket.io, Elasticsearch/Kibana.
+Tech stack: Python (FastAPI), SQLAlchemy, Node.js, Go, PostgreSQL, Redis, Kafka, gRPC, Kubernetes, Keycloak, Docker, Socket.io, Elasticsearch/Kibana, FastMCP, PydanticAI, pgvector.
 
 #### Core Feature Development
 
@@ -76,6 +76,12 @@ Tech stack: Python (FastAPI), SQLAlchemy, Node.js, Go, PostgreSQL, Redis, Kafka,
 - Built a Redis Streams + Kafka fabric for high-throughput event propagation between microservices; sustained >15 k events/sec in load tests.
 
 - Introduced Socket.io-based user-activity streams feeding an Elasticsearch audit index; supports SOC-2 log-retention policy (365 days).
+
+#### AI & Chat
+
+- Implemented an MCP server with FastMCP exposing platform capabilities to LLM clients.
+
+- Built an in-app chatbot with PydanticAI and pgvector-backed retrieval over LambdaX data.
 
 #### Performance & Reliability
 
@@ -176,11 +182,13 @@ Polyglot microservices (Python + FastAPI, Node.js + NestJS, Go); PostgreSQL for 
 
 - Query optimisation (CTEs, indexes) reduced P95 contract-search latency from ~750 ms to well under 200 ms.
 
+- Built an MCP server (FastMCP) and an in-app chatbot (PydanticAI + pgvector retrieval) so users can query contract data conversationally.
+
 ## Prochesta – AI-Powered Exam-Preparation Platform
 (prochesta.app · CTO & Engineering Lead · EdTech SaaS for Bangladeshi competitive exams)
 
 #### Objective
-Help job seekers prepare for BCS, bank, and government-service exams through 1,200+ model tests, curated study materials, and a 24/7 AI study assistant — on web and Flutter mobile apps, with offline access — serving 50k+ learners.
+Help job seekers prepare for BCS, bank, and government-service exams through model tests, curated study materials, a 24/7 AI tutor, and a Bangla AI study assistant — on web and Flutter mobile apps, with offline access.
 
 #### My role
 CTO & Engineering Lead: created the system architecture, review code across the team, and own the DevOps/CI-CD and deployment pipeline, observability, and performance.
@@ -194,7 +202,9 @@ Node.js + Express API with MongoDB; Next.js dashboard front end; a Python + Fast
 
 - Built the CI/CD and deployment pipeline and added monitoring and distributed tracing for end-to-end observability.
 
-- Drove performance improvements across the API and the pgvector-backed AI retrieval path to keep the app responsive for 50k+ learners.
+- Drove performance improvements across the API and the pgvector-backed AI retrieval path to keep the app responsive at scale.
+
+- Shipped an AI tutor that gives learners interactive, personalised explanations and guided practice over the exam content.
 
 ## Taxstar – UAE Corporate-Tax SaaS
 (Independent · Aug 2023 – Feb 2024 · FinTech micro-SaaS for SMB → enterprise)
