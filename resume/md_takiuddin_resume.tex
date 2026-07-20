@@ -9,6 +9,11 @@
 \usepackage{xcolor}
 \usepackage{fontawesome5}
 \usepackage{etoolbox}
+\usepackage{accsupp}
+
+% Render decorative glyphs (icons) with empty ActualText so ATS/pdftotext
+% extraction stays clean instead of emitting stray characters (+, #, ï¿½, ...).
+\newcommand{\icon}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
 
 % Custom section command
 \titleformat{\section}
@@ -40,23 +45,23 @@
 \newcommand{\contact}[6]{%
   \begin{center}\normalsize
     % ---------- first line ----------
-    \mbox{{\footnotesize\faMapMarker*}\hspace{0.13cm}#1}%
+    \mbox{\icon{{\footnotesize\faMapMarker*}}\hspace{0.13cm}#1}%
     \kern0.50cm
     \mbox{\hrefWithoutArrow{mailto:#2}%
-          {{\footnotesize\faEnvelope[regular]}\hspace{0.13cm}#2}}%
+          {\icon{{\footnotesize\faEnvelope[regular]}}\hspace{0.13cm}#2}}%
     \kern0.50cm
     \mbox{\hrefWithoutArrow{tel:#3}%
-          {{\footnotesize\faPhone*}\hspace{0.13cm}#3}}%
+          {\icon{{\footnotesize\faPhone*}}\hspace{0.13cm}#3}}%
     \kern0.50cm
     \mbox{\hrefWithoutArrow{#6}%
-          {{\footnotesize\faLink}\hspace{0.13cm}#6}}%
+          {\icon{{\footnotesize\faLink}}\hspace{0.13cm}#6}}%
     \\[0.3em]                                   % ← break to 2nd line
     % ---------- second line ----------
     \mbox{\hrefWithoutArrow{#4}%
-          {{\footnotesize\faGithub}\hspace{0.13cm}#4}}%
+          {\icon{{\footnotesize\faGithub}}\hspace{0.13cm}#4}}%
     \kern0.25cm
     \mbox{\hrefWithoutArrow{#5}%
-          {{\footnotesize\faLinkedinIn}\hspace{0.13cm}#5}}%
+          {\icon{{\footnotesize\faLinkedinIn}}\hspace{0.13cm}#5}}%
   \end{center}
   \vspace{-0.5em}\hrule height0.4pt width\textwidth\vspace{0.5em}
 }
@@ -93,9 +98,9 @@
 \begin{itemize}[leftmargin=*,nosep]
   \item Core contributor to LambdaX enterprise contract-lifecycle-management platform serving Fortune-scale companies
   \item Designed and implemented agreement-header, line-item, dataset, and modification microservices using Python (FastAPI), SQLAlchemy, and PostgreSQL
-  \item Built Redis Streams + Kafka event propagation system sustaining 15,000+ events/sec in load tests
-  \item Extended drag-and-drop orchestration engine with 50+ reusable action blocks, reducing legal-ops turnaround from days to hours
-  \item Optimized SQLAlchemy queries with CTEs and proper indexing, improving contract-search latency from 750ms to <180ms (P95)
+  \item Built Redis Streams + Kafka event propagation system for high-throughput event delivery
+  \item Extended drag-and-drop orchestration engine with reusable action blocks, reducing legal-ops turnaround from days to hours
+  \item Optimized SQLAlchemy queries with CTEs and proper indexing, significantly improving contract-search latency
   \item Implemented Socket.io-based user-activity streams feeding Elasticsearch audit index for SOC-2 compliance
 \end{itemize}
 
