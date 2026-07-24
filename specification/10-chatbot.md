@@ -24,17 +24,20 @@ key, and no cost at this site's traffic.
 ## Brain — Cloudflare Workers AI
 
 - Called via the native `AI` binding (`env.AI.run(...)`) — on-edge, **no API key**.
-- **Model:** `@cf/google/gemma-3-12b-it` (constant `CHAT_MODEL` in `src/index.ts`).
-  - Chosen for: doc-confirmed **multilingual/Bangla** support (140+ languages), plain instruct
-    behavior, streaming. Marked deprecated on Cloudflare but still served and works well here.
-  - **Rejected `gemma-4-26b-a4b-it`:** despite being newer, it's a *reasoning* model — it spends
-    `max_tokens` on `reasoning_content` and leaves the answer `content` empty (`finish_reason:
-    length`), so it produces no usable reply for this short-answer bot.
-  - **Reversible:** the endpoint is model-agnostic (system prompt + messages → streamed reply).
-    Switching model = change the one `CHAT_MODEL` string. Other non-reasoning fallbacks:
+- **Model:** `@cf/google/gemma-4-26b-a4b-it` (constant `CHAT_MODEL` in `src/index.ts`).
+  - Chosen for: current Gemma release with the family's strong **multilingual/Bangla** support,
+    MoE efficiency, streaming.
+  - It is a **reasoning** model: it streams hidden `reasoning_content` before the answer
+    `content`. Therefore `MAX_TOKENS` is set high (2048) so thinking + reply both fit — with a
+    small budget it spends everything on reasoning and returns empty `content`. The client shows
+    only `content`, never `reasoning_content`.
+  - `gemma-3-12b-it` was doc-confirmed for Bangla and non-reasoning, but is **removed** after its
+    5/30/2026 deprecation (calls now 500), so it's not usable.
+  - **Reversible:** the endpoint is model-agnostic. Switching = change the one `CHAT_MODEL`
+    string. Non-reasoning fallbacks (weaker Bangla): `@cf/mistral/mistral-small-3.1-24b-instruct`,
     `@cf/qwen/qwen3-30b-a3b-fp8`, `@cf/meta/llama-3.1-8b-instruct`.
   - The client SSE parser accepts both stream shapes: legacy `{"response":…}` and OpenAI-style
-    `{"choices":[{"delta":{"content":…}}]}` (Gemma 3/4 use the latter).
+    `{"choices":[{"delta":{"content":…}}]}` (Gemma uses the latter).
 - **Cost:** Workers Free plan grants 10,000 Neurons/day. At ~2.5k input + ~350 output tokens per
   turn this model costs ≈32 Neurons/turn → ≈300 free chats/day — well above expected traffic.
 

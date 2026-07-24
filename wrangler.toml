@@ -34,6 +34,22 @@ namespace_id = "1001"
 binding = "CHAT_KV"
 id = "d1d1cd9249c546fe87c3eecea35851d7"
 
+# Observability — Workers Logs / traces (configure in the dashboard too).
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
+persist = true
+head_sampling_rate = 1
+
 # Custom domain: attach only AFTER removing takiuddin.me from the old Pages project,
 # otherwise the deploy conflicts with the live domain. Then uncomment and redeploy:
 # routes = [{ pattern = "takiuddin.me", custom_domain = true }]
