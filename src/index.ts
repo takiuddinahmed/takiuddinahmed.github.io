@@ -68,7 +68,10 @@ app.post('/hello', async (c) => {
 
 // 3b) POST /api/chat — "Ask about Taki" chatbot. See specification/10-chatbot.md.
 //     Same-origin only (no CORS) so other sites can't drive the endpoint.
-const CHAT_MODEL = '@cf/google/gemma-4-26b-a4b-it'
+// gemma-3-12b-it: plain instruct model (no "reasoning" tokens) with doc-confirmed
+// multilingual support incl. Bengali. gemma-4-26b burned max_tokens on reasoning_content
+// and never produced an answer, so it's unsuitable here despite being newer.
+const CHAT_MODEL = '@cf/google/gemma-3-12b-it'
 const MAX_MESSAGE_CHARS = 1000
 const MAX_TURNS = 6 // last N messages of history kept
 const MAX_TOKENS = 400

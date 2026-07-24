@@ -24,14 +24,17 @@ key, and no cost at this site's traffic.
 ## Brain — Cloudflare Workers AI
 
 - Called via the native `AI` binding (`env.AI.run(...)`) — on-edge, **no API key**.
-- **Model:** `@cf/google/gemma-4-26b-a4b-it` (constant `CHAT_MODEL` in `src/index.ts`).
-  - Chosen for: **current** (not deprecated, unlike `gemma-3-12b-it`), Gemma family's strong
-    **multilingual/Bangla** support, MoE efficiency (26B knowledge / ~4B active → cheaper *and*
-    smarter than an 8B), 256k context, streaming.
+- **Model:** `@cf/google/gemma-3-12b-it` (constant `CHAT_MODEL` in `src/index.ts`).
+  - Chosen for: doc-confirmed **multilingual/Bangla** support (140+ languages), plain instruct
+    behavior, streaming. Marked deprecated on Cloudflare but still served and works well here.
+  - **Rejected `gemma-4-26b-a4b-it`:** despite being newer, it's a *reasoning* model — it spends
+    `max_tokens` on `reasoning_content` and leaves the answer `content` empty (`finish_reason:
+    length`), so it produces no usable reply for this short-answer bot.
   - **Reversible:** the endpoint is model-agnostic (system prompt + messages → streamed reply).
-    Switching model = change the one `CHAT_MODEL` string. Fallbacks if quality/Bangla disappoint:
-    `@cf/google/gemma-3-12b-it` (doc-confirmed 140+ languages, but deprecated),
+    Switching model = change the one `CHAT_MODEL` string. Other non-reasoning fallbacks:
     `@cf/qwen/qwen3-30b-a3b-fp8`, `@cf/meta/llama-3.1-8b-instruct`.
+  - The client SSE parser accepts both stream shapes: legacy `{"response":…}` and OpenAI-style
+    `{"choices":[{"delta":{"content":…}}]}` (Gemma 3/4 use the latter).
 - **Cost:** Workers Free plan grants 10,000 Neurons/day. At ~2.5k input + ~350 output tokens per
   turn this model costs ≈32 Neurons/turn → ≈300 free chats/day — well above expected traffic.
 

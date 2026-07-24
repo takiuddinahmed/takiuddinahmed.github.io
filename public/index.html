@@ -2390,7 +2390,11 @@
                   if (!data || data === '[DONE]') return;
                   try {
                     var j = JSON.parse(data);
-                    if (j.response) { acc += j.response; botEl.textContent = acc; scrollDown(); }
+                    // Workers AI models use one of two shapes: legacy {"response":"…"}
+                    // or OpenAI-style {"choices":[{"delta":{"content":"…"}}]}.
+                    var piece = j.response;
+                    if (!piece && j.choices && j.choices[0] && j.choices[0].delta) piece = j.choices[0].delta.content;
+                    if (piece) { acc += piece; botEl.textContent = acc; scrollDown(); }
                   } catch (e) {}
                 });
                 return pump();
