@@ -1,0 +1,187 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{etoolbox}
+\usepackage{accsupp}
+
+% Render decorative glyphs (icons) with empty ActualText so ATS/pdftotext
+% extraction stays clean instead of emitting stray characters (+, #, ï¿½, ...).
+\newcommand{\icon}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+
+% Custom section command
+\titleformat{\section}
+  {\large\bfseries\uppercase}
+  {}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{*1.5}{*0.5}
+
+% Remove page numbers
+\pagenumbering{gobble}
+
+% Custom commands
+\newcommand{\name}[1]{
+  \begin{center}
+    \Huge\textbf{#1}
+  \end{center}
+  \vspace{-0.5em}
+  \hrule height 0.4pt width \textwidth
+  \vspace{0.5em}
+}
+% ------------------------------------------------
+% contact macro  (args: #1‑#6)
+%   #1 = address / location
+%   #2 = e‑mail
+%   #3 = phone
+%   #4 = GitHub URL
+%   #5 = LinkedIn URL
+%   #6 = personal site / extra link
+% ------------------------------------------------
+\newcommand{\contact}[6]{%
+  \begin{center}\normalsize
+    % ---------- first line ----------
+    \mbox{\icon{{\footnotesize\faMapMarker*}}\hspace{0.13cm}#1}%
+    \kern0.50cm
+    \mbox{\hrefWithoutArrow{mailto:#2}%
+          {\icon{{\footnotesize\faEnvelope[regular]}}\hspace{0.13cm}#2}}%
+    \kern0.50cm
+    \mbox{\hrefWithoutArrow{tel:#3}%
+          {\icon{{\footnotesize\faPhone*}}\hspace{0.13cm}#3}}%
+    \kern0.50cm
+    \mbox{\hrefWithoutArrow{#6}%
+          {\icon{{\footnotesize\faLink}}\hspace{0.13cm}#6}}%
+    \\[0.3em]                                   % ← break to 2nd line
+    % ---------- second line ----------
+    \mbox{\hrefWithoutArrow{#4}%
+          {\icon{{\footnotesize\faGithub}}\hspace{0.13cm}#4}}%
+    \kern0.25cm
+    \mbox{\hrefWithoutArrow{#5}%
+          {\icon{{\footnotesize\faLinkedinIn}}\hspace{0.13cm}#5}}%
+  \end{center}
+  \vspace{-0.5em}\hrule height0.4pt width\textwidth\vspace{0.5em}
+}
+
+\newcommand{\role}[4]{
+  \begin{center}
+  \textbf{#1} \hfill \textbf{#2} \\
+  \textit{#3} \hfill \textit{#4}
+  \end{center}
+}
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{#2\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+\begin{document}
+
+\name{Md Takiuddin}
+\vspace{-0.5em}
+\contact{Rajshahi, Bangladesh}{takiuddinahmed@gmail.com}{+880 1723 100 925}{https://github.com/takiuddinahmed}{https://linkedin.com/in/takiuddin-ahmed-871607b5}{https://takiuddin.me}
+
+
+\vspace{-0.5em}
+\begin{center}
+\textit{Full-stack engineer with 6+ years shipping production web applications end to end -- React/Next.js and TypeScript on the front end; Python (FastAPI/Django), Node.js (NestJS/Express), and Go on the back end. Strong Git, pull-request, and code-review discipline, with a bias toward clean, readable, maintainable code. Comfortable supporting and mentoring junior developers while knowing when to escalate technical decisions, and effective in remote, globally distributed teams.}
+\end{center}
+
+\section{PROFESSIONAL EXPERIENCE}
+
+\vspace{1em}
+\role{COGNITUS, AN IBM COMPANY}{Remote}{Software Developer}{November 2023--Present}
+\begin{itemize}[leftmargin=*,nosep]
+  \item Core contributor on LambdaX -- an enterprise contract-lifecycle-management platform used by large US customers, delivered by a globally distributed remote team
+  \item Designed and shipped agreement-header, line-item, dataset, and modification microservices using Python (FastAPI), SQLAlchemy, and PostgreSQL, exposing clean REST APIs consumed by the React front end and third-party integrations
+  \item Extended the in-house low-code flow orchestrator with reusable action blocks spanning SAP, Outlook, DocuSign, and Teams
+  \item Built a Redis Streams + Kafka event fabric and a Socket.io-to-Elasticsearch audit pipeline aligned with SOC-2 retention
+  \item Mentor junior back-end engineers through code review and pairing, upholding pull-request and testing standards while escalating cross-cutting technical decisions
+  \item Built an MCP server with FastMCP and an in-app chatbot using PydanticAI with pgvector-backed retrieval
+\end{itemize}
+
+\role{GRYPE DIGITAL}{Remote}{Software Developer}{May 2022--November 2023}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Led a 4-developer back-end squad for Member Lounge, a SaaS engagement platform (NestJS, TypeScript, MongoDB, RabbitMQ) with a React/Next.js front end
+  \item Solo-built the HPSA portal end to end on FastAPI and Next.js, working directly with the CEO on specs, sprint plans, and demos
+  \item Architected tiered subscription billing on Stripe with proration, coupons, webhook processing, and automated invoicing
+  \item Shipped a threaded discussion forum and a queue-driven notification engine across browser push, email, and SMS
+  \item Rolled out MFA (email OTP + trusted-device cookies) and zero-downtime blue/green deploys on Docker Swarm
+\end{itemize}
+
+\role{BUGFIXERS}{Dhaka, Bangladesh}{Full-Stack Developer}{March 2020--April 2022}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Delivered full-stack products across Node.js (Express), Python, React, Flutter, and Electron for clients including LearnGenie, Devsfit, and the Bangladesh Navy
+  \item Built secure offline-capable intranet desktop apps and real-time Socket.io dashboards for operational awareness
+  \item Introduced RabbitMQ + Redis-backed microservice decomposition, GitHub Actions CI/CD, and hardened Linux VPS deployments
+  \item Acted as first responder for production incidents and refactored legacy PHP/Vanilla-JS into modern Express + React stacks
+\end{itemize}
+
+\vspace{1em}
+\section{KEY PROJECTS}
+
+\vspace{0.5em}
+\role{PROCHESTA -- AI EXAM-PREP PLATFORM}{Independent Project}{CTO \& Engineering Lead}{2025--Present}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Bangladesh's leading job-exam prep platform (BCS, bank, government) with model tests and performance analytics
+  \item Own the architecture and lead the team through code review across a Next.js web app, Node.js/FastAPI services, and offline-ready Flutter apps
+  \item Built an AI tutor and Bangla AI study assistant with pgvector-backed retrieval
+  \item Own CI/CD, observability, and performance across Node.js, MongoDB, and FastAPI services
+\end{itemize}
+
+\role{TAXSTAR -- UAE CORPORATE-TAX SAAS}{Independent Project}{Solo Architect \& Developer}{August 2023--February 2024}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Built end-to-end FinTech SaaS helping UAE businesses comply with federal corporate-tax rules
+  \item Implemented rules-driven engine for automated tax calculations, forecasting, and deadline reminders
+  \item Integrated with Xero and Zoho ERP systems to eliminate manual CSV uploads
+  \item Designed multi-tenant architecture ready for horizontal scaling and future VAT/payroll-tax modules
+\end{itemize}
+
+\role{HONEST ELITE -- SOCIAL-MEDIA PLATFORM}{Independent Project}{Full-Stack Developer}{September 2022--March 2024}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Developed rich-media social network with real-time chat, voice/video calls, and personalized recommendations
+  \item Built GraphQL API on NestJS microservices with a Next.js SSR front end and WebRTC for calls
+  \item Implemented a collaborative and content-based recommender system to improve feed relevancy and engagement
+  \item Used Redis Streams for real-time messaging and call notifications
+\end{itemize}
+
+\vspace{1em}
+\section{TECHNICAL SKILLS}
+
+\vspace{0.5em}
+\begin{itemize}[leftmargin=*,nosep]
+  \item \textbf{Languages:} TypeScript/JavaScript, Python, Go, Rust, SQL, Bash
+  \item \textbf{Frontend:} React, Next.js, Tailwind CSS, Flutter
+  \item \textbf{Backend \& APIs:} FastAPI, NestJS, Express, Django, Flask, gRPC, GraphQL, REST
+  \item \textbf{Datastores:} PostgreSQL, MongoDB, Redis, MySQL, Elasticsearch, pgvector
+  \item \textbf{Messaging \& Streaming:} Apache Kafka, RabbitMQ, Redis Streams, Socket.io
+  \item \textbf{Cloud \& DevOps:} Docker, Kubernetes, AWS, Cloudflare, NGINX, GitHub Actions, Linux
+  \item \textbf{Workflow:} Git, pull-request \& code-review workflows, testing (PyTest, Jest), debugging
+  \item \textbf{Security \& Observability:} Keycloak, OAuth 2.0/OIDC, JWT, MFA, Prometheus, Grafana, OpenTelemetry
+  \item \textbf{AI \& Data:} LangChain, LangGraph, PydanticAI, FastMCP, scikit-learn, pandas
+\end{itemize}
+
+\vspace{1em}
+\section{EDUCATION}
+
+\vspace{0.5em}
+\role{RAJSHAHI UNIVERSITY OF ENGINEERING \& TECHNOLOGY}{Rajshahi, Bangladesh}{Bachelor of Science in Mechanical Engineering}{2016--2022}
+\begin{itemize}[leftmargin=*,nosep,topsep=0pt]
+  \item Capstone: "Low-Cost Autonomous Line-Follower Robot for Warehouse Logistics" -- 1st runner-up in RUET TechFest 2019
+  \item Technical Secretary, Robotic Society of RUET; software lead for Team Scrapper (Indian Rover Challenge)
+  \item Coursework: Thermodynamics, Fluid Mechanics, CAD/CAM, Control Systems, Materials Science, Industrial Automation
+\end{itemize}
+
+\vspace{1em}
+\section{LANGUAGES}
+
+\vspace{0.5em}
+\begin{itemize}[leftmargin=*,nosep]
+  \item Bangla (Native), English (Full Professional), Hindi (Limited Working)
+\end{itemize}
+
+\end{document}

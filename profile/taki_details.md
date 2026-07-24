@@ -50,7 +50,7 @@ Open to remote full-time roles and freelance consulting
 
 # Work Experience 
 
-## Cognitus Consulting LLC · Software Developer
+## Cognitus, an IBM Company · Software Developer
 Remote | Nov 2023 – Present | Product: LambdaX (Enterprise Contract-Lifecycle-Management)
 
 #### Scope & Environment
@@ -163,7 +163,7 @@ Ready for the next detailed section (e.g., Key Projects, Technical Skills, or Ed
 
 # Key Projects
 ## LambdaX – Enterprise Contract-Lifecycle-Management Platform
-(Cognitus Consulting LLC · Nov 2023 – Present · B2B SaaS for Fortune-scale U.S. companies)
+(Cognitus, an IBM Company · Nov 2023 – Present · B2B SaaS for Fortune-scale U.S. companies)
 
 #### Objective
 Replace scattered, e-mail–driven contract processes with a single, audit-ready system that can integrate SAP, Outlook, Teams and DocuSign.
