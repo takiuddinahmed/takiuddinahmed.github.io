@@ -1383,13 +1383,25 @@
 
       .chat-panel {
         position: fixed; right: 20px; bottom: 88px; z-index: 1000;
-        width: 370px; max-width: calc(100vw - 32px);
-        height: 70vh; max-height: 560px;
+        width: 420px; max-width: calc(100vw - 32px);
+        height: 78vh; max-height: 640px;
         display: none; flex-direction: column;
         background: var(--bg-elev); border: 1px solid var(--border);
         border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden;
+        transition: width .18s ease, height .18s ease;
       }
       .chat-open .chat-panel { display: flex; }
+      /* Expanded state — user-toggled via the header button. */
+      .chat-expanded .chat-panel {
+        width: 680px; height: calc(100vh - 108px); max-height: none;
+      }
+      .chat-expand { background: none; border: 0; color: var(--text-dim); cursor: pointer; padding: 4px; line-height: 1; display: flex; }
+      .chat-expand:hover { color: var(--text); }
+      .chat-expand svg { width: 16px; height: 16px; }
+      .chat-expanded .chat-expand .chat-ico-grow { display: none; }
+      .chat-expand .chat-ico-shrink { display: none; }
+      .chat-expanded .chat-expand .chat-ico-shrink { display: block; }
+      @media (max-width: 720px) { .chat-expand { display: none; } }
 
       .chat-head {
         display: flex; align-items: center; gap: 10px;
@@ -1401,13 +1413,14 @@
       }
       .chat-head .chat-title { font-family: var(--sans); font-weight: 600; font-size: .92rem; color: var(--text); line-height: 1.15; }
       .chat-head .chat-sub { font-size: .7rem; color: var(--text-muted); }
-      .chat-head .chat-x { margin-left: auto; background: none; border: 0; color: var(--text-dim); cursor: pointer; font-size: 1rem; padding: 4px; line-height: 1; }
+      .chat-actions { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+      .chat-head .chat-x { background: none; border: 0; color: var(--text-dim); cursor: pointer; font-size: 1rem; padding: 4px 6px; line-height: 1; }
       .chat-head .chat-x:hover { color: var(--text); }
 
       .chat-msgs {
-        flex: 1; overflow-y: auto; padding: 14px;
-        display: flex; flex-direction: column; gap: 10px;
-        font-family: var(--sans); font-size: .9rem;
+        flex: 1; overflow-y: auto; padding: 16px;
+        display: flex; flex-direction: column; gap: 12px;
+        font-family: var(--sans); font-size: .94rem;
       }
       .chat-msg { max-width: 85%; padding: 9px 12px; border-radius: 12px; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }
       .chat-msg.user { align-self: flex-end; background: var(--accent); color: #06121c; border-bottom-right-radius: 4px; }
@@ -1428,20 +1441,28 @@
       }
       .chat-sug:hover { border-color: var(--accent); }
 
-      .chat-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--border); background: var(--surface-2); }
+      .chat-form {
+        display: flex; align-items: flex-end; gap: 8px;
+        margin: 10px 12px; padding: 6px 6px 6px 12px;
+        border: 1px solid var(--border); border-radius: 14px; background: var(--surface);
+        transition: border-color .15s ease;
+      }
+      .chat-form:focus-within { border-color: var(--accent); }
       .chat-form textarea {
-        flex: 1; resize: none; max-height: 96px; overflow-y: auto;
-        font-family: var(--sans); font-size: .88rem; color: var(--text);
-        background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-        padding: 8px 10px; line-height: 1.4;
+        flex: 1; resize: none; min-height: 24px; max-height: 132px; overflow-y: auto;
+        font-family: var(--sans); font-size: .94rem; color: var(--text);
+        background: transparent; border: 0; padding: 6px 0; line-height: 1.5;
       }
-      .chat-form textarea:focus { outline: none; border-color: var(--accent); }
+      .chat-form textarea::placeholder { color: var(--text-muted); }
+      .chat-form textarea:focus { outline: none; }
       .chat-form button {
-        flex: 0 0 auto; align-self: flex-end;
-        background: var(--accent); color: #06121c; border: 0; border-radius: 8px;
-        padding: 8px 14px; font-weight: 600; font-family: var(--sans); cursor: pointer;
+        flex: 0 0 auto; width: 38px; height: 38px; align-self: flex-end;
+        display: flex; align-items: center; justify-content: center;
+        background: var(--accent); color: #06121c; border: 0; border-radius: 10px;
+        cursor: pointer; transition: opacity .15s ease;
       }
-      .chat-form button:disabled { opacity: .5; cursor: not-allowed; }
+      .chat-form button svg { width: 18px; height: 18px; }
+      .chat-form button:disabled { opacity: .4; cursor: not-allowed; }
 
       .chat-foot { text-align: center; font-size: .66rem; color: var(--text-muted); padding: 0 10px 8px; background: var(--surface-2); }
 
@@ -2251,13 +2272,21 @@
           <div class="chat-title">Ask about Taki</div>
           <div class="chat-sub">AI assistant · answers about Md Takiuddin Ahmed</div>
         </div>
-        <button id="chatClose" class="chat-x" type="button" aria-label="Close chat">✕</button>
+        <div class="chat-actions">
+          <button id="chatExpand" class="chat-expand" type="button" aria-label="Expand chat" title="Expand">
+            <svg class="chat-ico-grow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            <svg class="chat-ico-shrink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7"/></svg>
+          </button>
+          <button id="chatClose" class="chat-x" type="button" aria-label="Close chat">✕</button>
+        </div>
       </header>
       <div id="chatMsgs" class="chat-msgs" aria-live="polite"></div>
       <div id="chatSugs" class="chat-sugs"></div>
       <form id="chatForm" class="chat-form">
         <textarea id="chatInput" rows="1" maxlength="1000" placeholder="Ask about his experience, projects, stack…" aria-label="Your question"></textarea>
-        <button id="chatSend" type="submit">Send</button>
+        <button id="chatSend" type="submit" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
       </form>
       <div class="chat-foot">AI-generated · may be imperfect</div>
     </section>
@@ -2268,6 +2297,7 @@
         var fab = document.getElementById('chatFab');
         var panel = document.getElementById('chatPanel');
         var closeBtn = document.getElementById('chatClose');
+        var expandBtn = document.getElementById('chatExpand');
         var msgsEl = document.getElementById('chatMsgs');
         var sugsEl = document.getElementById('chatSugs');
         var form = document.getElementById('chatForm');
@@ -2326,6 +2356,12 @@
           document.body.classList.contains('chat-open') ? close() : open();
         });
         closeBtn.addEventListener('click', close);
+        if (expandBtn) expandBtn.addEventListener('click', function () {
+          var on = document.body.classList.toggle('chat-expanded');
+          expandBtn.setAttribute('aria-label', on ? 'Shrink chat' : 'Expand chat');
+          expandBtn.title = on ? 'Shrink' : 'Expand';
+          input.focus();
+        });
         document.addEventListener('keydown', function (e) {
           if (e.key === 'Escape' && document.body.classList.contains('chat-open')) close();
         });
