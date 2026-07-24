@@ -36,8 +36,9 @@ npm run dev      # local Worker + assets at http://127.0.0.1:8787
 
 | Command | Description |
 |---|---|
-| `npm run dev` | `wrangler dev` — local Worker + static assets |
-| `npm run deploy` | `wrangler deploy` — publish the Worker |
+| `npm run dev` | `wrangler dev` — local Worker + static assets (builds the blog first) |
+| `npm run deploy` | `wrangler deploy` — publish the Worker (builds the blog first) |
+| `npm run build:blog` | Compile `content/blog/*.md` → `public/blog/` (also runs on `predev`/`predeploy`) |
 | `npm run types` | `wrangler types` — regenerate `worker-configuration.d.ts` (run after editing `wrangler.toml`) |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run optimize:images` | Regenerate `public/assets/images/optimized/` (AVIF + WebP) via sharp |
@@ -87,7 +88,27 @@ All of this is implemented in `src/index.ts`:
 
 ### SEO / AI surfaces
 
-Keep these consistent with page content when facts change: the JSON-LD `@graph` in `public/index.html` `<head>`, `public/sitemap.xml`, `public/robots.txt`, `public/manifest.json`, and the hand-maintained `public/llms.txt` / `public/llms-full.txt`. `profile/taki_details.md` is the long-form source used to author them.
+Keep these consistent with page content when facts change: the JSON-LD `@graph` in `public/index.html` `<head>`, `public/sitemap.xml`, `public/robots.txt`, `public/manifest.json`, and the hand-maintained `public/llms.txt` / `public/llms-full.txt`. `profile/taki_details.md` is the long-form source used to author them. (Blog entries in the sitemap and `llms*.txt` are regenerated automatically by `build:blog` inside `<!-- BLOG:START/END -->` markers — don't hand-edit those regions.)
+
+---
+
+## Writing a blog post
+
+Posts are Markdown files in `content/blog/` compiled to static HTML under `public/blog/` (gitignored; source of truth is the `.md`). Create a file with frontmatter:
+
+```markdown
+---
+title: "My Post Title"
+date: 2026-07-24
+description: "One-sentence summary used for the card, meta description, and Open Graph."
+tags: [rust, backend]
+# optional: slug, draft: true, updated: 2026-08-01, canonical: https://…
+---
+
+Body in **Markdown**. Fenced code blocks are syntax-highlighted at build time.
+```
+
+Then run `npm run dev` — the post appears at `/blog/<slug>/` (slug defaults to a slugified title). `draft: true` hides a post; set `BLOG_DRAFTS=1` to preview drafts locally. Required fields: `title`, `date`, `description`.
 
 ---
 

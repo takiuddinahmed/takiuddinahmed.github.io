@@ -84,7 +84,9 @@ app.all('*', async (c) => {
 
   if (p.startsWith('/assets/')) {
     h.set('Cache-Control', 'public, max-age=31536000, s-maxage=31536000, immutable')
-  } else if (p.endsWith('.html') || p === '/') {
+  } else if (p.endsWith('.html') || p === '/' || p === '/blog' || p.startsWith('/blog/')) {
+    // Blog pages are extension-less directory routes (/blog, /blog/:slug, /blog/tag/:tag)
+    // served from generated index.html files — treat them as HTML for caching.
     // Serve instantly from cache, then refresh in the background — users never block on a
     // revalidation round-trip. Fresh for 5 min; stale is served (and quietly revalidated)
     // for up to a day, and kept as a fallback if the origin errors.

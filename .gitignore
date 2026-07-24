@@ -102,6 +102,9 @@ temp/
 wrangler.toml.bak
 .wrangler/
 
+# Generated blog output (source of truth is content/blog/*.md; built by scripts/build-blog.js)
+public/blog/
+
 # LaTeX compilation files
 *.aux
 *.fdb_latexmk

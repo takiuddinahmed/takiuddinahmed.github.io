@@ -2,7 +2,10 @@
   "name": "takiuddinahmed-github-io",
   "private": true,
   "scripts": {
+    "build:blog": "node scripts/build-blog.js",
+    "predev": "npm run build:blog",
     "dev": "wrangler dev",
+    "predeploy": "npm run build:blog",
     "deploy": "wrangler deploy",
     "types": "wrangler types",
     "typecheck": "tsc --noEmit",
@@ -16,6 +19,9 @@
     "hono": "^4.12.30"
   },
   "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.3.0",
+    "shiki": "^4.3.1",
     "typescript": "^7.0.2",
     "wrangler": "^4.111.0"
   }

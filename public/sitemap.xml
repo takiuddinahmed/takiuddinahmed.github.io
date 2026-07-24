@@ -42,4 +42,43 @@
         <priority>0.70</priority>
     </url>
 
+    <!-- BLOG:START -->
+    <url>
+        <loc>https://takiuddin.me/blog/</loc>
+        <lastmod>2026-07-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://takiuddin.me/blog/how-i-built-a-mongodb-backup-system-that-can-undo-an-accidental-drop/</loc>
+        <lastmod>2026-07-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://takiuddin.me/blog/tag/backup/</loc>
+        <lastmod>2026-07-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>https://takiuddin.me/blog/tag/docker/</loc>
+        <lastmod>2026-07-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>https://takiuddin.me/blog/tag/mongodb/</loc>
+        <lastmod>2026-07-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>https://takiuddin.me/blog/tag/python/</loc>
+        <lastmod>2026-07-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.50</priority>
+    </url>
+<!-- BLOG:END -->
+
 </urlset>
