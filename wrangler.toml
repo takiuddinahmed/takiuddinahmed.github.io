@@ -12,6 +12,28 @@ binding = "ASSETS"
 run_worker_first = true          # run Hono on every request so security headers apply to all responses
 not_found_handling = "404-page"  # serve public/404.html with a 404 status for unmatched paths
 
+# Chatbot ("Ask about Taki") — see specification/10-chatbot.md.
+# Workers AI: on-edge inference, no API key. Free daily allocation (10k Neurons)
+# comfortably covers this site's traffic on the model in src/index.ts (CHAT_MODEL).
+[ai]
+binding = "AI"
+
+# Per-IP throttle for POST /api/chat. period must be 10 or 60 (seconds).
+[[ratelimits]]
+name = "CHAT_RATE_LIMITER"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 12
+  period = 60
+
+# Durable counter for the global daily request cap (the Rate Limiting binding
+# can't span a day). Create once in your account, then paste the id below:
+#   npx wrangler kv namespace create CHAT_KV
+[[kv_namespaces]]
+binding = "CHAT_KV"
+id = "d1d1cd9249c546fe87c3eecea35851d7"
+
 # Custom domain: attach only AFTER removing takiuddin.me from the old Pages project,
 # otherwise the deploy conflicts with the live domain. Then uncomment and redeploy:
 # routes = [{ pattern = "takiuddin.me", custom_domain = true }]

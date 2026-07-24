@@ -20,6 +20,7 @@ For day-to-day contributor guidance (commands, editing gotchas), see the repo-ro
 | 7 | [07-security.md](07-security.md) | CSP, HTTP security headers, threat model |
 | 8 | [08-deployment.md](08-deployment.md) | Build, config, deploy, domain, caching |
 | 9 | [09-requirements.md](09-requirements.md) | Functional & non-functional requirements checklist |
+| 10 | [10-chatbot.md](10-chatbot.md) | "Ask about Taki" chatbot: Workers AI, `POST /api/chat`, grounding, guardrails, bubble UI |
 
 ## Quick facts
 
