@@ -1470,7 +1470,7 @@
 
       .chat-foot { text-align: center; font-size: .66rem; color: var(--text-muted); padding: 0 10px 8px; background: var(--surface-2); flex-shrink: 0; }
 
-      @media (max-width: 480px) {
+      @media (max-width: 660px) {
         .chat-panel { right: 8px; left: 8px; bottom: 80px; width: auto; max-width: none; max-height: 72vh; }
         .chat-fab { right: 14px; bottom: 14px; }
       }
@@ -2395,7 +2395,7 @@
         });
 
         // Auto-open on wide screens once per session.
-        if (window.innerWidth >= 900 && !sessionStorage.getItem('chatDismissed')) {
+        if (window.innerWidth >= 1024 && !sessionStorage.getItem('chatDismissed')) {
           setTimeout(open, 1200);
         }
         closeBtn.addEventListener('click', close);
