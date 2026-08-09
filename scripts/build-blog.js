@@ -284,7 +284,14 @@ function footerHtml() {
 </div></div></footer>`;
 }
 
-function layout({ title, description, canonical, ogType, jsonLd, body }) {
+// `robots` defaults to indexable. Tag pages override it: with only a handful of
+// posts each they are thin, near-duplicate listings that Google files under
+// "Crawled - currently not indexed" and that dilute crawl budget. `follow` is
+// kept so they still pass link discovery through to the posts.
+const ROBOTS_INDEX = 'index, follow, max-image-preview:large, max-snippet:-1';
+const ROBOTS_NOINDEX = 'noindex, follow';
+
+function layout({ title, description, canonical, ogType, jsonLd, body, robots = ROBOTS_INDEX }) {
   const t = escapeHtml(title);
   const d = escapeHtml(description);
   return `<!DOCTYPE html>
@@ -295,7 +302,7 @@ function layout({ title, description, canonical, ogType, jsonLd, body }) {
 <title>${t}</title>
 <meta name="description" content="${d}" />
 <meta name="author" content="${escapeHtml(AUTHOR)}" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="robots" content="${robots}" />
 <meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)" />
 <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
 <meta name="color-scheme" content="dark light" />
@@ -441,6 +448,7 @@ function renderTagPage(tag, posts) {
     description: `Posts tagged “${tag}” by ${AUTHOR}.`,
     canonical: url,
     ogType: 'website',
+    robots: ROBOTS_NOINDEX,
     jsonLd,
     body,
   });
@@ -449,20 +457,22 @@ function renderTagPage(tag, posts) {
 // ----------------------------------------------------------------------------
 // SEO surface updates
 // ----------------------------------------------------------------------------
-function sitemapEntries(posts, tags) {
+function sitemapEntries(posts) {
   const entry = (loc, lastmod, priority, changefreq) =>
     `    <url>\n        <loc>${escapeXml(loc)}</loc>\n        <lastmod>${lastmod}</lastmod>\n        <changefreq>${changefreq}</changefreq>\n        <priority>${priority}</priority>\n    </url>`;
   const latest = posts.length ? posts[0].updated || posts[0].date : new Date().toISOString().slice(0, 10);
   const lines = [entry(`${SITE}/blog/`, latest, '0.80', 'weekly')];
   for (const p of posts) lines.push(entry(p.url, p.updated || p.date, '0.70', 'monthly'));
-  for (const t of tags) lines.push(entry(`${SITE}/blog/tag/${slugify(t)}/`, latest, '0.50', 'monthly'));
+  // Tag pages are deliberately absent: they render `noindex`, and listing a
+  // noindex URL in the sitemap is a contradictory signal. They stay reachable
+  // for humans and remain crawlable via in-page links.
   return lines.join('\n');
 }
 
-function updateSitemap(posts, tags) {
+function updateSitemap(posts) {
   if (!fs.existsSync(SITEMAP)) return;
   const content = fs.readFileSync(SITEMAP, 'utf8');
-  const block = sitemapEntries(posts, tags);
+  const block = sitemapEntries(posts);
   const next = replaceManagedRegion(content, block, { before: '</urlset>' });
   fs.writeFileSync(SITEMAP, next);
 }
@@ -545,7 +555,7 @@ async function main() {
 
   // SEO surfaces.
   const tagLabels = [...tagMap.values()].map((t) => t.label).sort();
-  updateSitemap(posts, tagLabels);
+  updateSitemap(posts);
   updateLlms(LLMS, posts);
   updateLlms(LLMS_FULL, posts);
 
