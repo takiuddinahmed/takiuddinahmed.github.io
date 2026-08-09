@@ -181,6 +181,24 @@ app.all('*', async (c) => {
   const res = await c.env.ASSETS.fetch(c.req.raw)
   const h = new Headers(res.headers)
 
+  // Workers Static Assets normalises `/blog/slug` → `/blog/slug/` with a 307.
+  // That's a *temporary* redirect, so Google keeps the slash-less URL as a
+  // candidate and passes no ranking signal through. Upgrade it to a 301.
+  // Deliberately narrow: only when the target is this exact path plus a
+  // trailing slash, so no other 307 is turned into a permanently-cached 301.
+  // Compare pathnames, not raw Location: the redirect preserves the query
+  // string, so a strict `loc === p + '/'` check would miss every URL carrying
+  // one (utm_*, gclid) and leave those as 307s.
+  if (res.status === 307) {
+    const loc = h.get('Location')
+    if (loc) {
+      const target = new URL(loc, url)
+      if (target.origin === url.origin && target.pathname === `${p}/`) {
+        return new Response(null, { status: 301, headers: h })
+      }
+    }
+  }
+
   if (p.startsWith('/assets/')) {
     h.set('Cache-Control', 'public, max-age=31536000, s-maxage=31536000, immutable')
   } else if (p.endsWith('.html') || p === '/' || p === '/blog' || p.startsWith('/blog/')) {
@@ -203,10 +221,15 @@ app.all('*', async (c) => {
   // robots.txt and sitemap.xml normally for crawling and discovery.
   if (NOINDEX_PATHS.has(p)) h.set('X-Robots-Tag', 'noindex')
 
+  // llms.txt / llms-full.txt restate the homepage in plain text, so letting Google
+  // index them puts near-duplicate copies of `/` in the index competing with the
+  // real page. `noindex` keeps them out of *search results* only — they stay
+  // fetchable, robots.txt still allows them, and LLM crawlers don't consult
+  // Google's index, so the AI surface is unaffected.
   if (p === '/llms.txt' || p === '/llms-full.txt') {
     h.set('Content-Type', 'text/plain; charset=utf-8')
     h.set('Access-Control-Allow-Origin', '*')
-    h.set('X-Robots-Tag', 'index, follow')
+    h.set('X-Robots-Tag', 'noindex, follow')
   }
   if (p.endsWith('.pdf')) {
     h.set('Content-Type', 'application/pdf')

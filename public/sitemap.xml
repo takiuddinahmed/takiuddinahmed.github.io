@@ -28,19 +28,10 @@
         <priority>0.80</priority>
     </url>
 
-    <url>
-        <loc>https://takiuddin.me/llms.txt</loc>
-        <lastmod>2026-05-02</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.70</priority>
-    </url>
-
-    <url>
-        <loc>https://takiuddin.me/llms-full.txt</loc>
-        <lastmod>2026-05-02</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.70</priority>
-    </url>
+    <!-- llms.txt / llms-full.txt are intentionally not listed here: they are
+         noindex (see src/index.ts) because they restate the homepage in plain
+         text. They stay discoverable via robots.txt and the <xhtml:link
+         rel="alternate"> hints on the homepage entry above. -->
 
     <!-- BLOG:START -->
     <url>
@@ -60,42 +51,6 @@
         <lastmod>2026-07-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.70</priority>
-    </url>
-    <url>
-        <loc>https://takiuddin.me/blog/tag/backup/</loc>
-        <lastmod>2026-08-09</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>https://takiuddin.me/blog/tag/cloudflare/</loc>
-        <lastmod>2026-08-09</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>https://takiuddin.me/blog/tag/devops/</loc>
-        <lastmod>2026-08-09</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>https://takiuddin.me/blog/tag/docker/</loc>
-        <lastmod>2026-08-09</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>https://takiuddin.me/blog/tag/mongodb/</loc>
-        <lastmod>2026-08-09</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>https://takiuddin.me/blog/tag/python/</loc>
-        <lastmod>2026-08-09</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.50</priority>
     </url>
 <!-- BLOG:END -->
 
