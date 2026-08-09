@@ -50,6 +50,7 @@ Last updated: 2026-05-02.
 <!-- BLOG:START -->
 ## Blog
 
+- [A backup you haven't restored isn't a backup](https://takiuddin.me/blog/a-backup-you-havent-restored-isnt-a-backup/) — 2026-08-09 — We moved Prochesta off Atlas onto self-hosted MongoDB and left ourselves with one copy of the database on one disk. Here's the point-in-time recovery system we built on Cloudflare R2 — and the four things that broke on rollout.
 - [How I Built a MongoDB Backup System That Can Undo an Accidental Drop](https://takiuddin.me/blog/how-i-built-a-mongodb-backup-system-that-can-undo-an-accidental-drop/) — 2026-07-24 — Point-in-time recovery for MongoDB, explained simply: how I built mongopit — an open-source, Docker-based backup tool that can restore your database to the exact second before an accidental collection drop, using the oplog.
 <!-- BLOG:END -->
 
