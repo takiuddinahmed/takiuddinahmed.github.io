@@ -186,10 +186,16 @@ app.all('*', async (c) => {
   // candidate and passes no ranking signal through. Upgrade it to a 301.
   // Deliberately narrow: only when the target is this exact path plus a
   // trailing slash, so no other 307 is turned into a permanently-cached 301.
+  // Compare pathnames, not raw Location: the redirect preserves the query
+  // string, so a strict `loc === p + '/'` check would miss every URL carrying
+  // one (utm_*, gclid) and leave those as 307s.
   if (res.status === 307) {
     const loc = h.get('Location')
-    if (loc === `${p}/`) {
-      return new Response(null, { status: 301, headers: h })
+    if (loc) {
+      const target = new URL(loc, url)
+      if (target.origin === url.origin && target.pathname === `${p}/`) {
+        return new Response(null, { status: 301, headers: h })
+      }
     }
   }
 
