@@ -38,6 +38,10 @@ app.get('/linkedin', (c) => c.redirect('https://www.linkedin.com/in/takiuddin-ah
 app.get('/calendly', (c) => c.redirect('https://calendly.com/takiuddinahmed-ciyp', 302))
 app.get('/cv', (c) => c.redirect('/assets/files/md_takiuddin_resume.pdf', 301))
 app.get('/resume', (c) => c.redirect('/assets/files/md_takiuddin_resume.pdf', 301))
+// Alternate positioning of the same experience, shared directly rather than linked
+// from the site. Kept out of search results below so it does not compete with the
+// canonical resume PDF as a near-duplicate.
+app.get('/resume/fullstack', (c) => c.redirect('/assets/files/md_takiuddin_resume_fullstack.pdf', 301))
 app.get('/image', (c) => c.redirect('/assets/images/profile.jpg', 301))
 app.get('/favicon.ico', (c) => c.redirect('/assets/favicon/favicon.ico', 301))
 app.get('/gameapp.gov.bd', (c) => c.redirect('/', 301))
@@ -234,7 +238,12 @@ app.all('*', async (c) => {
   if (p.endsWith('.pdf')) {
     h.set('Content-Type', 'application/pdf')
     h.set('Cache-Control', 'public, max-age=86400, s-maxage=86400, must-revalidate')
-    h.set('X-Robots-Tag', 'index, follow, max-snippet:-1')
+    // Only the canonical resume is indexable. Variant resumes are the same career
+    // in different words, so indexing them would put near-duplicates of the
+    // canonical PDF in the index competing with it. `noindex` affects search
+    // results only — the file stays fetchable and shareable.
+    const canonicalPdf = p === '/assets/files/md_takiuddin_resume.pdf'
+    h.set('X-Robots-Tag', canonicalPdf ? 'index, follow, max-snippet:-1' : 'noindex, follow')
   }
 
   return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h })
